@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="620.0" prefWidth="760.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.LeaveRequestController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="240.0"
+               layoutY="20.0"
+               text="Farmer - Leave Request"
+               style="-fx-font-size:22px; -fx-font-weight:bold;" />
+
+        <!-- Leave Request Form -->
+        <GridPane layoutX="50.0"
+                  layoutY="70.0"
+                  hgap="15"
+                  vgap="18">
+
+            <columnConstraints>
+                <ColumnConstraints prefWidth="180"/>
+                <ColumnConstraints prefWidth="350"/>
+            </columnConstraints>
+
+            <children>
+
+                <!-- Farmer ID -->
+                <Label text="Farmer ID:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="0"/>
+
+                <TextField fx:id="farmerIdField"
+                           promptText="Enter Farmer ID"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="0"/>
+
+                <!-- Leave Type -->
+                <Label text="Leave Type:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="1"/>
+
+                <ComboBox fx:id="leaveTypeComboBox"
+                          prefWidth="220"
+                          promptText="Select Leave Type"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="1"/>
+
+                <!-- Start Date -->
+                <Label text="Start Date:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="2"/>
+
+                <DatePicker fx:id="startDatePicker"
+                            GridPane.columnIndex="1"
+                            GridPane.rowIndex="2"/>
+
+                <!-- End Date -->
+                <Label text="End Date:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="3"/>
+
+                <DatePicker fx:id="endDatePicker"
+                            GridPane.columnIndex="1"
+                            GridPane.rowIndex="3"/>
+
+                <!-- Reason -->
+                <Label text="Reason for Leave:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="4"/>
+
+                <TextArea fx:id="reasonArea"
+                          prefWidth="320"
+                          prefHeight="120"
+                          promptText="Enter the reason for leave..."
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="4"/>
+
+                <!-- Request Status -->
+                <Label text="Request Status:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="5"/>
+
+                <ComboBox fx:id="statusComboBox"
+                          prefWidth="220"
+                          promptText="Pending"
+                          disable="true"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="5"/>
+
+            </children>
+
+        </GridPane>
+
+        <!-- Buttons -->
+        <Button fx:id="submitButton"
+                layoutX="220.0"
+                layoutY="540.0"
+                mnemonicParsing="false"
+                text="Submit Request"/>
+
+        <Button fx:id="clearButton"
+                layoutX="400.0"
+                layoutY="540.0"
+                mnemonicParsing="false"
+                text="Clear"/>
+
+        <!-- Confirmation Message -->
+        <Label fx:id="messageLabel"
+               layoutX="220.0"
+               layoutY="585.0"
+               style="-fx-text-fill:green; -fx-font-size:14px;"
+               text=""/>
+
+    </children>
+
+</AnchorPane>

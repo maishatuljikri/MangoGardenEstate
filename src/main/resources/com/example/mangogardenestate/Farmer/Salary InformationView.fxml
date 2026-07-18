@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="950.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.SalaryInformationController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="310.0"
+               layoutY="20.0"
+               text="Farmer - Salary Information"
+               style="-fx-font-size:22px; -fx-font-weight:bold;" />
+
+        <!-- Farmer Information -->
+        <GridPane layoutX="40.0"
+                  layoutY="70.0"
+                  hgap="15"
+                  vgap="15">
+
+            <columnConstraints>
+                <ColumnConstraints prefWidth="150"/>
+                <ColumnConstraints prefWidth="250"/>
+            </columnConstraints>
+
+            <children>
+
+                <Label text="Farmer ID:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="0"/>
+
+                <TextField fx:id="farmerIdField"
+                           editable="false"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="0"/>
+
+                <Label text="Farmer Name:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="1"/>
+
+                <TextField fx:id="farmerNameField"
+                           editable="false"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="1"/>
+
+            </children>
+
+        </GridPane>
+
+        <!-- Salary Table -->
+        <TableView fx:id="salaryTable"
+                   layoutX="40.0"
+                   layoutY="160.0"
+                   prefHeight="360.0"
+                   prefWidth="870.0">
+
+            <columns>
+
+                <TableColumn fx:id="salaryIdColumn"
+                             text="Salary ID"
+                             prefWidth="90"/>
+
+                <TableColumn fx:id="monthColumn"
+                             text="Month"
+                             prefWidth="100"/>
+
+                <TableColumn fx:id="basicSalaryColumn"
+                             text="Basic Salary"
+                             prefWidth="130"/>
+
+                <TableColumn fx:id="overtimeColumn"
+                             text="Overtime"
+                             prefWidth="110"/>
+
+                <TableColumn fx:id="bonusColumn"
+                             text="Bonus"
+                             prefWidth="100"/>
+
+                <TableColumn fx:id="deductionColumn"
+                             text="Deduction"
+                             prefWidth="110"/>
+
+                <TableColumn fx:id="netSalaryColumn"
+                             text="Net Salary"
+                             prefWidth="130"/>
+
+            </columns>
+
+        </TableView>
+
+        <!-- Buttons -->
+        <Button fx:id="generateReportButton"
+                layoutX="180.0"
+                layoutY="560.0"
+                text="Generate Salary Report"/>
+
+        <Button fx:id="downloadReportButton"
+                layoutX="410.0"
+                layoutY="560.0"
+                text="Download Report"/>
+
+        <Button fx:id="backButton"
+                layoutX="640.0"
+                layoutY="560.0"
+                text="Back"/>
+
+    </children>
+
+</AnchorPane>

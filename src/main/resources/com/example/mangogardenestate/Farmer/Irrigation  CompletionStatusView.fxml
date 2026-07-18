@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="620.0" prefWidth="760.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.IrrigationStatusController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="180.0"
+               layoutY="20.0"
+               text="Farmer - Update Irrigation Status"
+               style="-fx-font-size:22px; -fx-font-weight:bold;" />
+
+        <!-- Form -->
+        <GridPane layoutX="50.0"
+                  layoutY="70.0"
+                  hgap="15"
+                  vgap="18">
+
+            <columnConstraints>
+                <ColumnConstraints prefWidth="180"/>
+                <ColumnConstraints prefWidth="350"/>
+            </columnConstraints>
+
+            <children>
+
+                <!-- Irrigation ID -->
+                <Label text="Irrigation ID:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="0"/>
+
+                <TextField fx:id="irrigationIdField"
+                           promptText="Enter Irrigation ID"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="0"/>
+
+                <!-- Garden Section -->
+                <Label text="Garden Section:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="1"/>
+
+                <ComboBox fx:id="sectionComboBox"
+                          prefWidth="220"
+                          promptText="Select Section"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="1"/>
+
+                <!-- Irrigation Date -->
+                <Label text="Irrigation Date:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="2"/>
+
+                <DatePicker fx:id="irrigationDatePicker"
+                            GridPane.columnIndex="1"
+                            GridPane.rowIndex="2"/>
+
+                <!-- Duration -->
+                <Label text="Duration (Hours):"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="3"/>
+
+                <TextField fx:id="durationField"
+                           promptText="Enter Duration"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="3"/>
+
+                <!-- Water Amount -->
+                <Label text="Water Used (Liters):"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="4"/>
+
+                <TextField fx:id="waterAmountField"
+                           promptText="Enter Water Amount"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="4"/>
+
+                <!-- Completion Status -->
+                <Label text="Completion Status:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="5"/>
+
+                <ComboBox fx:id="statusComboBox"
+                          prefWidth="220"
+                          promptText="Select Status"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="5"/>
+
+                <!-- Remarks -->
+                <Label text="Remarks:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="6"/>
+
+                <TextArea fx:id="remarksArea"
+                          prefWidth="320"
+                          prefHeight="100"
+                          promptText="Enter additional remarks..."
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="6"/>
+
+            </children>
+
+        </GridPane>
+
+        <!-- Buttons -->
+        <Button fx:id="saveButton"
+                layoutX="220.0"
+                layoutY="540.0"
+                text="Save Status"
+                mnemonicParsing="false"/>
+
+        <Button fx:id="clearButton"
+                layoutX="390.0"
+                layoutY="540.0"
+                text="Clear"
+                mnemonicParsing="false"/>
+
+        <!-- Update Message -->
+        <Label fx:id="messageLabel"
+               layoutX="220.0"
+               layoutY="585.0"
+               text=""
+               style="-fx-text-fill:green; -fx-font-size:14px;"/>
+
+    </children>
+
+</AnchorPane>

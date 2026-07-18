@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="620.0" prefWidth="760.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.RecordHarvestController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="170.0"
+               layoutY="20.0"
+               text="Farmer - Record Harvested Mango Quantity"
+               style="-fx-font-size:22px; -fx-font-weight:bold;" />
+
+        <!-- Form -->
+        <GridPane layoutX="50.0"
+                  layoutY="70.0"
+                  hgap="15"
+                  vgap="18">
+
+            <columnConstraints>
+                <ColumnConstraints prefWidth="180"/>
+                <ColumnConstraints prefWidth="350"/>
+            </columnConstraints>
+
+            <children>
+
+                <!-- Harvest Date -->
+                <Label text="Harvest Date:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="0"/>
+
+                <DatePicker fx:id="harvestDatePicker"
+                            GridPane.columnIndex="1"
+                            GridPane.rowIndex="0"/>
+
+                <!-- Garden Section -->
+                <Label text="Garden Section:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="1"/>
+
+                <ComboBox fx:id="sectionComboBox"
+                          prefWidth="220"
+                          promptText="Select Section"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="1"/>
+
+                <!-- Mango Variety -->
+                <Label text="Mango Variety:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="2"/>
+
+                <TextField fx:id="varietyField"
+                           promptText="Enter Mango Variety"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="2"/>
+
+                <!-- Harvest Quantity -->
+                <Label text="Harvest Quantity (kg):"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="3"/>
+
+                <TextField fx:id="quantityField"
+                           promptText="Enter Quantity"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="3"/>
+
+                <!-- Quality Grade -->
+                <Label text="Quality Grade:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="4"/>
+
+                <ComboBox fx:id="gradeComboBox"
+                          prefWidth="220"
+                          promptText="Select Grade"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="4"/>
+
+                <!-- Remarks -->
+                <Label text="Remarks:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="5"/>
+
+                <TextArea fx:id="remarksArea"
+                          prefWidth="320"
+                          prefHeight="120"
+                          promptText="Additional remarks..."
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="5"/>
+
+            </children>
+
+        </GridPane>
+
+        <!-- Buttons -->
+        <Button fx:id="saveButton"
+                layoutX="220.0"
+                layoutY="520.0"
+                text="Save Harvest Record"
+                mnemonicParsing="false"/>
+
+        <Button fx:id="clearButton"
+                layoutX="420.0"
+                layoutY="520.0"
+                text="Clear"
+                mnemonicParsing="false"/>
+
+        <!-- Success Message -->
+        <Label fx:id="messageLabel"
+               layoutX="220.0"
+               layoutY="570.0"
+               text=""
+               style="-fx-text-fill:green; -fx-font-size:14px;"/>
+
+    </children>
+
+</AnchorPane>

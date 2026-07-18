@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="980.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.PurchaseHistoryController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="320.0"
+               layoutY="20.0"
+               text="Customer - Purchase History"
+               style="-fx-font-size:22px; -fx-font-weight:bold;" />
+
+        <!-- Customer Information -->
+        <GridPane layoutX="40.0"
+                  layoutY="70.0"
+                  hgap="15"
+                  vgap="15">
+
+            <columnConstraints>
+                <ColumnConstraints prefWidth="150"/>
+                <ColumnConstraints prefWidth="250"/>
+            </columnConstraints>
+
+            <children>
+
+                <Label text="Customer ID:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="0"/>
+
+                <TextField fx:id="customerIdField"
+                           editable="false"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="0"/>
+
+                <Label text="Customer Name:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="1"/>
+
+                <TextField fx:id="customerNameField"
+                           editable="false"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="1"/>
+
+            </children>
+
+        </GridPane>
+
+        <!-- Purchase History Table -->
+        <TableView fx:id="purchaseTable"
+                   layoutX="40.0"
+                   layoutY="160.0"
+                   prefHeight="360.0"
+                   prefWidth="900.0">
+
+            <columns>
+
+                <TableColumn fx:id="orderIdColumn"
+                             text="Order ID"
+                             prefWidth="90"/>
+
+                <TableColumn fx:id="orderDateColumn"
+                             text="Order Date"
+                             prefWidth="120"/>
+
+                <TableColumn fx:id="mangoTypeColumn"
+                             text="Mango Variety"
+                             prefWidth="150"/>
+
+                <TableColumn fx:id="quantityColumn"
+                             text="Quantity (Kg)"
+                             prefWidth="120"/>
+
+                <TableColumn fx:id="amountColumn"
+                             text="Total Amount"
+                             prefWidth="130"/>
+
+                <TableColumn fx:id="paymentStatusColumn"
+                             text="Payment Status"
+                             prefWidth="140"/>
+
+                <TableColumn fx:id="deliveryStatusColumn"
+                             text="Delivery Status"
+                             prefWidth="150"/>
+
+            </columns>
+
+        </TableView>
+
+        <!-- Buttons -->
+        <Button fx:id="generateReportButton"
+                layoutX="180.0"
+                layoutY="560.0"
+                text="Generate Report"/>
+
+        <Button fx:id="downloadReportButton"
+                layoutX="390.0"
+                layoutY="560.0"
+                text="Download Report"/>
+
+        <Button fx:id="backButton"
+                layoutX="620.0"
+                layoutY="560.0"
+                text="Back"/>
+
+    </children>
+
+</AnchorPane>

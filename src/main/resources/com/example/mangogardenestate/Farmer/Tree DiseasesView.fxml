@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="750.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.TreeDiseaseReportController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="180.0"
+               layoutY="20.0"
+               text="Farmer - Tree Disease Report"
+               style="-fx-font-size:22px; -fx-font-weight:bold;" />
+
+        <GridPane layoutX="50.0"
+                  layoutY="70.0"
+                  hgap="15"
+                  vgap="18">
+
+            <columnConstraints>
+                <ColumnConstraints prefWidth="170"/>
+                <ColumnConstraints prefWidth="350"/>
+            </columnConstraints>
+
+            <children>
+
+                <!-- Tree ID -->
+                <Label text="Tree ID:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="0"/>
+
+                <TextField fx:id="treeIdField"
+                           promptText="Enter Tree ID"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="0"/>
+
+                <!-- Garden Section -->
+                <Label text="Garden Section:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="1"/>
+
+                <ComboBox fx:id="sectionComboBox"
+                          prefWidth="220"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="1"/>
+
+                <!-- Report Date -->
+                <Label text="Report Date:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="2"/>
+
+                <DatePicker fx:id="reportDatePicker"
+                            GridPane.columnIndex="1"
+                            GridPane.rowIndex="2"/>
+
+                <!-- Disease Type -->
+                <Label text="Disease Type:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="3"/>
+
+                <ComboBox fx:id="diseaseTypeComboBox"
+                          prefWidth="220"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="3"/>
+
+                <!-- Severity -->
+                <Label text="Severity:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="4"/>
+
+                <ComboBox fx:id="severityComboBox"
+                          prefWidth="220"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="4"/>
+
+                <!-- Disease Description -->
+                <Label text="Disease Description:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="5"/>
+
+                <TextArea fx:id="descriptionArea"
+                          prefHeight="120"
+                          prefWidth="320"
+                          promptText="Describe symptoms of the disease..."
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="5"/>
+
+            </children>
+
+        </GridPane>
+
+        <!-- Buttons -->
+        <Button fx:id="submitButton"
+                layoutX="220.0"
+                layoutY="500.0"
+                text="Submit Report"
+                mnemonicParsing="false"/>
+
+        <Button fx:id="clearButton"
+                layoutX="390.0"
+                layoutY="500.0"
+                text="Clear"
+                mnemonicParsing="false"/>
+
+        <!-- Confirmation Message -->
+        <Label fx:id="messageLabel"
+               layoutX="220.0"
+               layoutY="550.0"
+               style="-fx-text-fill:green; -fx-font-size:14px;"
+               text=""/>
+
+    </children>
+
+</AnchorPane>

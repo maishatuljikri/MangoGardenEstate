@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="780.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.ProductReviewController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="240.0"
+               layoutY="20.0"
+               text="Customer - Product Review"
+               style="-fx-font-size:22px; -fx-font-weight:bold;" />
+
+        <!-- Review Form -->
+        <GridPane layoutX="50.0"
+                  layoutY="70.0"
+                  hgap="15"
+                  vgap="18">
+
+            <columnConstraints>
+                <ColumnConstraints prefWidth="180"/>
+                <ColumnConstraints prefWidth="350"/>
+            </columnConstraints>
+
+            <children>
+
+                <!-- Customer ID -->
+                <Label text="Customer ID:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="0"/>
+
+                <TextField fx:id="customerIdField"
+                           promptText="Enter Customer ID"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="0"/>
+
+                <!-- Order ID -->
+                <Label text="Order ID:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="1"/>
+
+                <ComboBox fx:id="orderIdComboBox"
+                          prefWidth="220"
+                          promptText="Select Order ID"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="1"/>
+
+                <!-- Mango Variety -->
+                <Label text="Mango Variety:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="2"/>
+
+                <ComboBox fx:id="mangoComboBox"
+                          prefWidth="220"
+                          promptText="Select Mango Variety"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="2"/>
+
+                <!-- Rating -->
+                <Label text="Rating:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="3"/>
+
+                <ComboBox fx:id="ratingComboBox"
+                          prefWidth="220"
+                          promptText="Select Rating"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="3"/>
+
+                <!-- Review -->
+                <Label text="Review:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="4"/>
+
+                <TextArea fx:id="reviewArea"
+                          prefWidth="320"
+                          prefHeight="120"
+                          promptText="Write your review here..."
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="4"/>
+
+                <!-- Review Date -->
+                <Label text="Review Date:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="5"/>
+
+                <DatePicker fx:id="reviewDatePicker"
+                            GridPane.columnIndex="1"
+                            GridPane.rowIndex="5"/>
+
+            </children>
+
+        </GridPane>
+
+        <!-- Buttons -->
+        <Button fx:id="submitButton"
+                layoutX="220.0"
+                layoutY="550.0"
+                text="Submit Review"/>
+
+        <Button fx:id="clearButton"
+                layoutX="410.0"
+                layoutY="550.0"
+                text="Clear"/>
+
+        <!-- Success Message -->
+        <Label fx:id="messageLabel"
+               layoutX="220.0"
+               layoutY="600.0"
+               text=""
+               style="-fx-text-fill:green; -fx-font-size:14px;"/>
+
+    </children>
+
+</AnchorPane>

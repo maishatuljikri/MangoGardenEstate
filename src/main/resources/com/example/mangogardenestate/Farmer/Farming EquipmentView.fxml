@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="750.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.EquipmentRequestController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="180.0"
+               layoutY="20.0"
+               text="Farmer - Equipment Request"
+               style="-fx-font-size:22px; -fx-font-weight:bold;" />
+
+        <GridPane layoutX="50.0"
+                  layoutY="70.0"
+                  hgap="15"
+                  vgap="18">
+
+            <columnConstraints>
+                <ColumnConstraints prefWidth="170"/>
+                <ColumnConstraints prefWidth="350"/>
+            </columnConstraints>
+
+            <children>
+
+                <!-- Equipment Name -->
+                <Label text="Equipment Name:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="0"/>
+
+                <ComboBox fx:id="equipmentComboBox"
+                          prefWidth="220"
+                          promptText="Select Equipment"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="0"/>
+
+                <!-- Quantity -->
+                <Label text="Quantity:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="1"/>
+
+                <TextField fx:id="quantityField"
+                           promptText="Enter Quantity"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="1"/>
+
+                <!-- Required Date -->
+                <Label text="Required Date:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="2"/>
+
+                <DatePicker fx:id="requiredDatePicker"
+                            GridPane.columnIndex="1"
+                            GridPane.rowIndex="2"/>
+
+                <!-- Priority -->
+                <Label text="Request Priority:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="3"/>
+
+                <ComboBox fx:id="priorityComboBox"
+                          prefWidth="220"
+                          promptText="Select Priority"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="3"/>
+
+                <!-- Purpose -->
+                <Label text="Purpose / Remarks:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="4"/>
+
+                <TextArea fx:id="purposeArea"
+                          prefWidth="320"
+                          prefHeight="120"
+                          promptText="Enter reason for equipment request..."
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="4"/>
+
+            </children>
+
+        </GridPane>
+
+        <!-- Buttons -->
+        <Button fx:id="submitButton"
+                layoutX="220.0"
+                layoutY="500.0"
+                text="Submit Request"
+                mnemonicParsing="false"/>
+
+        <Button fx:id="clearButton"
+                layoutX="390.0"
+                layoutY="500.0"
+                text="Clear"
+                mnemonicParsing="false"/>
+
+        <!-- Success Message -->
+        <Label fx:id="messageLabel"
+               layoutX="220.0"
+               layoutY="550.0"
+               text=""
+               style="-fx-text-fill:green; -fx-font-size:14px;" />
+
+    </children>
+
+</AnchorPane>

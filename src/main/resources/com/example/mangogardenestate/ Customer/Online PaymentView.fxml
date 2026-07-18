@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="780.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.OnlinePaymentController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="250.0"
+               layoutY="20.0"
+               text="Customer - Online Payment"
+               style="-fx-font-size:22px; -fx-font-weight:bold;" />
+
+        <!-- Payment Form -->
+        <GridPane layoutX="50.0"
+                  layoutY="70.0"
+                  hgap="15"
+                  vgap="18">
+
+            <columnConstraints>
+                <ColumnConstraints prefWidth="180"/>
+                <ColumnConstraints prefWidth="350"/>
+            </columnConstraints>
+
+            <children>
+
+                <!-- Order ID -->
+                <Label text="Order ID:"
+                       GridPane.rowIndex="0"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="orderIdField"
+                           promptText="Enter Order ID"
+                           GridPane.rowIndex="0"
+                           GridPane.columnIndex="1"/>
+
+                <!-- Total Amount -->
+                <Label text="Total Amount:"
+                       GridPane.rowIndex="1"
+                       GridPane.columnIndex="0"/>
+
+                <Label fx:id="amountLabel"
+                       text="৳0.00"
+                       GridPane.rowIndex="1"
+                       GridPane.columnIndex="1"/>
+
+                <!-- Payment Method -->
+                <Label text="Payment Method:"
+                       GridPane.rowIndex="2"
+                       GridPane.columnIndex="0"/>
+
+                <ComboBox fx:id="paymentMethodComboBox"
+                          prefWidth="220"
+                          promptText="Select Payment Method"
+                          GridPane.rowIndex="2"
+                          GridPane.columnIndex="1"/>
+
+                <!-- Account/Card Number -->
+                <Label text="Card / Account Number:"
+                       GridPane.rowIndex="3"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="accountNumberField"
+                           promptText="Enter Card or Mobile Banking Number"
+                           GridPane.rowIndex="3"
+                           GridPane.columnIndex="1"/>
+
+                <!-- Account Holder -->
+                <Label text="Account Holder:"
+                       GridPane.rowIndex="4"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="holderNameField"
+                           promptText="Enter Account Holder Name"
+                           GridPane.rowIndex="4"
+                           GridPane.columnIndex="1"/>
+
+                <!-- PIN / CVV -->
+                <Label text="PIN / CVV:"
+                       GridPane.rowIndex="5"
+                       GridPane.columnIndex="0"/>
+
+                <PasswordField fx:id="pinField"
+                               promptText="Enter PIN or CVV"
+                               GridPane.rowIndex="5"
+                               GridPane.columnIndex="1"/>
+
+                <!-- Payment Date -->
+                <Label text="Payment Date:"
+                       GridPane.rowIndex="6"
+                       GridPane.columnIndex="0"/>
+
+                <DatePicker fx:id="paymentDatePicker"
+                            GridPane.rowIndex="6"
+                            GridPane.columnIndex="1"/>
+
+            </children>
+
+        </GridPane>
+
+        <!-- Buttons -->
+        <Button fx:id="payButton"
+                layoutX="230.0"
+                layoutY="560.0"
+                text="Pay Now"/>
+
+        <Button fx:id="clearButton"
+                layoutX="390.0"
+                layoutY="560.0"
+                text="Clear"/>
+
+        <!-- Status Message -->
+        <Label fx:id="messageLabel"
+               layoutX="230.0"
+               layoutY="605.0"
+               style="-fx-text-fill:green; -fx-font-size:14px;"
+               text=""/>
+
+    </children>
+
+</AnchorPane>

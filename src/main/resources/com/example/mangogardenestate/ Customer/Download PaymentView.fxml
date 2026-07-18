@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.DownloadInvoiceController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="220.0"
+               layoutY="20.0"
+               text="Customer - Download Payment Invoice"
+               style="-fx-font-size:22px; -fx-font-weight:bold;"/>
+
+        <!-- Invoice Information -->
+        <GridPane layoutX="50.0"
+                  layoutY="70.0"
+                  hgap="15"
+                  vgap="18">
+
+            <columnConstraints>
+                <ColumnConstraints prefWidth="180"/>
+                <ColumnConstraints prefWidth="350"/>
+            </columnConstraints>
+
+            <children>
+
+                <!-- Order ID -->
+                <Label text="Order ID:"
+                       GridPane.rowIndex="0"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="orderIdField"
+                           promptText="Enter Order ID"
+                           GridPane.rowIndex="0"
+                           GridPane.columnIndex="1"/>
+
+                <!-- Invoice ID -->
+                <Label text="Invoice ID:"
+                       GridPane.rowIndex="1"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="invoiceIdField"
+                           editable="false"
+                           GridPane.rowIndex="1"
+                           GridPane.columnIndex="1"/>
+
+                <!-- Customer Name -->
+                <Label text="Customer Name:"
+                       GridPane.rowIndex="2"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="customerNameField"
+                           editable="false"
+                           GridPane.rowIndex="2"
+                           GridPane.columnIndex="1"/>
+
+                <!-- Payment Amount -->
+                <Label text="Payment Amount:"
+                       GridPane.rowIndex="3"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="amountField"
+                           editable="false"
+                           GridPane.rowIndex="3"
+                           GridPane.columnIndex="1"/>
+
+                <!-- Payment Date -->
+                <Label text="Payment Date:"
+                       GridPane.rowIndex="4"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="paymentDateField"
+                           editable="false"
+                           GridPane.rowIndex="4"
+                           GridPane.columnIndex="1"/>
+
+                <!-- Payment Method -->
+                <Label text="Payment Method:"
+                       GridPane.rowIndex="5"
+                       GridPane.columnIndex="0"/>
+
+                <ComboBox fx:id="paymentMethodComboBox"
+                          prefWidth="220"
+                          disable="true"
+                          GridPane.rowIndex="5"
+                          GridPane.columnIndex="1"/>
+
+            </children>
+
+        </GridPane>
+
+        <!-- Buttons -->
+        <Button fx:id="generatePdfButton"
+                layoutX="120.0"
+                layoutY="540.0"
+                text="Generate PDF"/>
+
+        <Button fx:id="downloadButton"
+                layoutX="300.0"
+                layoutY="540.0"
+                text="Download Invoice"/>
+
+        <Button fx:id="backButton"
+                layoutX="520.0"
+                layoutY="540.0"
+                text="Back to Dashboard"/>
+
+        <!-- Status Message -->
+        <Label fx:id="messageLabel"
+               layoutX="220.0"
+               layoutY="590.0"
+               style="-fx-text-fill:green; -fx-font-size:14px;"
+               text=""/>
+
+    </children>
+
+</AnchorPane>

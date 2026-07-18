@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="550.0" prefWidth="700.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.UpdateDailyWorkStatusController">
+
+    <children>
+
+        <Label layoutX="180.0"
+               layoutY="20.0"
+               text="Farmer - Daily Work Update"
+               style="-fx-font-size:22px; -fx-font-weight:bold;" />
+
+        <GridPane layoutX="60.0"
+                  layoutY="80.0"
+                  hgap="15"
+                  vgap="18">
+
+            <columnConstraints>
+                <ColumnConstraints prefWidth="150"/>
+                <ColumnConstraints prefWidth="320"/>
+            </columnConstraints>
+
+            <children>
+
+                <!-- Work Title -->
+                <Label text="Work Title:"
+                       GridPane.rowIndex="0"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="workTitleField"
+                           promptText="Enter work title"
+                           GridPane.rowIndex="0"
+                           GridPane.columnIndex="1"/>
+
+                <!-- Date -->
+                <Label text="Work Date:"
+                       GridPane.rowIndex="1"
+                       GridPane.columnIndex="0"/>
+
+                <DatePicker fx:id="workDatePicker"
+                            GridPane.rowIndex="1"
+                            GridPane.columnIndex="1"/>
+
+                <!-- Assigned Task -->
+                <Label text="Assigned Task:"
+                       GridPane.rowIndex="2"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="assignedTaskField"
+                           editable="false"
+                           promptText="Loaded automatically"
+                           GridPane.rowIndex="2"
+                           GridPane.columnIndex="1"/>
+
+                <!-- Work Description -->
+                <Label text="Work Details:"
+                       GridPane.rowIndex="3"
+                       GridPane.columnIndex="0"/>
+
+                <TextArea fx:id="workDetailsArea"
+                          prefHeight="120"
+                          prefWidth="300"
+                          promptText="Enter today's work details"
+                          GridPane.rowIndex="3"
+                          GridPane.columnIndex="1"/>
+
+                <!-- Status -->
+                <Label text="Work Status:"
+                       GridPane.rowIndex="4"
+                       GridPane.columnIndex="0"/>
+
+                <ComboBox fx:id="statusComboBox"
+                          prefWidth="180"
+                          GridPane.rowIndex="4"
+                          GridPane.columnIndex="1"/>
+
+            </children>
+
+        </GridPane>
+
+        <!-- Buttons -->
+        <Button fx:id="saveButton"
+                layoutX="220"
+                layoutY="420"
+                mnemonicParsing="false"
+                text="Save Work Status"/>
+
+        <Button fx:id="clearButton"
+                layoutX="390"
+                layoutY="420"
+                mnemonicParsing="false"
+                text="Clear"/>
+
+        <!-- Success Message -->
+        <Label fx:id="messageLabel"
+               layoutX="220"
+               layoutY="470"
+               style="-fx-text-fill:green; -fx-font-size:14px;"
+               text=""/>
+
+    </children>
+
+</AnchorPane>
