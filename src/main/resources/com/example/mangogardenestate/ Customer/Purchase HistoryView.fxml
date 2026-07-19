@@ -6,7 +6,7 @@
 <AnchorPane prefHeight="650.0" prefWidth="980.0"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.PurchaseHistoryController">
+            fx:controller="com.example.mangogardenestate.Customer.PurchaseHistoryViewController">
 
     <children>
 

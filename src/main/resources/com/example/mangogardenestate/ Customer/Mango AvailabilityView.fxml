@@ -6,7 +6,7 @@
 <AnchorPane prefHeight="620.0" prefWidth="900.0"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.CheckMangoAvailabilityController">
+            fx:controller="com.example.mangogardenestate.Customer.MangoAvailabilityViewController">
 
     <children>
 

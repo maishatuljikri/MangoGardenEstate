@@ -6,7 +6,7 @@
 <AnchorPane prefHeight="600.0" prefWidth="750.0"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.EquipmentRequestController">
+            fx:controller="Farmer.FarmingEquipmentViewController">
 
     <children>
 

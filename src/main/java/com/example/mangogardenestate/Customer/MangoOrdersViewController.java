@@ -2,22 +2,26 @@ package com.example.mangogardenestate.Customer;
 
 import javafx.scene.control.*;
 
-public class CancelOrderController
+public class MangoOrdersViewController
 {
     @javafx.fxml.FXML
-    private Button submitButton;
+    private Label stockLabel;
+    @javafx.fxml.FXML
+    private DatePicker deliveryDatePicker;
     @javafx.fxml.FXML
     private Button clearButton;
     @javafx.fxml.FXML
-    private TextField orderIdField;
+    private TextField customerIdField;
     @javafx.fxml.FXML
-    private DatePicker cancelDatePicker;
+    private TextField quantityField;
     @javafx.fxml.FXML
-    private ComboBox reasonComboBox;
+    private ComboBox mangoComboBox;
     @javafx.fxml.FXML
-    private Label statusLabel;
+    private Button placeOrderButton;
     @javafx.fxml.FXML
-    private TextArea commentsArea;
+    private Label priceLabel;
+    @javafx.fxml.FXML
+    private TextArea addressArea;
     @javafx.fxml.FXML
     private Label messageLabel;
 
