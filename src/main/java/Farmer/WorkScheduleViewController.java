@@ -1,13 +1,12 @@
 package Farmer;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 public class WorkScheduleViewController
 {
-    @javafx.fxml.FXML
-    private Button printButton;
     @javafx.fxml.FXML
     private TableColumn taskIdColumn;
     @javafx.fxml.FXML
@@ -19,8 +18,6 @@ public class WorkScheduleViewController
     @javafx.fxml.FXML
     private TableColumn statusColumn;
     @javafx.fxml.FXML
-    private Button backButton;
-    @javafx.fxml.FXML
     private TableColumn workDateColumn;
     @javafx.fxml.FXML
     private TableView scheduleTable;
@@ -29,4 +26,13 @@ public class WorkScheduleViewController
 
     @javafx.fxml.FXML
     public void initialize() {
-    }}
+    }
+
+    @javafx.fxml.FXML
+    public void backButtonOA(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void printButtonOA(ActionEvent actionEvent) {
+    }
+}

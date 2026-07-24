@@ -1,120 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="620.0" prefWidth="760.0"
-            xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="Farmer.MangoQuantityViewController">
+<AnchorPane prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Farmer.MangoQuantityViewController">
 
     <children>
 
         <!-- Title -->
-        <Label layoutX="170.0"
-               layoutY="20.0"
-               text="Farmer - Record Harvested Mango Quantity"
-               style="-fx-font-size:22px; -fx-font-weight:bold;" />
+        <Label layoutX="170.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="Farmer - Record Harvested Mango Quantity" />
 
-        <!-- Form -->
-        <GridPane layoutX="50.0"
-                  layoutY="70.0"
-                  hgap="15"
-                  vgap="18">
+          <!-- Harvest Date -->
+          <Label layoutX="50.0" layoutY="74.0" text="Harvest Date:" />
 
-            <columnConstraints>
-                <ColumnConstraints prefWidth="180"/>
-                <ColumnConstraints prefWidth="350"/>
-            </columnConstraints>
+          <DatePicker fx:id="harvestDatePicker" layoutX="245.1999969482422" layoutY="70.0" />
 
-            <children>
+          <!-- Garden Section -->
+          <Label layoutX="50.0" layoutY="118.0" text="Garden Section:" />
 
-                <!-- Harvest Date -->
-                <Label text="Harvest Date:"
-                       GridPane.columnIndex="0"
-                       GridPane.rowIndex="0"/>
+          <ComboBox fx:id="sectionComboBox" layoutX="245.1999969482422" layoutY="114.0" prefWidth="220" promptText="Select Section" />
 
-                <DatePicker fx:id="harvestDatePicker"
-                            GridPane.columnIndex="1"
-                            GridPane.rowIndex="0"/>
+          <!-- Mango Variety -->
+          <Label layoutX="50.0" layoutY="162.0" text="Mango Variety:" />
 
-                <!-- Garden Section -->
-                <Label text="Garden Section:"
-                       GridPane.columnIndex="0"
-                       GridPane.rowIndex="1"/>
+          <TextField fx:id="varietyField" layoutX="245.1999969482422" layoutY="158.0" promptText="Enter Mango Variety" />
 
-                <ComboBox fx:id="sectionComboBox"
-                          prefWidth="220"
-                          promptText="Select Section"
-                          GridPane.columnIndex="1"
-                          GridPane.rowIndex="1"/>
+          <!-- Harvest Quantity -->
+          <Label layoutX="50.0" layoutY="206.0" text="Harvest Quantity (kg):" />
 
-                <!-- Mango Variety -->
-                <Label text="Mango Variety:"
-                       GridPane.columnIndex="0"
-                       GridPane.rowIndex="2"/>
+          <TextField fx:id="quantityField" layoutX="245.1999969482422" layoutY="202.0" promptText="Enter Quantity" />
 
-                <TextField fx:id="varietyField"
-                           promptText="Enter Mango Variety"
-                           GridPane.columnIndex="1"
-                           GridPane.rowIndex="2"/>
+          <!-- Quality Grade -->
+          <Label layoutX="50.0" layoutY="250.0" text="Quality Grade:" />
 
-                <!-- Harvest Quantity -->
-                <Label text="Harvest Quantity (kg):"
-                       GridPane.columnIndex="0"
-                       GridPane.rowIndex="3"/>
+          <ComboBox fx:id="gradeComboBox" layoutX="245.1999969482422" layoutY="246.0" prefWidth="220" promptText="Select Grade" />
 
-                <TextField fx:id="quantityField"
-                           promptText="Enter Quantity"
-                           GridPane.columnIndex="1"
-                           GridPane.rowIndex="3"/>
+          <!-- Remarks -->
+          <Label layoutX="50.0" layoutY="341.20001220703125" text="Remarks:" />
 
-                <!-- Quality Grade -->
-                <Label text="Quality Grade:"
-                       GridPane.columnIndex="0"
-                       GridPane.rowIndex="4"/>
-
-                <ComboBox fx:id="gradeComboBox"
-                          prefWidth="220"
-                          promptText="Select Grade"
-                          GridPane.columnIndex="1"
-                          GridPane.rowIndex="4"/>
-
-                <!-- Remarks -->
-                <Label text="Remarks:"
-                       GridPane.columnIndex="0"
-                       GridPane.rowIndex="5"/>
-
-                <TextArea fx:id="remarksArea"
-                          prefWidth="320"
-                          prefHeight="120"
-                          promptText="Additional remarks..."
-                          GridPane.columnIndex="1"
-                          GridPane.rowIndex="5"/>
-
-            </children>
-
-        </GridPane>
+          <TextArea fx:id="remarksArea" layoutX="245.1999969482422" layoutY="290.0" prefHeight="120" prefWidth="320" promptText="Additional remarks..." />
 
         <!-- Buttons -->
-        <Button fx:id="saveButton"
-                layoutX="220.0"
-                layoutY="520.0"
-                text="Save Harvest Record"
-                mnemonicParsing="false"/>
+        <Button layoutX="220.0" layoutY="520.0" mnemonicParsing="false" onAction="#saveButtonOA" text="Save Harvest Record" />
 
-        <Button fx:id="clearButton"
-                layoutX="420.0"
-                layoutY="520.0"
-                text="Clear"
-                mnemonicParsing="false"/>
+        <Button layoutX="420.0" layoutY="520.0" mnemonicParsing="false" onAction="#clearButtonOA" text="Clear" />
 
         <!-- Success Message -->
-        <Label fx:id="messageLabel"
-               layoutX="220.0"
-               layoutY="570.0"
-               text=""
-               style="-fx-text-fill:green; -fx-font-size:14px;"/>
+        <Label fx:id="messageLabel" layoutX="220.0" layoutY="570.0" style="-fx-text-fill:green; -fx-font-size:14px;" text="" />
 
     </children>
 

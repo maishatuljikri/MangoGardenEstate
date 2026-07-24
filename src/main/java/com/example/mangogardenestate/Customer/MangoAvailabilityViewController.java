@@ -1,5 +1,6 @@
 package com.example.mangogardenestate.Customer;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -7,10 +8,6 @@ import javafx.scene.control.TextField;
 
 public class MangoAvailabilityViewController
 {
-    @javafx.fxml.FXML
-    private Button searchButton;
-    @javafx.fxml.FXML
-    private TextField searchField;
     @javafx.fxml.FXML
     private TableColumn harvestDateColumn;
     @javafx.fxml.FXML
@@ -27,7 +24,14 @@ public class MangoAvailabilityViewController
     private TableColumn priceColumn;
     @javafx.fxml.FXML
     private TableColumn stockColumn;
+    @javafx.fxml.FXML
+    private TextField MangoTypeTF;
 
     @javafx.fxml.FXML
     public void initialize() {
-    }}
+    }
+
+    @javafx.fxml.FXML
+    public void searchButton(ActionEvent actionEvent) {
+    }
+}

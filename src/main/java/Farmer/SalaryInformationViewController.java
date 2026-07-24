@@ -1,5 +1,6 @@
 package Farmer;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -26,14 +27,21 @@ public class SalaryInformationViewController
     @javafx.fxml.FXML
     private TextField farmerNameField;
     @javafx.fxml.FXML
-    private Button downloadReportButton;
-    @javafx.fxml.FXML
     private TableColumn overtimeColumn;
-    @javafx.fxml.FXML
-    private Button backButton;
-    @javafx.fxml.FXML
-    private Button generateReportButton;
 
     @javafx.fxml.FXML
     public void initialize() {
-    }}
+    }
+
+    @javafx.fxml.FXML
+    public void downloadReportButtonOA(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void backButtonOA(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void generateReportButtonOA(ActionEvent actionEvent) {
+    }
+}

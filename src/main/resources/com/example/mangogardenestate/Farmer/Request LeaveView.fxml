@@ -1,120 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="620.0" prefWidth="760.0"
-            xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="Farmer.RequestLeaveViewController">
+<AnchorPane prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Farmer.RequestLeaveViewController">
 
     <children>
 
         <!-- Title -->
-        <Label layoutX="240.0"
-               layoutY="20.0"
-               text="Farmer - Leave Request"
-               style="-fx-font-size:22px; -fx-font-weight:bold;" />
+        <Label layoutX="240.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="Farmer - Leave Request" />
 
-        <!-- Leave Request Form -->
-        <GridPane layoutX="50.0"
-                  layoutY="70.0"
-                  hgap="15"
-                  vgap="18">
+          <!-- Farmer ID -->
+          <Label layoutX="50.0" layoutY="74.0" text="Farmer ID:" />
 
-            <columnConstraints>
-                <ColumnConstraints prefWidth="180"/>
-                <ColumnConstraints prefWidth="350"/>
-            </columnConstraints>
+          <TextField fx:id="farmerIdField" layoutX="245.1999969482422" layoutY="70.0" promptText="Enter Farmer ID" />
 
-            <children>
+          <!-- Leave Type -->
+          <Label layoutX="50.0" layoutY="118.0" text="Leave Type:" />
 
-                <!-- Farmer ID -->
-                <Label text="Farmer ID:"
-                       GridPane.columnIndex="0"
-                       GridPane.rowIndex="0"/>
+          <ComboBox fx:id="leaveTypeComboBox" layoutX="245.1999969482422" layoutY="114.0" prefWidth="220" promptText="Select Leave Type" />
 
-                <TextField fx:id="farmerIdField"
-                           promptText="Enter Farmer ID"
-                           GridPane.columnIndex="1"
-                           GridPane.rowIndex="0"/>
+          <!-- Start Date -->
+          <Label layoutX="50.0" layoutY="162.0" text="Start Date:" />
 
-                <!-- Leave Type -->
-                <Label text="Leave Type:"
-                       GridPane.columnIndex="0"
-                       GridPane.rowIndex="1"/>
+          <DatePicker fx:id="startDatePicker" layoutX="245.1999969482422" layoutY="158.0" />
 
-                <ComboBox fx:id="leaveTypeComboBox"
-                          prefWidth="220"
-                          promptText="Select Leave Type"
-                          GridPane.columnIndex="1"
-                          GridPane.rowIndex="1"/>
+          <!-- End Date -->
+          <Label layoutX="50.0" layoutY="206.0" text="End Date:" />
 
-                <!-- Start Date -->
-                <Label text="Start Date:"
-                       GridPane.columnIndex="0"
-                       GridPane.rowIndex="2"/>
+          <DatePicker fx:id="endDatePicker" layoutX="245.1999969482422" layoutY="202.0" />
 
-                <DatePicker fx:id="startDatePicker"
-                            GridPane.columnIndex="1"
-                            GridPane.rowIndex="2"/>
+          <!-- Reason -->
+          <Label layoutX="50.0" layoutY="297.20001220703125" text="Reason for Leave:" />
 
-                <!-- End Date -->
-                <Label text="End Date:"
-                       GridPane.columnIndex="0"
-                       GridPane.rowIndex="3"/>
+          <TextArea fx:id="reasonArea" layoutX="245.1999969482422" layoutY="246.0" prefHeight="120" prefWidth="320" promptText="Enter the reason for leave..." />
 
-                <DatePicker fx:id="endDatePicker"
-                            GridPane.columnIndex="1"
-                            GridPane.rowIndex="3"/>
+          <!-- Request Status -->
+          <Label layoutX="50.0" layoutY="388.3999938964844" text="Request Status:" />
 
-                <!-- Reason -->
-                <Label text="Reason for Leave:"
-                       GridPane.columnIndex="0"
-                       GridPane.rowIndex="4"/>
-
-                <TextArea fx:id="reasonArea"
-                          prefWidth="320"
-                          prefHeight="120"
-                          promptText="Enter the reason for leave..."
-                          GridPane.columnIndex="1"
-                          GridPane.rowIndex="4"/>
-
-                <!-- Request Status -->
-                <Label text="Request Status:"
-                       GridPane.columnIndex="0"
-                       GridPane.rowIndex="5"/>
-
-                <ComboBox fx:id="statusComboBox"
-                          prefWidth="220"
-                          promptText="Pending"
-                          disable="true"
-                          GridPane.columnIndex="1"
-                          GridPane.rowIndex="5"/>
-
-            </children>
-
-        </GridPane>
+          <ComboBox fx:id="statusComboBox" disable="true" layoutX="245.1999969482422" layoutY="384.3999938964844" prefWidth="220" promptText="Pending" />
 
         <!-- Buttons -->
-        <Button fx:id="submitButton"
-                layoutX="220.0"
-                layoutY="540.0"
-                mnemonicParsing="false"
-                text="Submit Request"/>
+        <Button layoutX="220.0" layoutY="540.0" mnemonicParsing="false" onAction="#submitButtonOA" text="Submit Request" />
 
-        <Button fx:id="clearButton"
-                layoutX="400.0"
-                layoutY="540.0"
-                mnemonicParsing="false"
-                text="Clear"/>
+        <Button layoutX="400.0" layoutY="540.0" mnemonicParsing="false" onAction="#clearButtonOA" text="Clear" />
 
         <!-- Confirmation Message -->
-        <Label fx:id="messageLabel"
-               layoutX="220.0"
-               layoutY="585.0"
-               style="-fx-text-fill:green; -fx-font-size:14px;"
-               text=""/>
+        <Label fx:id="messageLabel" layoutX="220.0" layoutY="585.0" style="-fx-text-fill:green; -fx-font-size:14px;" text="" />
 
     </children>
 

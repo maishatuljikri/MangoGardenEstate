@@ -1,5 +1,6 @@
 package com.example.mangogardenestate.Customer;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -10,8 +11,6 @@ public class TrackDeliveryViewController
     @javafx.fxml.FXML
     private TableColumn addressColumn;
     @javafx.fxml.FXML
-    private Button searchButton;
-    @javafx.fxml.FXML
     private TableColumn orderIdColumn;
     @javafx.fxml.FXML
     private TableColumn deliveryDateColumn;
@@ -20,11 +19,7 @@ public class TrackDeliveryViewController
     @javafx.fxml.FXML
     private TableColumn deliveryPersonColumn;
     @javafx.fxml.FXML
-    private Button refreshButton;
-    @javafx.fxml.FXML
     private TableColumn statusColumn;
-    @javafx.fxml.FXML
-    private Button backButton;
     @javafx.fxml.FXML
     private TableColumn deliveryIdColumn;
     @javafx.fxml.FXML
@@ -32,4 +27,17 @@ public class TrackDeliveryViewController
 
     @javafx.fxml.FXML
     public void initialize() {
-    }}
+    }
+
+    @javafx.fxml.FXML
+    public void searchButtonOA(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void backButtonOA(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void refreshButtonOA(ActionEvent actionEvent) {
+    }
+}

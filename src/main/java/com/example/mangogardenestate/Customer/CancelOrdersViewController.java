@@ -1,13 +1,10 @@
 package com.example.mangogardenestate.Customer;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
 public class CancelOrdersViewController
 {
-    @javafx.fxml.FXML
-    private Button submitButton;
-    @javafx.fxml.FXML
-    private Button clearButton;
     @javafx.fxml.FXML
     private TextField orderIdField;
     @javafx.fxml.FXML
@@ -23,4 +20,13 @@ public class CancelOrdersViewController
 
     @javafx.fxml.FXML
     public void initialize() {
-    }}
+    }
+
+    @javafx.fxml.FXML
+    public void clearButtonOA(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void submitButtonOA(ActionEvent actionEvent) {
+    }
+}

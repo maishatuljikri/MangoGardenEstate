@@ -1,5 +1,6 @@
 package Farmer;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
 public class FarmingEquipmentViewController
@@ -11,10 +12,6 @@ public class FarmingEquipmentViewController
     @javafx.fxml.FXML
     private DatePicker requiredDatePicker;
     @javafx.fxml.FXML
-    private Button submitButton;
-    @javafx.fxml.FXML
-    private Button clearButton;
-    @javafx.fxml.FXML
     private ComboBox equipmentComboBox;
     @javafx.fxml.FXML
     private TextField quantityField;
@@ -23,4 +20,13 @@ public class FarmingEquipmentViewController
 
     @javafx.fxml.FXML
     public void initialize() {
-    }}
+    }
+
+    @javafx.fxml.FXML
+    public void clearButtonOA(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void submitButtonOA(ActionEvent actionEvent) {
+    }
+}

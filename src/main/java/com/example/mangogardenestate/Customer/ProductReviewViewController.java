@@ -1,15 +1,10 @@
 package com.example.mangogardenestate.Customer;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
 public class ProductReviewViewController
 {
-    @javafx.fxml.FXML
-    private Button submitButton;
-    @javafx.fxml.FXML
-    private Button clearButton;
-    @javafx.fxml.FXML
-    private TextArea reviewArea;
     @javafx.fxml.FXML
     private TextField customerIdField;
     @javafx.fxml.FXML
@@ -22,7 +17,18 @@ public class ProductReviewViewController
     private Label messageLabel;
     @javafx.fxml.FXML
     private DatePicker reviewDatePicker;
+    @javafx.fxml.FXML
+    private TextArea reviewTA;
 
     @javafx.fxml.FXML
     public void initialize() {
-    }}
+    }
+
+    @javafx.fxml.FXML
+    public void submitButton(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void clearButton(ActionEvent actionEvent) {
+    }
+}

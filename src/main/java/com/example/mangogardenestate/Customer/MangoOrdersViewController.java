@@ -1,15 +1,12 @@
 package com.example.mangogardenestate.Customer;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
 public class MangoOrdersViewController
 {
     @javafx.fxml.FXML
-    private Label stockLabel;
-    @javafx.fxml.FXML
     private DatePicker deliveryDatePicker;
-    @javafx.fxml.FXML
-    private Button clearButton;
     @javafx.fxml.FXML
     private TextField customerIdField;
     @javafx.fxml.FXML
@@ -17,14 +14,23 @@ public class MangoOrdersViewController
     @javafx.fxml.FXML
     private ComboBox mangoComboBox;
     @javafx.fxml.FXML
-    private Button placeOrderButton;
-    @javafx.fxml.FXML
-    private Label priceLabel;
-    @javafx.fxml.FXML
     private TextArea addressArea;
     @javafx.fxml.FXML
     private Label messageLabel;
+    @javafx.fxml.FXML
+    private TextField customerIdField11;
+    @javafx.fxml.FXML
+    private TextField customerIdField1;
 
     @javafx.fxml.FXML
     public void initialize() {
-    }}
+    }
+
+    @javafx.fxml.FXML
+    public void placeOrderButtonOA(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void clearButtonOA(ActionEvent actionEvent) {
+    }
+}

@@ -41,9 +41,9 @@
           <TextArea fx:id="commentsArea" layoutX="245.1999969482422" layoutY="238.0" prefHeight="120" prefWidth="320" promptText="Enter additional comments (optional)" />
 
         <!-- Buttons -->
-        <Button fx:id="submitButton" layoutX="220.0" layoutY="530.0" mnemonicParsing="false" text="Submit Cancellation" />
+        <Button layoutX="220.0" layoutY="530.0" mnemonicParsing="false" onAction="#submitButtonOA" text="Submit Cancellation" />
 
-        <Button fx:id="clearButton" layoutX="430.0" layoutY="530.0" mnemonicParsing="false" text="Clear" />
+        <Button layoutX="430.0" layoutY="530.0" mnemonicParsing="false" onAction="#clearButtonOA" text="Clear" />
 
         <!-- Confirmation Message -->
         <Label fx:id="messageLabel" layoutX="220.0" layoutY="575.0" style="-fx-text-fill:green; -fx-font-size:14px;" text="" />

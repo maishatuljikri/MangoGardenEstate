@@ -1,5 +1,6 @@
 package Farmer;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
 public class TreeDiseaseViewController
@@ -10,8 +11,6 @@ public class TreeDiseaseViewController
     private TextField treeIdField;
     @javafx.fxml.FXML
     private DatePicker reportDatePicker;
-    @javafx.fxml.FXML
-    private Button submitButton;
     @javafx.fxml.FXML
     private TextArea descriptionArea;
     @javafx.fxml.FXML
@@ -25,4 +24,9 @@ public class TreeDiseaseViewController
 
     @javafx.fxml.FXML
     public void initialize() {
-    }}
+    }
+
+    @javafx.fxml.FXML
+    public void submitButtonOA(ActionEvent actionEvent) {
+    }
+}

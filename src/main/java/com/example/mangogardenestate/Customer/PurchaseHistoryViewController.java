@@ -1,5 +1,6 @@
 package com.example.mangogardenestate.Customer;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -24,16 +25,23 @@ public class PurchaseHistoryViewController
     @javafx.fxml.FXML
     private TextField customerNameField;
     @javafx.fxml.FXML
-    private Button downloadReportButton;
-    @javafx.fxml.FXML
-    private Button backButton;
-    @javafx.fxml.FXML
     private TableView purchaseTable;
-    @javafx.fxml.FXML
-    private Button generateReportButton;
     @javafx.fxml.FXML
     private TextField customerIdField;
 
     @javafx.fxml.FXML
     public void initialize() {
-    }}
+    }
+
+    @javafx.fxml.FXML
+    public void downloadReportButton(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void backButton(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void generateReportButton(ActionEvent actionEvent) {
+    }
+}
