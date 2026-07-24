@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="560.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WorkerAttendanceController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="170.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="Worker Attendance Report" />
+
+        <!-- Attendance ID -->
+        <Label layoutX="50.0" layoutY="80.0" text="Attendance ID :" />
+
+        <TextField fx:id="txtAttendanceId" layoutX="200.0" layoutY="75.0" prefWidth="220.0" />
+
+        <!-- Worker ID -->
+        <Label layoutX="50.0" layoutY="125.0" text="Worker ID :" />
+
+        <TextField fx:id="txtWorkerId" layoutX="200.0" layoutY="120.0" prefWidth="220.0" />
+
+        <!-- Worker Name -->
+        <Label layoutX="50.0" layoutY="170.0" text="Worker Name :" />
+
+        <TextField fx:id="txtWorkerName" layoutX="200.0" layoutY="165.0" prefWidth="220.0" />
+
+        <!-- Attendance Date -->
+        <Label layoutX="50.0" layoutY="215.0" text="Attendance Date :" />
+
+        <TextField fx:id="txtAttendanceDate" layoutX="200.0" layoutY="210.0" prefWidth="220.0" />
+
+        <!-- Attendance Status -->
+        <Label layoutX="50.0" layoutY="260.0" text="Attendance Status :" />
+
+        <TextField fx:id="txtStatus" layoutX="200.0" layoutY="255.0" prefWidth="220.0" />
+
+        <!-- Attendance Report -->
+        <Label layoutX="50.0" layoutY="305.0" text="Attendance Report :" />
+
+        <TextArea fx:id="txtReport" layoutX="200.0" layoutY="300.0" prefHeight="120.0" prefWidth="360.0" />
+
+        <!-- Buttons -->
+        <Button layoutX="450.0" layoutY="75.0" onAction="#verifyAttendanceOA" prefWidth="120.0" text="Verify" />
+
+        <Button layoutX="60.0" layoutY="455.0" onAction="#calculateSummaryOA" prefWidth="130.0" text="Calculate" />
+
+        <Button layoutX="210.0" layoutY="455.0" onAction="#viewReportOA" prefWidth="130.0" text="View" />
+
+        <Button layoutX="360.0" layoutY="455.0" onAction="#clearFormOA" prefWidth="130.0" text="Clear" />
+
+        <Button layoutX="510.0" layoutY="455.0" onAction="#goBackOA" prefWidth="120.0" text="Back" />
+
+    </children>
+
+</AnchorPane>
