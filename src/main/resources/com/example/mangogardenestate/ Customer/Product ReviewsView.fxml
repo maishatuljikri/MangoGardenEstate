@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="650.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.Customer.ProductReviewViewController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="240.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="Customer - Product Review" />
+
+          <!-- Customer ID -->
+          <Label layoutX="50.0" layoutY="74.0" text="Customer ID:" />
+
+          <TextField fx:id="customerIdField" layoutX="245.1999969482422" layoutY="70.0" promptText="Enter Customer ID" />
+
+          <!-- Order ID -->
+          <Label layoutX="50.0" layoutY="118.0" text="Order ID:" />
+
+          <ComboBox fx:id="orderIdComboBox" layoutX="245.1999969482422" layoutY="114.0" prefWidth="220" promptText="Select Order ID" />
+
+          <!-- Mango Variety -->
+          <Label layoutX="50.0" layoutY="162.0" text="Mango Variety:" />
+
+          <ComboBox fx:id="mangoComboBox" layoutX="245.1999969482422" layoutY="158.0" prefWidth="220" promptText="Select Mango Variety" />
+
+          <!-- Rating -->
+          <Label layoutX="50.0" layoutY="206.0" text="Rating:" />
+
+          <ComboBox fx:id="ratingComboBox" layoutX="245.1999969482422" layoutY="202.0" prefWidth="220" promptText="Select Rating" />
+
+          <!-- Review -->
+          <Label layoutX="50.0" layoutY="297.20001220703125" text="Review:" />
+
+          <TextArea fx:id="reviewTA" layoutX="245.1999969482422" layoutY="246.0" prefHeight="120" prefWidth="320" promptText="Write your review here..." />
+
+          <!-- Review Date -->
+          <Label layoutX="50.0" layoutY="388.3999938964844" text="Review Date:" />
+
+          <DatePicker fx:id="reviewDatePicker" layoutX="245.1999969482422" layoutY="384.3999938964844" />
+
+        <!-- Buttons -->
+        <Button layoutX="220.0" layoutY="550.0" onAction="#submitButton" text="Submit Review" />
+
+        <Button layoutX="410.0" layoutY="550.0" onAction="#clearButton" text="Clear" />
+
+        <!-- Success Message -->
+        <Label fx:id="messageLabel" layoutX="220.0" layoutY="600.0" style="-fx-text-fill:green; -fx-font-size:14px;" text="" />
+
+    </children>
+
+</AnchorPane>
