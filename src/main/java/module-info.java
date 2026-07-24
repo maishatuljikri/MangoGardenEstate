@@ -5,4 +5,8 @@ module com.example.mangogardenestate {
 
     opens com.example.mangogardenestate to javafx.fxml;
     exports com.example.mangogardenestate;
+    exports EstateOwner;
+    opens EstateOwner to javafx.fxml;
+    exports gardenManager;
+    opens gardenManager to javafx.fxml;
 }

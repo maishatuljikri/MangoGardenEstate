@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="560.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IrrigationActivityController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="170.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="Record Irrigation Activities" />
+
+        <!-- Irrigation ID -->
+        <Label layoutX="50.0" layoutY="80.0" text="Irrigation ID :" />
+
+        <TextField fx:id="txtIrrigationId" layoutX="200.0" layoutY="75.0" prefWidth="220.0" />
+
+        <!-- Irrigation Zone -->
+        <Label layoutX="50.0" layoutY="125.0" text="Irrigation Zone :" />
+
+        <TextField fx:id="txtZone" layoutX="200.0" layoutY="120.0" prefWidth="220.0" />
+
+        <!-- Irrigation Date -->
+        <Label layoutX="50.0" layoutY="170.0" text="Irrigation Date :" />
+
+        <TextField fx:id="txtDate" layoutX="200.0" layoutY="165.0" prefWidth="220.0" />
+
+        <!-- Water Quantity -->
+        <Label layoutX="50.0" layoutY="215.0" text="Water Quantity :" />
+
+        <TextField fx:id="txtWaterQuantity" layoutX="200.0" layoutY="210.0" prefWidth="220.0" />
+
+        <!-- Supervisor -->
+        <Label layoutX="50.0" layoutY="260.0" text="Supervisor :" />
+
+        <TextField fx:id="txtSupervisor" layoutX="200.0" layoutY="255.0" prefWidth="220.0" />
+
+        <!-- Activity Details -->
+        <Label layoutX="50.0" layoutY="305.0" text="Activity Details :" />
+
+        <TextArea fx:id="txtDetails" layoutX="200.0" layoutY="300.0" prefHeight="120.0" prefWidth="360.0" />
+
+        <!-- Buttons -->
+        <Button layoutX="450.0" layoutY="75.0" onAction="#verifyZoneOA" prefWidth="120.0" text="Verify" />
+
+        <Button layoutX="70.0" layoutY="455.0" onAction="#saveRecordOA" prefWidth="130.0" text="Save" />
+
+        <Button layoutX="220.0" layoutY="455.0" onAction="#viewSummaryOA" prefWidth="130.0" text="View" />
+
+        <Button layoutX="370.0" layoutY="455.0" onAction="#clearFormOA" prefWidth="130.0" text="Clear" />
+
+        <Button layoutX="520.0" layoutY="455.0" onAction="#goBackOA" prefWidth="120.0" text="Back" />
+
+    </children>
+
+</AnchorPane>
