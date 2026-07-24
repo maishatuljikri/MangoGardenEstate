@@ -1,22 +1,26 @@
-package Farmer;
+package com.example.mangogardenestate.Farmer;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
-public class DailyWorkStatusViewController
+public class IrrigationCompletionStatusViewController
 {
     @javafx.fxml.FXML
-    private TextArea workDetailsArea;
+    private ComboBox sectionComboBox;
     @javafx.fxml.FXML
     private ComboBox statusComboBox;
     @javafx.fxml.FXML
-    private TextField workTitleField;
+    private TextArea remarksArea;
+    @javafx.fxml.FXML
+    private TextField durationField;
+    @javafx.fxml.FXML
+    private TextField irrigationIdField;
+    @javafx.fxml.FXML
+    private DatePicker irrigationDatePicker;
+    @javafx.fxml.FXML
+    private TextField waterAmountField;
     @javafx.fxml.FXML
     private Label messageLabel;
-    @javafx.fxml.FXML
-    private DatePicker workDatePicker;
-    @javafx.fxml.FXML
-    private TextField assignedTaskField;
 
     @javafx.fxml.FXML
     public void initialize() {

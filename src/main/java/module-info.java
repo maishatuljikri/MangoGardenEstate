@@ -7,6 +7,6 @@ module com.example.mangogardenestate {
     exports com.example.mangogardenestate;
     exports com.example.mangogardenestate.Customer;
     opens com.example.mangogardenestate.Customer to javafx.fxml;
-    exports Farmer;
-    opens Farmer to javafx.fxml;
+    exports com.example.mangogardenestate.Farmer;
+    opens com.example.mangogardenestate.Farmer to javafx.fxml;
 }

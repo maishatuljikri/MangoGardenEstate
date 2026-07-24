@@ -8,12 +8,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Farmer.TreeDiseaseViewController">
+<AnchorPane prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.Farmer.TreeDiseaseViewController">
 
     <children>
 
         <!-- Title -->
-        <Label layoutX="180.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="Farmer - Tree Disease Report" />
+        <Label layoutX="180.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="com.example.mangogardenestate.Farmer - Tree Disease Report" />
 
           <!-- Tree ID -->
           <Label layoutX="50.0" layoutY="74.0" text="Tree ID:" />

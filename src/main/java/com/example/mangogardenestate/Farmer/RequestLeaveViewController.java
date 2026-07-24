@@ -1,22 +1,22 @@
-package Farmer;
+package com.example.mangogardenestate.Farmer;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
-public class MangoQuantityViewController
+public class RequestLeaveViewController
 {
     @javafx.fxml.FXML
-    private ComboBox sectionComboBox;
+    private TextField farmerIdField;
     @javafx.fxml.FXML
-    private ComboBox gradeComboBox;
+    private DatePicker endDatePicker;
     @javafx.fxml.FXML
-    private TextArea remarksArea;
+    private ComboBox statusComboBox;
     @javafx.fxml.FXML
-    private DatePicker harvestDatePicker;
+    private DatePicker startDatePicker;
     @javafx.fxml.FXML
-    private TextField quantityField;
+    private ComboBox leaveTypeComboBox;
     @javafx.fxml.FXML
-    private TextField varietyField;
+    private TextArea reasonArea;
     @javafx.fxml.FXML
     private Label messageLabel;
 
@@ -29,6 +29,6 @@ public class MangoQuantityViewController
     }
 
     @javafx.fxml.FXML
-    public void saveButtonOA(ActionEvent actionEvent) {
+    public void submitButtonOA(ActionEvent actionEvent) {
     }
 }

@@ -8,17 +8,17 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Farmer.RequestLeaveViewController">
+<AnchorPane prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.Farmer.RequestLeaveViewController">
 
     <children>
 
         <!-- Title -->
-        <Label layoutX="240.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="Farmer - Leave Request" />
+        <Label layoutX="240.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="com.example.mangogardenestate.Farmer - Leave Request" />
 
-          <!-- Farmer ID -->
-          <Label layoutX="50.0" layoutY="74.0" text="Farmer ID:" />
+          <!-- com.example.mangogardenestate.Farmer ID -->
+          <Label layoutX="50.0" layoutY="74.0" text="com.example.mangogardenestate.Farmer ID:" />
 
-          <TextField fx:id="farmerIdField" layoutX="245.1999969482422" layoutY="70.0" promptText="Enter Farmer ID" />
+          <TextField fx:id="farmerIdField" layoutX="245.1999969482422" layoutY="70.0" promptText="Enter com.example.mangogardenestate.Farmer ID" />
 
           <!-- Leave Type -->
           <Label layoutX="50.0" layoutY="118.0" text="Leave Type:" />
