@@ -22,11 +22,15 @@ public class CancelOrdersViewController
     public void initialize() {
     }
 
-    @javafx.fxml.FXML
+    @Deprecated
     public void clearButtonOA(ActionEvent actionEvent) {
     }
 
     @javafx.fxml.FXML
     public void submitButtonOA(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void ClearButtonOA(ActionEvent actionEvent) {
     }
 }
