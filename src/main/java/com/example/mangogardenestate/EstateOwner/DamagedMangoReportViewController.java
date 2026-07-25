@@ -1,31 +1,31 @@
-package EstateOwner;
+package com.example.mangogardenestate.EstateOwner;
 
-public class MonthlyExpenseReportViewController
+public class DamagedMangoReportViewController
 {
     @javafx.fxml.FXML
-    private TableColumn colAmount;
+    private TableColumn colBatchID;
+    @javafx.fxml.FXML
+    private TableColumn colQuantity;
     @javafx.fxml.FXML
     private Button btnBack;
     @javafx.fxml.FXML
-    private Button btnLoadExpenses;
-    @javafx.fxml.FXML
     private Button btnRefresh;
+    @javafx.fxml.FXML
+    private DatePicker dpDate;
+    @javafx.fxml.FXML
+    private Label lblTotalDamaged;
+    @javafx.fxml.FXML
+    private TableView damagedTable;
     @javafx.fxml.FXML
     private Button btnExport;
     @javafx.fxml.FXML
-    private TableView expenseTable;
-    @javafx.fxml.FXML
-    private TableColumn colDescription;
-    @javafx.fxml.FXML
     private TableColumn colDate;
     @javafx.fxml.FXML
-    private TableColumn colCategory;
+    private TableColumn colDamageType;
     @javafx.fxml.FXML
-    private ComboBox cmbYear;
+    private Button btnLoadReport;
     @javafx.fxml.FXML
-    private Label lblTotalExpense;
-    @javafx.fxml.FXML
-    private ComboBox cmbMonth;
+    private TableColumn colVariety;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -36,7 +36,7 @@ public class MonthlyExpenseReportViewController
     }
 
     @javafx.fxml.FXML
-    public void loadExpenseReport(ActionEvent actionEvent) {
+    public void loadDamagedReport(ActionEvent actionEvent) {
     }
 
     @javafx.fxml.FXML

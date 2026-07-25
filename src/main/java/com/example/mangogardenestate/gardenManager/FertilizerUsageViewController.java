@@ -1,29 +1,27 @@
-package gardenManager;
+package com.example.mangogardenestate.gardenManager;
 
-public class PestControlActivityViewController
+public class FertilizerUsageViewController
 {
     @javafx.fxml.FXML
     private Button btnBack;
     @javafx.fxml.FXML
-    private TextField txtPesticide;
+    private ComboBox cmbFertilizer;
     @javafx.fxml.FXML
     private Button btnSave;
     @javafx.fxml.FXML
+    private DatePicker dpUsageDate;
+    @javafx.fxml.FXML
+    private Label lblRemainingStock;
+    @javafx.fxml.FXML
     private ComboBox cmbWorker;
     @javafx.fxml.FXML
-    private Label lblTotalActivities;
+    private ComboBox cmbSection;
     @javafx.fxml.FXML
     private TextField txtQuantity;
     @javafx.fxml.FXML
-    private ComboBox cmbGardenArea;
-    @javafx.fxml.FXML
     private TextArea txtRemarks;
     @javafx.fxml.FXML
-    private ComboBox cmbPestType;
-    @javafx.fxml.FXML
     private Button btnClear;
-    @javafx.fxml.FXML
-    private DatePicker dpApplicationDate;
     @javafx.fxml.FXML
     private Label lblStatus;
 
@@ -36,10 +34,10 @@ public class PestControlActivityViewController
     }
 
     @javafx.fxml.FXML
-    public void savePestControl(ActionEvent actionEvent) {
+    public void clearForm(ActionEvent actionEvent) {
     }
 
     @javafx.fxml.FXML
-    public void clearForm(ActionEvent actionEvent) {
+    public void saveUsage(ActionEvent actionEvent) {
     }
 }

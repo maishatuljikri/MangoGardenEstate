@@ -1,4 +1,4 @@
-package EstateOwner;
+package com.example.mangogardenestate.EstateOwner;
 
 public class GenerateOperationalReportViewController
 {
