@@ -1,25 +1,25 @@
-package gardenManager;
+package com.example.mangogardenestate.gardenManager;
 
-public class IrrigationActivityViewController
+public class HarvestingScheduleViewController
 {
     @javafx.fxml.FXML
     private Button btnBack;
     @javafx.fxml.FXML
     private Button btnSave;
     @javafx.fxml.FXML
-    private DatePicker dpActivityDate;
+    private ComboBox cmbWorker;
     @javafx.fxml.FXML
-    private TextField txtEndTime;
+    private TextField txtBlock;
     @javafx.fxml.FXML
-    private Label lblTotalWater;
+    private TextField txtQuantity;
     @javafx.fxml.FXML
     private TextArea txtRemarks;
     @javafx.fxml.FXML
     private ComboBox cmbZone;
     @javafx.fxml.FXML
-    private TextField txtWaterUsed;
-    @javafx.fxml.FXML
     private Button btnClear;
+    @javafx.fxml.FXML
+    private DatePicker dpHarvestDate;
     @javafx.fxml.FXML
     private Label lblStatus;
     @javafx.fxml.FXML
@@ -34,10 +34,10 @@ public class IrrigationActivityViewController
     }
 
     @javafx.fxml.FXML
-    public void saveIrrigationRecord(ActionEvent actionEvent) {
+    public void clearForm(ActionEvent actionEvent) {
     }
 
     @javafx.fxml.FXML
-    public void clearForm(ActionEvent actionEvent) {
+    public void saveSchedule(ActionEvent actionEvent) {
     }
 }

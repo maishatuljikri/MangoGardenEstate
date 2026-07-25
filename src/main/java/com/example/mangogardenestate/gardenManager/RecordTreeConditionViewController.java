@@ -1,4 +1,4 @@
-package gardenManager;
+package com.example.mangogardenestate.gardenManager;
 
 public class RecordTreeConditionViewController
 {

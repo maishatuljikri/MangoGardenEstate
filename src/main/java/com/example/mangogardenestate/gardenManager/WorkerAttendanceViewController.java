@@ -1,6 +1,6 @@
-package EstateOwner;
+package com.example.mangogardenestate.gardenManager;
 
-public class AttendanceReportViewController
+public class WorkerAttendanceViewController
 {
     @javafx.fxml.FXML
     private Button btnBack;
@@ -13,6 +13,8 @@ public class AttendanceReportViewController
     @javafx.fxml.FXML
     private Label lblPresent;
     @javafx.fxml.FXML
+    private DatePicker dpAttendanceDate;
+    @javafx.fxml.FXML
     private Label lblLate;
     @javafx.fxml.FXML
     private TableView attendanceTable;
@@ -24,8 +26,6 @@ public class AttendanceReportViewController
     private Label lblAbsent;
     @javafx.fxml.FXML
     private TableColumn colCheckOut;
-    @javafx.fxml.FXML
-    private DatePicker attendanceDate;
     @javafx.fxml.FXML
     private TableColumn colWorkerName;
     @javafx.fxml.FXML

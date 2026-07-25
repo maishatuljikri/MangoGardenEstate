@@ -1,33 +1,31 @@
-package gardenManager;
+package com.example.mangogardenestate.EstateOwner;
 
-public class DailyActivityReportViewController
+public class MonthlyExpenseReportViewController
 {
     @javafx.fxml.FXML
-    private TableColumn colQuantity;
+    private TableColumn colAmount;
     @javafx.fxml.FXML
     private Button btnBack;
     @javafx.fxml.FXML
-    private Button btnPrint;
-    @javafx.fxml.FXML
-    private Button btnGenerate;
-    @javafx.fxml.FXML
-    private Label lblStatus;
-    @javafx.fxml.FXML
-    private TableView reportTable;
+    private Button btnLoadExpenses;
     @javafx.fxml.FXML
     private Button btnRefresh;
     @javafx.fxml.FXML
-    private Button btnDownload;
+    private Button btnExport;
     @javafx.fxml.FXML
-    private DatePicker dpReportDate;
+    private TableView expenseTable;
     @javafx.fxml.FXML
     private TableColumn colDescription;
     @javafx.fxml.FXML
+    private TableColumn colDate;
+    @javafx.fxml.FXML
     private TableColumn colCategory;
     @javafx.fxml.FXML
-    private TableColumn colWorker;
+    private ComboBox cmbYear;
     @javafx.fxml.FXML
-    private TableColumn colStatus;
+    private Label lblTotalExpense;
+    @javafx.fxml.FXML
+    private ComboBox cmbMonth;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -38,15 +36,11 @@ public class DailyActivityReportViewController
     }
 
     @javafx.fxml.FXML
-    public void generateReport(ActionEvent actionEvent) {
+    public void loadExpenseReport(ActionEvent actionEvent) {
     }
 
     @javafx.fxml.FXML
-    public void printReport(ActionEvent actionEvent) {
-    }
-
-    @javafx.fxml.FXML
-    public void downloadReport(ActionEvent actionEvent) {
+    public void exportReport(ActionEvent actionEvent) {
     }
 
     @javafx.fxml.FXML
