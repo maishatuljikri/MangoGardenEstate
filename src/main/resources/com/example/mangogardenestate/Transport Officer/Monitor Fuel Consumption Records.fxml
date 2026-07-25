@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="620.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.TransportOfficer.MonitorFuelConsumptionViewController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="190.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="Transport Officer - Fuel Consumption Monitor" />
+
+        <!-- Select Vehicle -->
+        <Label layoutX="50.0" layoutY="74.0" text="Select Vehicle:" />
+        <ComboBox fx:id="vehicleComboBox" layoutX="160.0" layoutY="70.0" prefWidth="180.0" promptText="Select Vehicle" />
+
+        <!-- Select Month/Period -->
+        <Label layoutX="360.0" layoutY="74.0" text="Period / Month:" />
+        <TextField fx:id="periodField" layoutX="470.0" layoutY="70.0" prefWidth="120.0" promptText="e.g. July 2026" />
+
+        <!-- Buttons -->
+        <Button layoutX="610.0" layoutY="70.0" mnemonicParsing="false" onAction="#filterFuelLogButtonOA" text="Filter Records" />
+
+        <!-- Fuel Log Table -->
+        <TableView fx:id="fuelLogTable" layoutX="50.0" layoutY="120.0" prefHeight="350.0" prefWidth="680.0">
+            <columns>
+                <TableColumn fx:id="logIdColumn" prefWidth="90.0" text="Log ID" />
+                <TableColumn fx:id="vehicleIdColumn" prefWidth="120.0" text="Vehicle ID" />
+                <TableColumn fx:id="fuelFilledColumn" prefWidth="150.0" text="Fuel Added (Liters)" />
+                <TableColumn fx:id="costColumn" prefWidth="140.0" text="Cost ($)" />
+                <TableColumn fx:id="dateColumn" prefWidth="178.0" text="Date" />
+            </columns>
+        </TableView>
+
+        <!-- Total Fuel Summary Labels -->
+        <Label layoutX="50.0" layoutY="490.0" style="-fx-font-weight:bold;" text="Total Fuel Consumed:" />
+        <Label fx:id="totalFuelLabel" layoutX="190.0" layoutY="490.0" style="-fx-font-weight:bold; -fx-text-fill:blue;" text="0.0 L" />
+
+        <Label layoutX="320.0" layoutY="490.0" style="-fx-font-weight:bold;" text="Total Cost:" />
+        <Label fx:id="totalCostLabel" layoutX="400.0" layoutY="490.0" style="-fx-font-weight:bold; -fx-text-fill:blue;" text="$0.00" />
+
+        <Button layoutX="630.0" layoutY="485.0" mnemonicParsing="false" onAction="#clearButtonOA" text="Clear Form" />
+
+        <!-- Status / Confirmation Message -->
+        <Label fx:id="messageLabel" layoutX="50.0" layoutY="540.0" style="-fx-text-fill:green; -fx-font-size:14px;" text="" />
+
+    </children>
+
+</AnchorPane>

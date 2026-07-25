@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="620.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.Accountant.ProfitLossSummaryViewController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="210.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="Accountant - Profit &amp; Loss Summary" />
+
+        <!-- Reporting Period Selection -->
+        <Label layoutX="50.0" layoutY="74.0" text="Select Period:" />
+        <ComboBox fx:id="periodComboBox" layoutX="160.0" layoutY="70.0" prefWidth="150.0" promptText="Select Period" />
+
+        <Label layoutX="340.0" layoutY="74.0" text="Select Year:" />
+        <TextField fx:id="yearField" layoutX="420.0" layoutY="70.0" prefWidth="120.0" promptText="e.g. 2026" />
+
+        <!-- Buttons -->
+        <Button layoutX="570.0" layoutY="70.0" mnemonicParsing="false" onAction="#viewSummaryButtonOA" text="View Summary" />
+        <Button layoutX="680.0" layoutY="70.0" mnemonicParsing="false" onAction="#clearButtonOA" text="Clear" />
+
+        <!-- Summary Overview Table -->
+        <TableView fx:id="summaryTable" layoutX="50.0" layoutY="130.0" prefHeight="380.0" prefWidth="680.0">
+            <columns>
+                <TableColumn fx:id="itemColumn" prefWidth="240.0" text="Financial Item" />
+                <TableColumn fx:id="totalRevenueColumn" prefWidth="220.0" text="Total Revenue ($)" />
+                <TableColumn fx:id="totalExpenseColumn" prefWidth="218.0" text="Total Expense ($)" />
+            </columns>
+        </TableView>
+
+        <!-- Total Net Profit / Loss Display -->
+        <Label layoutX="50.0" layoutY="535.0" style="-fx-font-weight:bold; -fx-font-size:16px;" text="Net Profit/Loss:" />
+        <Label fx:id="netResultLabel" layoutX="180.0" layoutY="535.0" style="-fx-font-weight:bold; -fx-font-size:16px; -fx-text-fill:blue;" text="$0.00" />
+
+        <!-- Status / Confirmation Message -->
+        <Label fx:id="messageLabel" layoutX="50.0" layoutY="575.0" style="-fx-text-fill:green; -fx-font-size:14px;" text="" />
+
+    </children>
+
+</AnchorPane>
