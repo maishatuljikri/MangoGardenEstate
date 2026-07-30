@@ -7,20 +7,20 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.Farmer.SalaryInformationViewController">
+<AnchorPane prefHeight="636.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.Farmer.SalaryInformationViewController">
 
     <children>
 
         <!-- Title -->
-        <Label layoutX="310.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="com.example.mangogardenestate.Farmer - Salary Information" />
+        <Label layoutX="189.0" layoutY="21.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="com.example.mangogardenestate.Farmer - Salary Information" />
 
           <Label layoutX="40.0" layoutY="74.0" text="com.example.mangogardenestate.Farmer ID:" />
 
-          <TextField fx:id="farmerIdField" editable="false" layoutX="205.60000610351562" layoutY="70.0" />
+          <TextField fx:id="farmerIdField" editable="false" layoutX="335.0" layoutY="70.0" />
 
           <Label layoutX="40.0" layoutY="114.80000305175781" text="com.example.mangogardenestate.Farmer Name:" />
 
-          <TextField fx:id="farmerNameField" editable="false" layoutX="205.60000610351562" layoutY="110.80000305175781" />
+          <TextField fx:id="farmerNameField" editable="false" layoutX="335.0" layoutY="102.0" />
 
         <!-- Salary Table -->
         <TableView fx:id="salaryTable" layoutX="40.0" layoutY="160.0" prefHeight="360.0" prefWidth="870.0">

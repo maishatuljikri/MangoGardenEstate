@@ -1,5 +1,8 @@
 package com.example.mangogardenestate.gardenManager;
 
+import javafx.event.ActionEvent;
+import javafx.scene.control.*;
+
 public class DailyActivityReportViewController
 {
     @javafx.fxml.FXML

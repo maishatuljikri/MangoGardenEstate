@@ -1,30 +1,71 @@
 package com.example.mangogardenestate.Customer;
 
-import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class DownloadInvoiceController
-{
-    @javafx.fxml.FXML
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class DownloadInvoiceController implements Initializable {
+
+    @FXML
+    private TextField orderIdField;
+
+    @FXML
+    private TextField invoiceIdField;
+
+    @FXML
+    private TextField customerNameField;
+
+    @FXML
+    private TextField paymentAmountField;
+
+    @FXML
+    private TextField paymentDateField;
+
+    @FXML
+    private ComboBox<String> paymentMethodComboBox;
+
+    @FXML
     private Label messageLabel;
 
-    @javafx.fxml.FXML
-    public void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        paymentMethodComboBox.getItems().addAll(
+                "Cash",
+                "Credit Card",
+                "Debit Card",
+                "Mobile Banking",
+                "Bank Transfer"
+        );
     }
 
-    @javafx.fxml.FXML
-    public void downloadButtonOA(ActionEvent actionEvent) {
+    @FXML
+    private void generatePdfButtonOA() {
+
+        messageLabel.setText("PDF generated successfully.");
+
+        System.out.println("Generate PDF");
     }
 
-    @javafx.fxml.FXML
-    public void backButtonOA(ActionEvent actionEvent) {
+    @FXML
+    private void downloadButtonOA() {
+
+        messageLabel.setText("Invoice downloaded successfully.");
+
+        System.out.println("Download Invoice");
     }
 
-    @javafx.fxml.FXML
-    public void generatePdfButtonOA(ActionEvent actionEvent) {
+    @FXML
+    private void backButtonOA() {
+
+        messageLabel.setText("Back to dashboard.");
+
+        System.out.println("Back");
     }
+
 }

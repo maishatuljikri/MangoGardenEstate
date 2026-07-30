@@ -1,5 +1,8 @@
 package com.example.mangogardenestate.EstateOwner;
 
+import javafx.event.ActionEvent;
+import javafx.scene.control.*;
+
 public class MonthlyExpenseReportViewController
 {
     @javafx.fxml.FXML

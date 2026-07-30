@@ -1,45 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.Farmer.WorkScheduleViewController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.mangogardenestate.Farmer.WorkScheduleViewController">
 
     <children>
 
-        <!-- Title -->
-        <Label layoutX="260.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="com.example.mangogardenestate.Farmer - Assigned Work Schedule" />
+        <Label layoutX="250.0"
+               layoutY="20.0"
+               style="-fx-font-size:22px; -fx-font-weight:bold;"
+               text="Farmer - Assigned Work Schedule"/>
 
-        <!-- Work Schedule Table -->
-        <TableView fx:id="scheduleTable" layoutX="30.0" layoutY="70.0" prefHeight="420.0" prefWidth="840.0">
+        <TableView fx:id="scheduleTable"
+                   layoutX="30.0"
+                   layoutY="70.0"
+                   prefHeight="420.0"
+                   prefWidth="840.0">
 
             <columns>
 
-                <TableColumn fx:id="taskIdColumn" prefWidth="80" text="Task ID" />
+                <TableColumn fx:id="taskIdColumn"
+                             prefWidth="80"
+                             text="Task ID"/>
 
-                <TableColumn fx:id="taskNameColumn" prefWidth="150" text="Task Name" />
+                <TableColumn fx:id="taskNameColumn"
+                             prefWidth="150"
+                             text="Task Name"/>
 
-                <TableColumn fx:id="workDateColumn" prefWidth="120" text="Work Date" />
+                <TableColumn fx:id="workDateColumn"
+                             prefWidth="120"
+                             text="Work Date"/>
 
-                <TableColumn fx:id="startTimeColumn" prefWidth="100" text="Start Time" />
+                <TableColumn fx:id="startTimeColumn"
+                             prefWidth="100"
+                             text="Start Time"/>
 
-                <TableColumn fx:id="endTimeColumn" prefWidth="100" text="End Time" />
+                <TableColumn fx:id="endTimeColumn"
+                             prefWidth="100"
+                             text="End Time"/>
 
-                <TableColumn fx:id="sectionColumn" prefWidth="140" text="Garden Section" />
+                <TableColumn fx:id="sectionColumn"
+                             prefWidth="140"
+                             text="Garden Section"/>
 
-                <TableColumn fx:id="statusColumn" prefWidth="120" text="Status" />
+                <TableColumn fx:id="statusColumn"
+                             prefWidth="120"
+                             text="Status"/>
 
             </columns>
 
         </TableView>
 
-        <!-- Buttons -->
-        <Button layoutX="250.0" layoutY="520.0" mnemonicParsing="false" onAction="#printButtonOA" text="Print Work Schedule" />
+        <Button layoutX="250.0"
+                layoutY="520.0"
+                text="Print Work Schedule"
+                onAction="#printButtonOA"/>
 
-        <Button layoutX="470.0" layoutY="520.0" mnemonicParsing="false" onAction="#backButtonOA" text="Back to Dashboard" />
+        <Button layoutX="470.0"
+                layoutY="520.0"
+                text="Back to Dashboard"
+                onAction="#backButtonOA"/>
 
     </children>
 

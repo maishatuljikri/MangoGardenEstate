@@ -1,34 +1,105 @@
 package com.example.mangogardenestate.Farmer;
 
-import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-public class RequestLeaveViewController
-{
-    @javafx.fxml.FXML
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
+
+public class RequestLeaveViewController implements Initializable {
+
+    @FXML
     private TextField farmerIdField;
-    @javafx.fxml.FXML
-    private DatePicker endDatePicker;
-    @javafx.fxml.FXML
-    private ComboBox statusComboBox;
-    @javafx.fxml.FXML
+
+    @FXML
+    private ComboBox<String> leaveTypeComboBox;
+
+    @FXML
     private DatePicker startDatePicker;
-    @javafx.fxml.FXML
-    private ComboBox leaveTypeComboBox;
-    @javafx.fxml.FXML
+
+    @FXML
+    private DatePicker endDatePicker;
+
+    @FXML
     private TextArea reasonArea;
-    @javafx.fxml.FXML
+
+    @FXML
+    private ComboBox<String> statusComboBox;
+
+    @FXML
     private Label messageLabel;
 
-    @javafx.fxml.FXML
-    public void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        leaveTypeComboBox.getItems().addAll(
+                "Casual Leave",
+                "Sick Leave",
+                "Emergency Leave",
+                "Annual Leave"
+        );
+
+        statusComboBox.getItems().add("Pending");
+        statusComboBox.setValue("Pending");
+
+        startDatePicker.setValue(LocalDate.now());
+        endDatePicker.setValue(LocalDate.now());
     }
 
-    @javafx.fxml.FXML
-    public void clearButtonOA(ActionEvent actionEvent) {
+    @FXML
+    private void submitButtonOA() {
+
+        String farmerId = farmerIdField.getText();
+        String leaveType = leaveTypeComboBox.getValue();
+        LocalDate startDate = startDatePicker.getValue();
+        LocalDate endDate = endDatePicker.getValue();
+        String reason = reasonArea.getText();
+        String status = statusComboBox.getValue();
+
+        if (farmerId.isEmpty() ||
+                leaveType == null ||
+                startDate == null ||
+                endDate == null ||
+                reason.isEmpty()) {
+
+            messageLabel.setStyle("-fx-text-fill:red;");
+            messageLabel.setText("Please fill all required fields.");
+            return;
+        }
+
+        if (endDate.isBefore(startDate)) {
+            messageLabel.setStyle("-fx-text-fill:red;");
+            messageLabel.setText("End date cannot be before start date.");
+            return;
+        }
+
+        // Print data (Later you can save to ArrayList or file)
+        System.out.println("Farmer ID : " + farmerId);
+        System.out.println("Leave Type: " + leaveType);
+        System.out.println("Start Date: " + startDate);
+        System.out.println("End Date  : " + endDate);
+        System.out.println("Reason    : " + reason);
+        System.out.println("Status    : " + status);
+
+        messageLabel.setStyle("-fx-text-fill:green;");
+        messageLabel.setText("Leave request submitted successfully.");
     }
 
-    @javafx.fxml.FXML
-    public void submitButtonOA(ActionEvent actionEvent) {
+    @FXML
+    private void clearButtonOA() {
+
+        farmerIdField.clear();
+        leaveTypeComboBox.getSelectionModel().clearSelection();
+
+        startDatePicker.setValue(LocalDate.now());
+        endDatePicker.setValue(LocalDate.now());
+
+        reasonArea.clear();
+
+        statusComboBox.setValue("Pending");
+
+        messageLabel.setText("");
     }
 }

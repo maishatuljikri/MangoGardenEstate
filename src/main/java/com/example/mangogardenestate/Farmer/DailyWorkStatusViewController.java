@@ -1,32 +1,85 @@
 package com.example.mangogardenestate.Farmer;
 
-import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-public class DailyWorkStatusViewController
-{
-    @javafx.fxml.FXML
-    private TextArea workDetailsArea;
-    @javafx.fxml.FXML
-    private ComboBox statusComboBox;
-    @javafx.fxml.FXML
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
+
+public class DailyWorkStatusViewController implements Initializable {
+
+    @FXML
     private TextField workTitleField;
-    @javafx.fxml.FXML
-    private Label messageLabel;
-    @javafx.fxml.FXML
+
+    @FXML
     private DatePicker workDatePicker;
-    @javafx.fxml.FXML
+
+    @FXML
     private TextField assignedTaskField;
 
-    @javafx.fxml.FXML
-    public void initialize() {
+    @FXML
+    private TextArea workDetailsArea;
+
+    @FXML
+    private ComboBox<String> statusComboBox;
+
+    @FXML
+    private Label messageLabel;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        statusComboBox.getItems().addAll(
+                "Not Started",
+                "In Progress",
+                "Completed"
+        );
+
+
+        assignedTaskField.setText("Water Mango Trees");
+
+        workDatePicker.setValue(LocalDate.now());
     }
 
-    @javafx.fxml.FXML
-    public void clearButtonOA(ActionEvent actionEvent) {
+    @FXML
+    private void saveButtonOA() {
+
+        String title = workTitleField.getText();
+        LocalDate date = workDatePicker.getValue();
+        String task = assignedTaskField.getText();
+        String details = workDetailsArea.getText();
+        String status = statusComboBox.getValue();
+
+        if (title.isEmpty()
+                || date == null
+                || details.isEmpty()
+                || status == null) {
+
+            messageLabel.setStyle("-fx-text-fill:red;");
+            messageLabel.setText("Please fill all required fields.");
+            return;
+        }
+
+        // Print data (later save into ArrayList or file)
+        System.out.println("Work Title : " + title);
+        System.out.println("Date       : " + date);
+        System.out.println("Task       : " + task);
+        System.out.println("Details    : " + details);
+        System.out.println("Status     : " + status);
+
+        messageLabel.setStyle("-fx-text-fill:green;");
+        messageLabel.setText("Work status saved successfully!");
     }
 
-    @javafx.fxml.FXML
-    public void saveButtonOA(ActionEvent actionEvent) {
+    @FXML
+    private void clearButtonOA() {
+
+        workTitleField.clear();
+        workDatePicker.setValue(LocalDate.now());
+        workDetailsArea.clear();
+        statusComboBox.getSelectionModel().clearSelection();
+        messageLabel.setText("");
     }
 }
