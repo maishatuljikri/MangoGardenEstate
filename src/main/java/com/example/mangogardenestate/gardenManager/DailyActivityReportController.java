@@ -1,25 +1,23 @@
 package com.example.mangogardenestate.gardenManager;
+
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-import javafx.event.ActionEvent;
-import javafx.scene.control.*;
-
-public class AssignDailyTaskViewController
+public class DailyActivityReportController
 {
     @javafx.fxml.FXML
-    private TextField txtWorkerName;
+    private TextField txtFertilizer;
     @javafx.fxml.FXML
-    private TextField txtTaskName;
+    private TextField txtLabor;
     @javafx.fxml.FXML
-    private TextField txtTaskId;
+    private TextArea txtReport;
     @javafx.fxml.FXML
-    private TextArea txtTaskDetails;
+    private TextField txtReportId;
     @javafx.fxml.FXML
-    private TextField txtWorkDate;
+    private TextField txtIrrigation;
     @javafx.fxml.FXML
-    private TextField txtWorkerId;
+    private TextField txtReportDate;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -30,7 +28,11 @@ public class AssignDailyTaskViewController
     }
 
     @javafx.fxml.FXML
-    public void viewTaskOA(ActionEvent actionEvent) {
+    public void viewReportOA(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void verifyDataOA(ActionEvent actionEvent) {
     }
 
     @javafx.fxml.FXML
@@ -38,10 +40,10 @@ public class AssignDailyTaskViewController
     }
 
     @javafx.fxml.FXML
-    public void saveTaskOA(ActionEvent actionEvent) {
+    public void downloadReportOA(ActionEvent actionEvent) {
     }
 
     @javafx.fxml.FXML
-    public void verifyWorkerOA(ActionEvent actionEvent) {
+    public void generateReportOA(ActionEvent actionEvent) {
     }
 }
