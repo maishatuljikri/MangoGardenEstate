@@ -1,47 +1,96 @@
 package com.example.mangogardenestate.Customer;
 
+import com.example.mangogardenestate.ModelClass2.PurchaseHistory;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class PurchaseHistoryViewController
-{
-    @javafx.fxml.FXML
-    private TableColumn mangoTypeColumn;
-    @javafx.fxml.FXML
-    private TableColumn orderIdColumn;
-    @javafx.fxml.FXML
-    private TableColumn orderDateColumn;
-    @javafx.fxml.FXML
-    private TableColumn amountColumn;
-    @javafx.fxml.FXML
-    private TableColumn deliveryStatusColumn;
-    @javafx.fxml.FXML
-    private TableColumn quantityColumn;
-    @javafx.fxml.FXML
-    private TableColumn paymentStatusColumn;
-    @javafx.fxml.FXML
-    private TextField customerNameField;
-    @javafx.fxml.FXML
-    private TableView purchaseTable;
-    @javafx.fxml.FXML
+public class PurchaseHistoryViewController {
+
+    @FXML
     private TextField customerIdField;
 
-    @javafx.fxml.FXML
+    @FXML
+    private TextField customerNameField;
+
+    @FXML
+    private TableView<PurchaseHistory> purchaseTable;
+
+    @FXML
+    private TableColumn<PurchaseHistory, String> orderIdColumn;
+
+    @FXML
+    private TableColumn<PurchaseHistory, String> orderDateColumn;
+
+    @FXML
+    private TableColumn<PurchaseHistory, String> mangoTypeColumn;
+
+    @FXML
+    private TableColumn<PurchaseHistory, Double> quantityColumn;
+
+    @FXML
+    private TableColumn<PurchaseHistory, Double> amountColumn;
+
+    @FXML
+    private TableColumn<PurchaseHistory, String> paymentStatusColumn;
+
+    @FXML
+    private TableColumn<PurchaseHistory, String> deliveryStatusColumn;
+
+    private final ObservableList<PurchaseHistory> purchaseList =
+            FXCollections.observableArrayList();
+
+    @FXML
     public void initialize() {
+
+        orderIdColumn.setCellValueFactory(new PropertyValueFactory<>("orderId"));
+        orderDateColumn.setCellValueFactory(new PropertyValueFactory<>("orderDate"));
+        mangoTypeColumn.setCellValueFactory(new PropertyValueFactory<>("mangoType"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        amountColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        paymentStatusColumn.setCellValueFactory(new PropertyValueFactory<>("paymentStatus"));
+        deliveryStatusColumn.setCellValueFactory(new PropertyValueFactory<>("deliveryStatus"));
+
+        purchaseTable.setItems(purchaseList);
     }
 
-    @javafx.fxml.FXML
-    public void downloadReportButton(ActionEvent actionEvent) {
+    @FXML
+    private void generateReportButton(ActionEvent event) {
+
+        if (customerIdField.getText().trim().isEmpty()
+                || customerNameField.getText().trim().isEmpty()) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter Customer ID and Customer Name.");
+            alert.showAndWait();
+            return;
+        }
+
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setContentText("Report generated successfully.");
+        alert.showAndWait();
     }
 
-    @javafx.fxml.FXML
-    public void backButton(ActionEvent actionEvent) {
+    @FXML
+    private void downloadReportButton(ActionEvent event) {
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setContentText("Report downloaded successfully.");
+        alert.showAndWait();
     }
 
-    @javafx.fxml.FXML
-    public void generateReportButton(ActionEvent actionEvent) {
+    @FXML
+    private void backButton(ActionEvent event) {
+
+        customerIdField.clear();
+        customerNameField.clear();
+        purchaseList.clear();
     }
 }

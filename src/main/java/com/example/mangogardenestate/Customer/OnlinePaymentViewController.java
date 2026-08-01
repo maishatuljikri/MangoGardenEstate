@@ -1,36 +1,92 @@
 package com.example.mangogardenestate.Customer;
 
+import com.example.mangogardenestate.ModelClass2.OnlinePayment;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-public class OnlinePaymentViewController
-{
-    @javafx.fxml.FXML
-    private TextField holderNameField;
-    @javafx.fxml.FXML
-    private PasswordField pinField;
-    @javafx.fxml.FXML
-    private TextField orderIdField;
-    @javafx.fxml.FXML
-    private ComboBox paymentMethodComboBox;
-    @javafx.fxml.FXML
+public class OnlinePaymentViewController {
+
+    @FXML
+    private TextField orderIdTF;
+
+    @FXML
+    private TextField TotalamountTF;
+
+    @FXML
+    private ComboBox<String> paymentMethodComboBox;
+
+    @FXML
+    private TextField accountNumberTF;
+
+    @FXML
+    private TextField holderNameTF;
+
+    @FXML
+    private PasswordField pinTF;
+
+    @FXML
     private DatePicker paymentDatePicker;
-    @javafx.fxml.FXML
+
+    @FXML
     private Label messageLabel;
-    @javafx.fxml.FXML
-    private TextField accountNumberField;
-    @javafx.fxml.FXML
-    private TextField orderIdField1;
 
-    @javafx.fxml.FXML
+    @FXML
     public void initialize() {
+
+        paymentMethodComboBox.getItems().addAll(
+                "bKash",
+                "Nagad",
+                "Rocket",
+                "Visa Card",
+                "MasterCard"
+        );
+
+        TotalamountTF.setText("1500");
     }
 
-    @javafx.fxml.FXML
-    public void clearButtonOA(ActionEvent actionEvent) {
+    @FXML
+    private void payButtonOA(ActionEvent event) {
+
+        if (orderIdTF.getText().isEmpty()
+                || TotalamountTF.getText().isEmpty()
+                || paymentMethodComboBox.getValue() == null
+                || accountNumberTF.getText().isEmpty()
+                || holderNameTF.getText().isEmpty()
+                || pinTF.getText().isEmpty()
+                || paymentDatePicker.getValue() == null) {
+
+            messageLabel.setStyle("-fx-text-fill:red;");
+            messageLabel.setText("Please fill all fields.");
+            return;
+        }
+
+        OnlinePayment payment = new OnlinePayment(
+                orderIdTF.getText(),
+                Double.parseDouble(TotalamountTF.getText()),
+                paymentMethodComboBox.getValue(),
+                accountNumberTF.getText(),
+                holderNameTF.getText(),
+                pinTF.getText(),
+                paymentDatePicker.getValue()
+        );
+
+        System.out.println(payment);
+
+        messageLabel.setStyle("-fx-text-fill:green;");
+        messageLabel.setText("Payment Successful!");
     }
 
-    @javafx.fxml.FXML
-    public void payButtonOA(ActionEvent actionEvent) {
+    @FXML
+    private void clearButtonOA(ActionEvent event) {
+
+        orderIdTF.clear();
+        TotalamountTF.clear();
+        paymentMethodComboBox.getSelectionModel().clearSelection();
+        accountNumberTF.clear();
+        holderNameTF.clear();
+        pinTF.clear();
+        paymentDatePicker.setValue(null);
+        messageLabel.setText("");
     }
 }

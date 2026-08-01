@@ -12,7 +12,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
 
         var url = HelloApplication.class.getResource(
-                "Customer/MangoAvailabilityView.fxml"
+                "Customer/Track DeliveryView.fxml"
         );
 
         System.out.println(url);
