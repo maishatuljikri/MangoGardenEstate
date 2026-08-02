@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="650.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.mangogardenestate.maisha2330841.customer_controller.DownloadInvoiceController">
+
+    <children>
+
+        <Label layoutX="220" layoutY="20"
+               style="-fx-font-size:22px; -fx-font-weight:bold;"
+               text="Customer - Download Payment Invoice"/>
+
+        <Label layoutX="50" layoutY="110" text="Order ID:"/>
+        <TextField fx:id="orderIdField"
+                   layoutX="230" layoutY="106"
+                   prefWidth="350"
+                   promptText="Enter Order ID"/>
+
+        <Label layoutX="50" layoutY="150" text="Invoice ID:"/>
+        <TextField fx:id="invoiceIdField"
+                   layoutX="230" layoutY="146"
+                   prefWidth="350"/>
+
+        <Label layoutX="50" layoutY="190" text="Customer Name:"/>
+        <TextField fx:id="customerNameField"
+                   layoutX="230" layoutY="186"
+                   prefWidth="350"/>
+
+        <Label layoutX="50" layoutY="230" text="Payment Amount:"/>
+        <TextField fx:id="paymentAmountField"
+                   layoutX="230" layoutY="226"
+                   prefWidth="350"/>
+
+        <Label layoutX="50" layoutY="270" text="Payment Date:"/>
+        <TextField fx:id="paymentDateField"
+                   layoutX="230" layoutY="266"
+                   prefWidth="350"/>
+
+        <Label layoutX="50" layoutY="310" text="Payment Method:"/>
+        <ComboBox fx:id="paymentMethodComboBox"
+                  layoutX="230"
+                  layoutY="306"
+                  prefWidth="200"/>
+
+        <Button layoutX="120"
+                layoutY="540"
+                text="Generate PDF"
+                onAction="#generatePdfButtonOA"/>
+
+        <Button layoutX="310"
+                layoutY="540"
+                text="Download Invoice"
+                onAction="#downloadButtonOA"/>
+
+        <Button layoutX="520"
+                layoutY="540"
+                text="Back"
+                onAction="#backButtonOA"/>
+
+        <Label fx:id="messageLabel"
+               layoutX="220"
+               layoutY="590"
+               style="-fx-text-fill:green; -fx-font-size:14px;"/>
+
+    </children>
+
+</AnchorPane>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="650.0" prefWidth="780.0"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.mangogardenestate.maisha2330841.customer_controller.OnlinePaymentViewController">
+
+    <children>
+
+        <Label layoutX="220.0" layoutY="20.0"
+               text="Customer - Online Payment"
+               style="-fx-font-size:22px; -fx-font-weight:bold;"/>
+
+        <Label layoutX="50.0" layoutY="70.0" text="Order ID:"/>
+        <TextField fx:id="orderIdTF"
+                   layoutX="245.0"
+                   layoutY="70.0"
+                   prefWidth="220.0"/>
+
+        <Label layoutX="50.0" layoutY="110.0" text="Total Amount:"/>
+        <TextField fx:id="TotalamountTF"
+                   layoutX="245.0"
+                   layoutY="110.0"
+                   prefWidth="220.0"
+                   editable="false"/>
+
+        <Label layoutX="50.0" layoutY="150.0" text="Payment Method:"/>
+        <ComboBox fx:id="paymentMethodComboBox"
+                  layoutX="245.0"
+                  layoutY="150.0"
+                  prefWidth="220.0"/>
+
+        <Label layoutX="50.0" layoutY="190.0" text="Card / Account Number:"/>
+        <TextField fx:id="accountNumberTF"
+                   layoutX="245.0"
+                   layoutY="190.0"
+                   prefWidth="220.0"/>
+
+        <Label layoutX="50.0" layoutY="230.0" text="Account Holder:"/>
+        <TextField fx:id="holderNameTF"
+                   layoutX="245.0"
+                   layoutY="230.0"
+                   prefWidth="220.0"/>
+
+        <Label layoutX="50.0" layoutY="270.0" text="PIN / CVV:"/>
+        <PasswordField fx:id="pinTF"
+                       layoutX="245.0"
+                       layoutY="270.0"
+                       prefWidth="220.0"/>
+
+        <Label layoutX="50.0" layoutY="310.0" text="Payment Date:"/>
+        <DatePicker fx:id="paymentDatePicker"
+                    layoutX="245.0"
+                    layoutY="310.0"/>
+
+        <Button text="Pay Now"
+                layoutX="230.0"
+                layoutY="560.0"
+                onAction="#payButtonOA"/>
+
+        <Button text="Clear"
+                layoutX="390.0"
+                layoutY="560.0"
+                onAction="#clearButtonOA"/>
+
+        <Label fx:id="messageLabel"
+               layoutX="230.0"
+               layoutY="610.0"/>
+
+    </children>
+
+</AnchorPane>
