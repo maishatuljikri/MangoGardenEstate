@@ -16,24 +16,12 @@ public class LoginController {
     private PasswordField passwordPF;
 
     @FXML
-    private ComboBox<String> roleCB;
-
-    @FXML
     private Label messageLabel;
 
     @FXML
     public void initialize() {
 
-        roleCB.setItems(FXCollections.observableArrayList(
-                "Estate Owner",
-                "Garden Manager",
-                "Farmer",
-                "Customer",
-                "Accountant",
-                "Transport Officer",
-                "Security Guard",
-                "Packaging Officer"
-        ));
+
     }
 
     @FXML
@@ -41,17 +29,14 @@ public class LoginController {
 
         String username = usernameTF.getText();
         String password = passwordPF.getText();
-        String role = roleCB.getValue();
+
 
         if (username.isEmpty()) {
             messageLabel.setText("Enter Username");
             return;
         }
 
-        if (role == null) {
-            messageLabel.setText("Select User Role");
-            return;
-        }
+
 
         if (password.isEmpty()) {
             messageLabel.setText("Enter Password");
@@ -67,7 +52,7 @@ public class LoginController {
 
         usernameTF.clear();
         passwordPF.clear();
-        roleCB.getSelectionModel().clearSelection();
+
         messageLabel.setText("");
 
     }

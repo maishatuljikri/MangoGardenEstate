@@ -1,59 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0"
-            xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.mangogardenestate.LoginController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.LoginController">
 
     <children>
 
-        <Label layoutX="250" layoutY="30"
-               text="Mango Garden Estate Login"
-               style="-fx-font-size:24px;-fx-font-weight:bold;"/>
+        <Label layoutX="250" layoutY="30" style="-fx-font-size:24px;-fx-font-weight:bold;" text="Mango Garden Estate Login" />
 
-        <Label layoutX="100" layoutY="120" text="Username"/>
+        <Label layoutX="114.0" layoutY="119.0" text="Username" />
 
-        <TextField fx:id="usernameTF"
-                   layoutX="250"
-                   layoutY="115"
-                   prefWidth="250"
-                   promptText="Enter Username"/>
+        <TextField fx:id="usernameTF" layoutX="225.0" layoutY="115.0" prefWidth="250" promptText="Enter Username" />
 
-        <Label layoutX="100" layoutY="180" text="Role"/>
+        <Label layoutX="114.0" layoutY="202.0" prefHeight="18.0" prefWidth="54.0" text="Password" />
 
-        <ComboBox fx:id="roleCB"
-                  layoutX="250"
-                  layoutY="175"
-                  prefWidth="250"
-                  promptText="Select User Role"/>
+        <PasswordField fx:id="passwordPF" layoutX="225.0" layoutY="198.0" prefWidth="250" promptText="Enter Password" />
 
-        <Label layoutX="100" layoutY="240" text="Password"/>
+        <Button layoutX="250" layoutY="320" onAction="#loginButtonOA" prefWidth="120" text="Login" />
 
-        <PasswordField fx:id="passwordPF"
-                       layoutX="250"
-                       layoutY="235"
-                       prefWidth="250"
-                       promptText="Enter Password"/>
+        <Button layoutX="390" layoutY="320" onAction="#clearButtonOA" prefWidth="120" text="Clear" />
 
-        <Button layoutX="250"
-                layoutY="320"
-                prefWidth="120"
-                text="Login"
-                onAction="#loginButtonOA"/>
-
-        <Button layoutX="390"
-                layoutY="320"
-                prefWidth="120"
-                text="Clear"
-                onAction="#clearButtonOA"/>
-
-        <Label fx:id="messageLabel"
-               layoutX="250"
-               layoutY="380"
-               style="-fx-font-size:15px;-fx-text-fill:red;"/>
+        <Label fx:id="messageLabel" layoutX="250" layoutY="380" style="-fx-font-size:15px;-fx-text-fill:red;" />
 
     </children>
 

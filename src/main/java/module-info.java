@@ -11,8 +11,8 @@ module com.example.mangogardenestate {
     exports com.example.mangogardenestate.gardenManager;
     opens com.example.mangogardenestate.gardenManager to javafx.fxml;
 
-    exports com.example.mangogardenestate.Farmer;
-    opens com.example.mangogardenestate.Farmer to javafx.fxml;
+    opens com.example.mangogardenestate.maisha2330841.farmer_controller to javafx.fxml;
+    opens com.example.mangogardenestate.maisha2330841.customer_controller to javafx.fxml;
 
 
 
