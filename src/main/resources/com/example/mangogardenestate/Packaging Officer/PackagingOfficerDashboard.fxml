@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="620.0" prefWidth="720.0" spacing="12.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.PackagingOfficer.PackagingOfficerDashboardController">
+    <children>
+        <Label style="-fx-font-size:24px; -fx-font-weight:bold;" text="Packaging Officer Dashboard" />
+        <Label text="Select an option" />
+        <Button id="RecordPackagedMangoesView" mnemonicParsing="false" onAction="#openView" prefWidth="280.0" text="Record Packaged Mangoes" />
+        <Button id="PackagingMaterialAvailabilityView" mnemonicParsing="false" onAction="#openView" prefWidth="280.0" text="Check Material Availability" />
+        <Button id="PackagingTaskAssignmentView" mnemonicParsing="false" onAction="#openView" prefWidth="280.0" text="Assign Packaging Tasks" />
+        <Button id="PackagingProgressMonitoringView" mnemonicParsing="false" onAction="#openView" prefWidth="280.0" text="Monitor Packaging Progress" />
+        <Button id="PackagingQualityInspectionView" mnemonicParsing="false" onAction="#openView" prefWidth="280.0" text="Inspect Packaging Quality" />
+        <Button id="PackagingMaterialInventoryView" mnemonicParsing="false" onAction="#openView" prefWidth="280.0" text="Manage Material Inventory" />
+        <Button id="DeliveryPreparationView" mnemonicParsing="false" onAction="#openView" prefWidth="280.0" text="Prepare Delivery Packages" />
+        <Button id="PackagingReportView" mnemonicParsing="false" onAction="#openView" prefWidth="280.0" text="Generate Packaging Report" />
+    </children>
+</VBox>
