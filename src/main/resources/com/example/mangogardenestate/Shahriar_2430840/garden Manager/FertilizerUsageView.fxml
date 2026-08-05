@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="560.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.Shahriar_2430840.gardenManager.FertilizerUsageViewController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="170.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="Track Fertilizer Usage" />
+
+        <!-- Fertilizer ID -->
+        <Label layoutX="50.0" layoutY="80.0" text="Fertilizer ID :" />
+
+        <TextField fx:id="txtFertilizerId" layoutX="200.0" layoutY="75.0" prefWidth="220.0" />
+
+        <!-- Fertilizer Name -->
+        <Label layoutX="50.0" layoutY="125.0" text="Fertilizer Name :" />
+
+        <TextField fx:id="txtFertilizerName" layoutX="200.0" layoutY="120.0" prefWidth="220.0" />
+
+        <!-- Garden Section -->
+        <Label layoutX="50.0" layoutY="170.0" text="Garden Section :" />
+
+        <TextField fx:id="txtSection" layoutX="200.0" layoutY="165.0" prefWidth="220.0" />
+
+        <!-- Quantity Used -->
+        <Label layoutX="50.0" layoutY="215.0" text="Quantity Used (Kg) :" />
+
+        <TextField fx:id="txtQuantity" layoutX="200.0" layoutY="210.0" prefWidth="220.0" />
+
+        <!-- Usage Date -->
+        <Label layoutX="50.0" layoutY="260.0" text="Usage Date :" />
+
+        <TextField fx:id="txtUsageDate" layoutX="200.0" layoutY="255.0" prefWidth="220.0" />
+
+        <!-- Usage Details -->
+        <Label layoutX="50.0" layoutY="305.0" text="Usage Details :" />
+
+        <TextArea fx:id="txtDetails" layoutX="200.0" layoutY="300.0" prefHeight="120.0" prefWidth="360.0" />
+
+        <!-- Buttons -->
+        <Button layoutX="450.0" layoutY="75.0" onAction="#verifyStockOA" prefWidth="120.0" text="Verify" />
+
+        <Button layoutX="70.0" layoutY="455.0" onAction="#updateStockOA" prefWidth="130.0" text="Update" />
+
+        <Button layoutX="220.0" layoutY="455.0" onAction="#viewSummaryOA" prefWidth="130.0" text="View" />
+
+        <Button layoutX="370.0" layoutY="455.0" onAction="#clearFormOA" prefWidth="130.0" text="Clear" />
+
+        <Button layoutX="520.0" layoutY="455.0" onAction="#goBackOA" prefWidth="120.0" text="Back" />
+
+    </children>
+
+</AnchorPane>
