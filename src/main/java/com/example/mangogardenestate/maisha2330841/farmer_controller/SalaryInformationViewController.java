@@ -1,16 +1,19 @@
 package com.example.mangogardenestate.maisha2330841.farmer_controller;
 
+import com.example.mangogardenestate.HelloApplication;
 import com.example.mangogardenestate.maisha2330841.nonuser.SalaryInformation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -105,12 +108,11 @@ public class SalaryInformationViewController implements Initializable {
     }
 
     @FXML
-    private void backButtonOA() {
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Back");
-        alert.setHeaderText(null);
-        alert.setContentText("Back button clicked.");
-        alert.showAndWait();
+    public void backOnActionButton(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/mangogardenestate/maisha2330841/farmer_controller/DailyWorkStatusView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Button signOutButton = (Button) actionEvent.getSource();
+        Stage stage = (Stage) signOutButton.getScene().getWindow();
+        stage.setScene(scene);
     }
 }

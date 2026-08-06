@@ -1,71 +1,97 @@
 package com.example.mangogardenestate;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class farmerdeshboardController {
 
-    private void loadScene(ActionEvent event, String fxmlFile) {
+    private void changeScene(ActionEvent event, String fileName) {
+
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            Parent root = loader.load();
+
+            Parent root = FXMLLoader.load(getClass().getResource(fileName));
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
             stage.setScene(new Scene(root));
             stage.show();
 
-        } catch (IOException e) {
+        } catch (Exception e) {
+
             e.printStackTrace();
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Scene Loading Error");
+            alert.setContentText(fileName + " not found.");
+            alert.showAndWait();
         }
     }
 
-    public void DailyWorkButtonOA(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/DailyWorkStatusView.fxml");
+    @FXML
+    public void DailyWorkButtonOA(ActionEvent event){
+        changeScene(event,"/com/example/mangogardenestate/maisha2330841/farmer_controller/DailyWorkStatusView.fxml");
     }
 
-    public void EquipmentRequestButtonOA(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/FarmingEquipmentView.fxml");
+    @FXML
+    public void EquipmentRequestButtonOA(ActionEvent event){
+        changeScene(event,"/com/example/mangogardenestate/maisha2330841/farmer_controller/FarmingEquipmentView.fxml");
     }
 
-    public void TreeDiseaseReportButtonOA(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/TreeDiseaseView.fxml");
+    @FXML
+    public void MangoQuantityButtonOA(ActionEvent event){
+        changeScene(event, "/com/example/mangogardenestate/maisha2330841/farmer_controller/recordharvestmangoquantity.fxml");
     }
 
-    public void RecordHarvestButtonOA(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/MangoQuantityView.fxml");
+
+    @FXML
+    public void TreeDiseaseReportButtonOA(ActionEvent event){
+        changeScene(event,"/com/example/mangogardenestate/maisha2330841/farmer_controller/TreeDiseasesView.fxml");
     }
 
-    public void WorkScheduleButtonOA(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/WorkScheduleView.fxml");
+    @FXML
+    public void RecordHarvestButtonOA(ActionEvent event){
+        changeScene(event, "/com/example/mangogardenestate/maisha2330841/farmer_controller/recordharvestmangoquantity.fxml");
     }
 
-    public void IrrigationStatusButtonOA(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/IrrigationCompletionStatusView.fxml");
+    @FXML
+    public void WorkScheduleButtonOA(ActionEvent event){
+        changeScene(event,"/com/example/mangogardenestate/maisha2330841/farmer_controller/WorkScheduleView.fxml");
     }
 
-    public void SalaryInformationButtonOA(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/SalaryInformationView.fxml");
+    @FXML
+    public void IrrigationStatusButtonOA(ActionEvent event){
+        changeScene(event,"/com/example/mangogardenestate/maisha2330841/farmer_controller/IrrigationCompletionStatusView.fxml");
     }
 
-    public void LeaveButtonOARequest(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/LeaveRequestView.fxml");
+    @FXML
+    public void SalaryInformationButtonOA(ActionEvent event){
+        changeScene(event,"/com/example/mangogardenestate/maisha2330841/farmer_controller/SalaryInformationView.fxml");
     }
 
-    public void NextButtonOA(ActionEvent event) {
-        System.out.println("Next button clicked.");
+    @FXML
+    public void LeaveButtonOARequest(ActionEvent event){
+        changeScene(event,"/com/example/mangogardenestate/maisha2330841/farmer_controller/RequestLeaveView.fxml");
     }
 
-    public void BackButtonOA(ActionEvent event) {
-        System.out.println("Back button clicked.");
+    @FXML
+    public void NextButtonOA(ActionEvent event){
+        changeScene(event,"/com/example/mangogardenestate/maisha2330841/farmer_controller/DailyWorkStatusView.fxml");
     }
 
-    public void LogoutButtonOA(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/LoginView.fxml");
+    @FXML
+    public void BackButtonOA(ActionEvent event){
+        changeScene(event,"/com/example/mangogardenestate/farmerdeshboard.fxml");
     }
+
+    @FXML
+    public void LogoutButtonOA(ActionEvent event){
+        changeScene(event,"/com/example/mangogardenestate/LoginView.fxml");
+    }
+
 }

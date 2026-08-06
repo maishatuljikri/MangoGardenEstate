@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="590.0" prefWidth="871.0"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.mangogardenestate.maisha2330841.farmer_controller.recordharvestmangoquantityController">
+
+    <children>
+
+        <Label layoutX="170" layoutY="20"
+               text="Record Harvested Mango Quantity"
+               style="-fx-font-size:22px;-fx-font-weight:bold;"/>
+
+        <Label layoutX="50" layoutY="74" text="Harvest Date:"/>
+        <DatePicker fx:id="harvestDatePicker" layoutX="245" layoutY="70"/>
+
+        <Label layoutX="50" layoutY="118" text="Garden Section:"/>
+        <ComboBox fx:id="sectionComboBox"
+                  layoutX="245"
+                  layoutY="114"
+                  prefWidth="220"/>
+
+        <Label layoutX="50" layoutY="162" text="Mango Variety:"/>
+        <TextField fx:id="varietyField"
+                   layoutX="245"
+                   layoutY="158"
+                   promptText="Enter Mango Variety"/>
+
+        <Label layoutX="50" layoutY="206" text="Harvest Quantity (kg):"/>
+        <TextField fx:id="quantityField"
+                   layoutX="245"
+                   layoutY="202"
+                   promptText="Enter Quantity"/>
+
+        <Label layoutX="50" layoutY="250" text="Quality Grade:"/>
+        <ComboBox fx:id="gradeComboBox"
+                  layoutX="245"
+                  layoutY="246"
+                  prefWidth="220"/>
+
+        <Label layoutX="50" layoutY="290" text="Remarks:"/>
+        <TextArea fx:id="remarksArea"
+                  layoutX="245"
+                  layoutY="290"
+                  prefHeight="120"
+                  prefWidth="320"/>
+
+        <Button layoutX="220"
+                layoutY="520"
+                text="Save Harvest Record"
+                onAction="#saveButtonOA"/>
+
+        <Button layoutX="420"
+                layoutY="520"
+                text="Clear"
+                onAction="#clearButtonOA"/>
+
+        <Button layoutX="620"
+                layoutY="520"
+                text="Back"
+                onAction="#backButtonOA"/>
+
+        <Label fx:id="messageLabel"
+               layoutX="70"
+               layoutY="555"
+               style="-fx-text-fill:green;-fx-font-size:14px;"/>
+
+    </children>
+
+</AnchorPane>

@@ -1,11 +1,9 @@
 package com.example.mangogardenestate.maisha2330841.nonuser;
 
-
-
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class MangoQuantity implements Serializable {
+public class recordharvestmangoquantity implements Serializable {
 
     private LocalDate harvestDate;
     private String section;
@@ -14,13 +12,12 @@ public class MangoQuantity implements Serializable {
     private String grade;
     private String remarks;
 
-    public MangoQuantity(LocalDate harvestDate,
-                         String section,
-                         String variety,
-                         double quantity,
-                         String grade,
-                         String remarks) {
-
+    public recordharvestmangoquantity(LocalDate harvestDate,
+                                      String section,
+                                      String variety,
+                                      double quantity,
+                                      String grade,
+                                      String remarks) {
         this.harvestDate = harvestDate;
         this.section = section;
         this.variety = variety;
@@ -51,5 +48,17 @@ public class MangoQuantity implements Serializable {
 
     public String getRemarks() {
         return remarks;
+    }
+
+    @Override
+    public String toString() {
+        return "Harvest{" +
+                "Date=" + harvestDate +
+                ", Section='" + section + '\'' +
+                ", Variety='" + variety + '\'' +
+                ", Quantity=" + quantity +
+                ", Grade='" + grade + '\'' +
+                ", Remarks='" + remarks + '\'' +
+                '}';
     }
 }

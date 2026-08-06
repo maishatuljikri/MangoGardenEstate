@@ -1,10 +1,11 @@
 package com.example.mangogardenestate.maisha2330841.customer_controller;
 
-import com.example.mangogardenestate.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -84,12 +85,33 @@ public class CancelOrdersViewController implements Initializable {
         messageLabel.setText("");
     }
 
-    
-    public void backOnActionButton(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/mangogardenestate/maisha2330841/customer_controller/CancelOrdersView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Button signOutButton = (Button) actionEvent.getSource();
-        Stage stage = (Stage) signOutButton.getScene().getWindow();
-        stage.setScene(scene);
+    @FXML
+    public void backOnActionButton(ActionEvent actionEvent) {
+        try {
+            URL fxmlUrl = getClass().getResource(
+                    "/com/example/mangogardenestate/maisha2330841/customer_controller/CustomerDashboard.fxml");
+
+            if (fxmlUrl == null) {
+                throw new IOException("CustomerDashboard.fxml not found on classpath.");
+            }
+
+            FXMLLoader loader = new FXMLLoader(fxmlUrl);
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.setTitle("Customer Dashboard");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Scene Error");
+            alert.setHeaderText(null);
+            alert.setContentText("CustomerDashboard.fxml not found.");
+            alert.showAndWait();
+        }
     }
 }

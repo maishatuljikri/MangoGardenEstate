@@ -5,105 +5,101 @@ import java.time.LocalDate;
 public class MangoOrder {
 
     private String customerId;
-    private String mangoVariety;
-    private double pricePerKg;
-    private double availableStock;
-    private double orderQuantity;
+    private String mangoType;
+    private double price;
+    private int stock;
+    private int quantity;
     private LocalDate deliveryDate;
-    private String deliveryAddress;
+    private String address;
 
-    // Default Constructor
-    public MangoOrder() {
-    }
-
-    // Parameterized Constructor
-    public MangoOrder(String customerId, String mangoVariety,
-                      double pricePerKg, double availableStock,
-                      double orderQuantity, LocalDate deliveryDate,
-                      String deliveryAddress) {
+    public MangoOrder(String customerId,
+                      String mangoType,
+                      double price,
+                      int stock,
+                      int quantity,
+                      LocalDate deliveryDate,
+                      String address) {
 
         this.customerId = customerId;
-        this.mangoVariety = mangoVariety;
-        this.pricePerKg = pricePerKg;
-        this.availableStock = availableStock;
-        this.orderQuantity = orderQuantity;
+        this.mangoType = mangoType;
+        this.price = price;
+        this.stock = stock;
+        this.quantity = quantity;
         this.deliveryDate = deliveryDate;
-        this.deliveryAddress = deliveryAddress;
+        this.address = address;
     }
 
-    // Getters
     public String getCustomerId() {
         return customerId;
     }
 
-    public String getMangoVariety() {
-        return mangoVariety;
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
     }
 
-    public double getPricePerKg() {
-        return pricePerKg;
+    public String getMangoType() {
+        return mangoType;
     }
 
-    public double getAvailableStock() {
-        return availableStock;
+    public void setMangoType(String mangoType) {
+        this.mangoType = mangoType;
     }
 
-    public double getOrderQuantity() {
-        return orderQuantity;
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public LocalDate getDeliveryDate() {
         return deliveryDate;
     }
 
-    public String getDeliveryAddress() {
-        return deliveryAddress;
-    }
-
-    // Setters
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
-    }
-
-    public void setMangoVariety(String mangoVariety) {
-        this.mangoVariety = mangoVariety;
-    }
-
-    public void setPricePerKg(double pricePerKg) {
-        this.pricePerKg = pricePerKg;
-    }
-
-    public void setAvailableStock(double availableStock) {
-        this.availableStock = availableStock;
-    }
-
-    public void setOrderQuantity(double orderQuantity) {
-        this.orderQuantity = orderQuantity;
-    }
-
     public void setDeliveryDate(LocalDate deliveryDate) {
         this.deliveryDate = deliveryDate;
     }
 
-    public void setDeliveryAddress(String deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
+    public String getAddress() {
+        return address;
     }
 
-    // Calculate Total Price
-    public double getTotalPrice() {
-        return pricePerKg * orderQuantity;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    /** Convenience total cost for this order. */
+    public double getTotalCost() {
+        return price * quantity;
     }
 
     @Override
     public String toString() {
         return "MangoOrder{" +
                 "customerId='" + customerId + '\'' +
-                ", mangoVariety='" + mangoVariety + '\'' +
-                ", pricePerKg=" + pricePerKg +
-                ", availableStock=" + availableStock +
-                ", orderQuantity=" + orderQuantity +
+                ", mangoType='" + mangoType + '\'' +
+                ", price=" + price +
+                ", stock=" + stock +
+                ", quantity=" + quantity +
                 ", deliveryDate=" + deliveryDate +
-                ", deliveryAddress='" + deliveryAddress + '\'' +
+                ", address='" + address + '\'' +
                 '}';
     }
 }
