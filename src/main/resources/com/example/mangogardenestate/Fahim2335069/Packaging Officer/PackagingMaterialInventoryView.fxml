@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="560.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.PackagingOfficer.PackagingMaterialInventoryViewController">
+    <children>
+        <Label fx:id="lblTitle" layoutX="170.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="Packaging Material Inventory" />
+        <Label layoutX="50.0" layoutY="90.0" text="Material ID :" />
+        <TextField fx:id="txtReference" layoutX="190.0" layoutY="85.0" prefWidth="230.0" promptText="Enter material id" />
+        <Button layoutX="445.0" layoutY="85.0" onAction="#searchData" prefWidth="110.0" text="Retrieve" />
+        <Label layoutX="50.0" layoutY="145.0" text="Details :" />
+        <TextField fx:id="txtDetails" layoutX="190.0" layoutY="140.0" prefWidth="365.0" promptText="Stock update details" />
+        <Label layoutX="50.0" layoutY="200.0" text="Status :" />
+        <ComboBox fx:id="cmbStatus" layoutX="190.0" layoutY="195.0" prefWidth="365.0" promptText="Select status" />
+        <Label layoutX="50.0" layoutY="255.0" text="Report :" />
+        <TextArea fx:id="txtReport" layoutX="190.0" layoutY="250.0" prefHeight="130.0" prefWidth="365.0" />
+        <Button layoutX="75.0" layoutY="440.0" onAction="#saveRecord" prefWidth="120.0" text="Save" />
+        <Button layoutX="220.0" layoutY="440.0" onAction="#viewReport" prefWidth="120.0" text="View Report" />
+        <Button layoutX="365.0" layoutY="440.0" onAction="#clearForm" prefWidth="120.0" text="Clear" />
+        <Button layoutX="510.0" layoutY="440.0" onAction="#goBack" prefWidth="120.0" text="Back" />
+    </children>
+</AnchorPane>
