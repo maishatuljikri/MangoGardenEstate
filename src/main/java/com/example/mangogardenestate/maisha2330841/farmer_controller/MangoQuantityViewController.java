@@ -1,5 +1,6 @@
 package com.example.mangogardenestate.maisha2330841.farmer_controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -108,5 +109,9 @@ public class MangoQuantityViewController implements Initializable {
         gradeComboBox.getSelectionModel().clearSelection();
         remarksArea.clear();
         messageLabel.setText("");
+    }
+
+    @FXML
+    public void backButtonOA(ActionEvent actionEvent) {
     }
 }

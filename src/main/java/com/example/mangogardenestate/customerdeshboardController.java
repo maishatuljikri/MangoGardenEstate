@@ -12,8 +12,10 @@ import java.io.IOException;
 public class customerdeshboardController {
 
     private void loadScene(ActionEvent event, String fxmlFile) {
+
         try {
-            Parent root = FXMLLoader.load(getClass().getResource(fxmlFile));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Parent root = loader.load();
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -25,46 +27,62 @@ public class customerdeshboardController {
     }
 
     public void placemangoorderButtonOA(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/MangoOrdersView.fxml");
+        loadScene(event,
+                "/com/example/mangogardenestate/maisha2330841/customer_controller/MangoOrdersView.fxml");
     }
 
     public void CheckMangoAvailabilityButtonOA(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/MangoAvailabilityView.fxml");
+        loadScene(event,
+                "/com/example/mangogardenestate/maisha2330841/customer_controller/MangoAvailabilityView.fxml");
     }
 
     public void PurchaseHistoryButtonOA(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/PurchaseHistoryView.fxml");
+        loadScene(event,
+                "/com/example/mangogardenestate/maisha2330841/customer_controller/PurchaseHistoryView.fxml");
     }
 
     public void OnlinePaymentButtonOA(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/OnlinePaymentView.fxml");
+        loadScene(event,
+                "/com/example/mangogardenestate/maisha2330841/customer_controller/OnlinePaymentView.fxml");
     }
 
     public void ProductReviewOA(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/ProductReviewView.fxml");
+        loadScene(event,
+                "/com/example/mangogardenestate/maisha2330841/customer_controller/ProductReviewsView.fxml");
     }
 
     public void DownloadinvoiceButtonOA(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/DownloadInvoiceView.fxml");
+        loadScene(event,
+                "/com/example/mangogardenestate/maisha2330841/customer_controller/DownloadPaymentView.fxml");
     }
 
     public void CancelOrderbuttonOA(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/CancelOrdersView.fxml");
+        loadScene(event,
+                "/com/example/mangogardenestate/maisha2330841/customer_controller/CancelOrdersView.fxml");
     }
 
     public void TrackDeliveryButtonOA(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/TrackDeliveryView.fxml");
+        loadScene(event,
+                "/com/example/mangogardenestate/maisha2330841/customer_controller/TrackDeliveryView.fxml");
     }
 
     public void NextButtonOA(ActionEvent event) {
-        System.out.println("Next button clicked.");
+
+        // Change this to the next page you want
+        loadScene(event,
+                "/com/example/mangogardenestate/maisha2330841/customer_controller/Product ReviewsView.fxml");
     }
 
     public void BackButtonOA(ActionEvent event) {
-        System.out.println("Back button clicked.");
+
+        // Change this to the previous page you want
+        loadScene(event,
+                "/com/example/mangogardenestate/customerdeshboard.fxml");
     }
 
     public void LogoutButtonOA(ActionEvent event) {
-        loadScene(event, "/com/example/mangogardenestate/LoginView.fxml");
+        loadScene(event,
+                "/com/example/mangogardenestate/LoginView.fxml");
     }
+
 }

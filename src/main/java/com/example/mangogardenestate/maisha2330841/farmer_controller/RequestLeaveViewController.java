@@ -1,5 +1,6 @@
 package com.example.mangogardenestate.maisha2330841.farmer_controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -101,5 +102,9 @@ public class RequestLeaveViewController implements Initializable {
         statusComboBox.setValue("Pending");
 
         messageLabel.setText("");
+    }
+
+    @FXML
+    public void backButtonOA(ActionEvent actionEvent) {
     }
 }

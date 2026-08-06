@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.Farmer.RequestLeaveViewController">
+<AnchorPane prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.maisha2330841.farmer_controller.RequestLeaveViewController">
 
     <children>
 
@@ -16,9 +16,9 @@
         <Label layoutX="240.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="com.example.mangogardenestate.Farmer - Leave Request" />
 
           <!-- com.example.mangogardenestate.Farmer ID -->
-          <Label layoutX="50.0" layoutY="74.0" text="com.example.mangogardenestate.Farmer ID:" />
+          <Label layoutX="50.0" layoutY="74.0" text="Farmer ID:" />
 
-          <TextField fx:id="farmerIdField" layoutX="245.1999969482422" layoutY="70.0" promptText="Enter com.example.mangogardenestate.Farmer ID" />
+          <TextField fx:id="farmerIdField" layoutX="245.0" layoutY="69.0" prefHeight="26.0" prefWidth="175.0" />
 
           <!-- Leave Type -->
           <Label layoutX="50.0" layoutY="118.0" text="Leave Type:" />
@@ -52,6 +52,7 @@
 
         <!-- Confirmation Message -->
         <Label fx:id="messageLabel" layoutX="220.0" layoutY="585.0" style="-fx-text-fill:green; -fx-font-size:14px;" text="" />
+      <Button layoutX="518.0" layoutY="540.0" mnemonicParsing="false" onAction="#backButtonOA" text="back" />
 
     </children>
 

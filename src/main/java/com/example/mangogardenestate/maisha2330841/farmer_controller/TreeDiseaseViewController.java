@@ -1,5 +1,6 @@
 package com.example.mangogardenestate.maisha2330841.farmer_controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -107,5 +108,13 @@ public class TreeDiseaseViewController implements Initializable {
         descriptionArea.clear();
 
         messageLabel.setText("");
+    }
+
+    @FXML
+    public void backButtonOA(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void clearButtonButtonOA(ActionEvent actionEvent) {
     }
 }

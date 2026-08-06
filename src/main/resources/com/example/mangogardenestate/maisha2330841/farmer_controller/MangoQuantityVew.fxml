@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.Farmer.MangoQuantityViewController">
+<AnchorPane prefHeight="590.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.maisha2330841.farmer_controller.MangoQuantityViewController">
 
     <children>
 
@@ -51,7 +51,8 @@
         <Button layoutX="420.0" layoutY="520.0" mnemonicParsing="false" onAction="#clearButtonOA" text="Clear" />
 
         <!-- Success Message -->
-        <Label fx:id="messageLabel" layoutX="220.0" layoutY="570.0" style="-fx-text-fill:green; -fx-font-size:14px;" text="" />
+        <Label fx:id="messageLabel" layoutX="74.0" layoutY="536.0" prefHeight="20.0" prefWidth="94.0" style="-fx-text-fill:green; -fx-font-size:14px;" text="" />
+      <Button layoutX="624.0" layoutY="527.0" mnemonicParsing="false" onAction="#backButtonOA" text="back" />
 
     </children>
 

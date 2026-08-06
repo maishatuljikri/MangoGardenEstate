@@ -23,11 +23,7 @@
           <!-- Mango Variety -->
           <Label layoutX="50.0" layoutY="118.0" text="Mango Variety:" />
 
-        <ComboBox fx:id="mangoComboBox"
-                  layoutX="245.0"
-                  layoutY="114.0"
-                  prefWidth="220.0"
-                  promptText="Select Mango Variety"/>
+        <ComboBox fx:id="mangoComboBox" layoutX="245.0" layoutY="114.0" prefWidth="220.0" promptText="Select Mango Variety" />
 
           <!-- Price -->
           <Label layoutX="50.0" layoutY="158.0" text="Price per Kg:" />
@@ -57,17 +53,10 @@
 
         <!-- Confirmation Message -->
         <Label fx:id="messageLabel" layoutX="220.0" layoutY="605.0" style="-fx-text-fill:green; -fx-font-size:14px;" text="" />
-        <TextField fx:id="priceField"
-                   layoutX="245.0"
-                   layoutY="154.0"
-                   editable="false"
-                   promptText="Price"/>
+        <TextField fx:id="priceField" editable="false" layoutX="245.0" layoutY="154.0" promptText="Price" />
 
-        <TextField fx:id="stockField"
-                   layoutX="245.0"
-                   layoutY="190.0"
-                   editable="false"
-                   promptText="Available Stock"/>
+        <TextField fx:id="stockField" editable="false" layoutX="245.0" layoutY="190.0" promptText="Available Stock" />
+      <Button layoutX="559.0" layoutY="560.0" mnemonicParsing="false" onAction="#BackButtonOA" text="Back" />
     </children>
 
 </AnchorPane>

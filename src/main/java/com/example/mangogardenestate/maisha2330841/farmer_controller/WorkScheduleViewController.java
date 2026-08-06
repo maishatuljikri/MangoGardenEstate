@@ -3,20 +3,27 @@ package com.example.mangogardenestate.maisha2330841.farmer_controller;
 import com.example.mangogardenestate.maisha2330841.nonuser.WorkSchedule;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class WorkScheduleViewController implements Initializable {
 
     @FXML
-    private TableView<WorkSchedule> scheduleTable;
+    private TableView<WorkSchedule> scheduleTableTC;
 
     @FXML
     private TableColumn<WorkSchedule, String> taskIdColumn;
@@ -83,7 +90,7 @@ public class WorkScheduleViewController implements Initializable {
                 "Pending"
         ));
 
-        scheduleTable.setItems(scheduleList);
+        scheduleTableTC.setItems(scheduleList);
     }
 
     @FXML
@@ -97,12 +104,15 @@ public class WorkScheduleViewController implements Initializable {
     }
 
     @FXML
-    private void backButtonOA() {
+    private void backButtonOA(ActionEvent event) throws IOException {
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Back");
-        alert.setHeaderText(null);
-        alert.setContentText("Back to dashboard.");
-        alert.showAndWait();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                "/com/example/mangogardenestate/maisha2330841/farmer_controller/FarmerDashboard.fxml"));
+
+        Parent root = loader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }
