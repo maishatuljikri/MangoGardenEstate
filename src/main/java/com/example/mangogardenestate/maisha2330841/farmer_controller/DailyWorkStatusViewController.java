@@ -1,6 +1,6 @@
 package com.example.mangogardenestate.maisha2330841.farmer_controller;
 
-import com.example.mangogardenestate.HelloApplication;
+import com.example.mangogardenestate.maisha2330841.nonuser.DailyWorkStatus;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,9 +11,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class DailyWorkStatusViewController implements Initializable {
@@ -36,6 +37,10 @@ public class DailyWorkStatusViewController implements Initializable {
     @FXML
     private Label messageLabel;
 
+    private final String FILE_NAME = "DailyWorkStatus.bin";
+
+    private ArrayList<DailyWorkStatus> workList = new ArrayList<>();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -45,50 +50,102 @@ public class DailyWorkStatusViewController implements Initializable {
                 "Completed"
         );
 
-
-        assignedTaskField.clear();
-
         workDatePicker.setValue(LocalDate.now());
+
+        loadData();
     }
 
     @FXML
-    private void saveButtonOA() {
+    public void saveButtonOA() {
 
-        String title = workTitleField.getText();
-        LocalDate date = workDatePicker.getValue();
-        String task = assignedTaskField.getText();
-        String details = workDetailsArea.getText();
-        String status = statusComboBox.getValue();
-
-        if (title.isEmpty()
-                || date == null
-                || details.isEmpty()
-                || status == null) {
+        if (workTitleField.getText().isEmpty()
+                || workDatePicker.getValue() == null
+                || assignedTaskField.getText().isEmpty()
+                || workDetailsArea.getText().isEmpty()
+                || statusComboBox.getValue() == null) {
 
             messageLabel.setStyle("-fx-text-fill:red;");
-            messageLabel.setText("Please fill all required fields.");
+            messageLabel.setText("Please fill all fields.");
             return;
         }
 
+        DailyWorkStatus work = new DailyWorkStatus(
 
-        System.out.println("Work Title : " + title);
-        System.out.println("Date       : " + date);
-        System.out.println("Task       : " + task);
-        System.out.println("Details    : " + details);
-        System.out.println("Status     : " + status);
+                workTitleField.getText(),
+                workDatePicker.getValue(),
+                assignedTaskField.getText(),
+                workDetailsArea.getText(),
+                statusComboBox.getValue()
+
+        );
+
+        workList.add(work);
+
+        saveData();
 
         messageLabel.setStyle("-fx-text-fill:green;");
-        messageLabel.setText("Work status saved successfully!");
+        messageLabel.setText("Saved Successfully.");
+
+    }
+
+    private void saveData() {
+
+        try {
+
+            ObjectOutputStream oos =
+                    new ObjectOutputStream(
+                            new FileOutputStream(FILE_NAME));
+
+            oos.writeObject(workList);
+
+            oos.close();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+    @SuppressWarnings("unchecked")
+    private void loadData() {
+
+        File file = new File(FILE_NAME);
+
+        if (!file.exists()) {
+            return;
+        }
+
+        try {
+
+            ObjectInputStream ois =
+                    new ObjectInputStream(
+                            new FileInputStream(FILE_NAME));
+
+            workList =
+                    (ArrayList<DailyWorkStatus>) ois.readObject();
+
+            ois.close();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
     }
 
     @FXML
-    private void clearButtonOA() {
+    public void clearButtonOA() {
 
         workTitleField.clear();
-        workDatePicker.setValue(LocalDate.now());
+        assignedTaskField.clear();
         workDetailsArea.clear();
+        workDatePicker.setValue(LocalDate.now());
         statusComboBox.getSelectionModel().clearSelection();
         messageLabel.setText("");
+
     }
 
     @FXML
@@ -97,26 +154,22 @@ public class DailyWorkStatusViewController implements Initializable {
         try {
 
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource(
-                            "/com/example/mangogardenestate/farmerdeshboard.fxml"));
+                    getClass().getResource("/com/example/mangogardenestate/farmerdeshboard.fxml"));
 
             Parent root = loader.load();
 
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Stage stage =
+                    (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             stage.setScene(new Scene(root));
-            stage.setTitle("Customer Dashboard");
             stage.show();
 
         } catch (IOException e) {
 
             e.printStackTrace();
 
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Scene Error");
-            alert.setHeaderText(null);
-            alert.setContentText("farmerdeshboard.fxml not found.");
-            alert.showAndWait();
         }
+
     }
+
 }
