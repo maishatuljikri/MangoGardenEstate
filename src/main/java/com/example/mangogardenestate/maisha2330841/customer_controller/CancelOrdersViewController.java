@@ -1,5 +1,6 @@
 package com.example.mangogardenestate.maisha2330841.customer_controller;
 
+import com.example.mangogardenestate.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,7 +52,7 @@ public class CancelOrdersViewController implements Initializable {
     }
 
     @FXML
-    private void submitButtonOA() {
+    public void submitButtonOA() {
 
         if (orderIdField.getText().isEmpty()
                 || reasonComboBox.getValue() == null
@@ -62,11 +63,11 @@ public class CancelOrdersViewController implements Initializable {
             return;
         }
 
-        System.out.println("Order ID: " + orderIdField.getText());
-        System.out.println("Status: Cancelled");
-        System.out.println("Cancel Date: " + cancelDatePicker.getValue());
-        System.out.println("Reason: " + reasonComboBox.getValue());
-        System.out.println("Comments: " + commentsArea.getText());
+        System.out.println("Order ID : " + orderIdField.getText());
+        System.out.println("Status : Cancelled");
+        System.out.println("Cancel Date : " + cancelDatePicker.getValue());
+        System.out.println("Reason : " + reasonComboBox.getValue());
+        System.out.println("Comments : " + commentsArea.getText());
 
         statusLabel.setText("Cancelled");
 
@@ -75,7 +76,7 @@ public class CancelOrdersViewController implements Initializable {
     }
 
     @FXML
-    private void clearButtonOA() {
+    public void clearButtonOA() {
 
         orderIdField.clear();
         statusLabel.setText("Pending");
@@ -86,32 +87,18 @@ public class CancelOrdersViewController implements Initializable {
     }
 
     @FXML
-    public void backOnActionButton(ActionEvent actionEvent) {
-        try {
-            URL fxmlUrl = getClass().getResource(
-                    "/com/example/mangogardenestate/maisha2330841/customer_controller/CustomerDashboard.fxml");
+    public void backButtonOA(ActionEvent event) throws IOException {
 
-            if (fxmlUrl == null) {
-                throw new IOException("CustomerDashboard.fxml not found on classpath.");
-            }
+        FXMLLoader loader = new FXMLLoader(
+                HelloApplication.class.getResource(
+                        "/com/example/mangogardenestate/customerdeshboard.fxml"));
 
-            FXMLLoader loader = new FXMLLoader(fxmlUrl);
-            Parent root = loader.load();
+        Scene scene = new Scene(loader.load());
 
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
 
-            stage.setScene(new Scene(root));
-            stage.setTitle("Customer Dashboard");
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Scene Error");
-            alert.setHeaderText(null);
-            alert.setContentText("CustomerDashboard.fxml not found.");
-            alert.showAndWait();
-        }
+        stage.setScene(scene);
+        stage.setTitle("Customer Dashboard");
+        stage.show();
     }
 }

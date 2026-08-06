@@ -1,6 +1,7 @@
 package com.example.mangogardenestate.maisha2330841.farmer_controller;
 
 import com.example.mangogardenestate.HelloApplication;
+import com.example.mangogardenestate.maisha2330841.nonuser.TreeDisease;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,9 +10,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class TreeDiseaseViewController implements Initializable {
@@ -36,6 +38,10 @@ public class TreeDiseaseViewController implements Initializable {
 
     @FXML
     private Label messageLabel;
+
+    private final String FILE_NAME = "TreeDisease.bin";
+
+    private ArrayList<TreeDisease> diseaseList = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -62,43 +68,90 @@ public class TreeDiseaseViewController implements Initializable {
         );
 
         reportDatePicker.setValue(LocalDate.now());
+
+        loadData();
     }
 
     @FXML
-    private void submitButtonOA() {
+    public void submitButtonOA() {
 
-        String treeId = treeIdField.getText();
-        String section = sectionComboBox.getValue();
-        LocalDate reportDate = reportDatePicker.getValue();
-        String disease = diseaseTypeComboBox.getValue();
-        String severity = severityComboBox.getValue();
-        String description = descriptionArea.getText();
-
-        if (treeId.isEmpty()
-                || section == null
-                || reportDate == null
-                || disease == null
-                || severity == null
-                || description.isEmpty()) {
+        if (treeIdField.getText().isEmpty()
+                || sectionComboBox.getValue() == null
+                || reportDatePicker.getValue() == null
+                || diseaseTypeComboBox.getValue() == null
+                || severityComboBox.getValue() == null
+                || descriptionArea.getText().isEmpty()) {
 
             messageLabel.setStyle("-fx-text-fill:red;");
             messageLabel.setText("Please fill all fields.");
             return;
         }
 
-        System.out.println("Tree ID: " + treeId);
-        System.out.println("Section: " + section);
-        System.out.println("Report Date: " + reportDate);
-        System.out.println("Disease: " + disease);
-        System.out.println("Severity: " + severity);
-        System.out.println("Description: " + description);
+        TreeDisease disease = new TreeDisease(
+
+                treeIdField.getText(),
+                sectionComboBox.getValue(),
+                reportDatePicker.getValue(),
+                diseaseTypeComboBox.getValue(),
+                severityComboBox.getValue(),
+                descriptionArea.getText()
+
+        );
+
+        diseaseList.add(disease);
+
+        saveData();
 
         messageLabel.setStyle("-fx-text-fill:green;");
-        messageLabel.setText("Disease report submitted successfully.");
+        messageLabel.setText("Disease report saved successfully.");
+    }
+
+    private void saveData() {
+
+        try {
+
+            ObjectOutputStream oos =
+                    new ObjectOutputStream(
+                            new FileOutputStream(FILE_NAME));
+
+            oos.writeObject(diseaseList);
+
+            oos.close();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private void loadData() {
+
+        File file = new File(FILE_NAME);
+
+        if (!file.exists()) {
+            return;
+        }
+
+        try {
+
+            ObjectInputStream ois =
+                    new ObjectInputStream(
+                            new FileInputStream(FILE_NAME));
+
+            diseaseList =
+                    (ArrayList<TreeDisease>) ois.readObject();
+
+            ois.close();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    private void clearButtonOA() {
+    public void clearButtonOA() {
 
         treeIdField.clear();
 
