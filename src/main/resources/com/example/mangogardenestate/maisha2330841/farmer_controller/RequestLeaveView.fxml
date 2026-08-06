@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.maisha2330841.farmer_controller.RequestLeaveViewController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="240.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="com.example.mangogardenestate.Farmer - Leave Request" />
+
+          <!-- com.example.mangogardenestate.Farmer ID -->
+          <Label layoutX="50.0" layoutY="74.0" text="Farmer ID:" />
+
+          <TextField fx:id="farmerIdField" layoutX="245.0" layoutY="69.0" prefHeight="26.0" prefWidth="175.0" />
+
+          <!-- Leave Type -->
+          <Label layoutX="50.0" layoutY="118.0" text="Leave Type:" />
+
+          <ComboBox fx:id="leaveTypeComboBox" layoutX="245.1999969482422" layoutY="114.0" prefWidth="220" promptText="Select Leave Type" />
+
+          <!-- Start Date -->
+          <Label layoutX="50.0" layoutY="162.0" text="Start Date:" />
+
+          <DatePicker fx:id="startDatePicker" layoutX="245.1999969482422" layoutY="158.0" />
+
+          <!-- End Date -->
+          <Label layoutX="50.0" layoutY="206.0" text="End Date:" />
+
+          <DatePicker fx:id="endDatePicker" layoutX="245.1999969482422" layoutY="202.0" />
+
+          <!-- Reason -->
+          <Label layoutX="50.0" layoutY="297.20001220703125" text="Reason for Leave:" />
+
+          <TextArea fx:id="reasonArea" layoutX="245.1999969482422" layoutY="246.0" prefHeight="120" prefWidth="320" promptText="Enter the reason for leave..." />
+
+          <!-- Request Status -->
+          <Label layoutX="50.0" layoutY="388.3999938964844" text="Request Status:" />
+
+          <ComboBox fx:id="statusComboBox" disable="true" layoutX="245.1999969482422" layoutY="384.3999938964844" prefWidth="220" promptText="Pending" />
+
+        <!-- Buttons -->
+        <Button layoutX="220.0" layoutY="540.0" mnemonicParsing="false" onAction="#submitButtonOA" text="Submit Request" />
+
+        <Button layoutX="400.0" layoutY="540.0" mnemonicParsing="false" onAction="#clearButtonOA" text="Clear" />
+
+        <!-- Confirmation Message -->
+        <Label fx:id="messageLabel" layoutX="220.0" layoutY="585.0" style="-fx-text-fill:green; -fx-font-size:14px;" text="" />
+      <Button layoutX="518.0" layoutY="540.0" mnemonicParsing="false" onAction="#backButtonOA" text="back" />
+
+    </children>
+
+</AnchorPane>

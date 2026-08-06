@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="516.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.customerdeshboardController">
+   <children>
+      <Button layoutX="119.0" layoutY="47.0" mnemonicParsing="false" onAction="#placemangoorderButtonOA" prefHeight="50.0" prefWidth="138.0" text="Place Mango Order" />
+      <Button layoutX="372.0" layoutY="47.0" mnemonicParsing="false" onAction="#CheckMangoAvailabilityButtonOA" prefHeight="50.0" prefWidth="138.0" text="Check Mango Availability" wrapText="true" />
+      <Button layoutX="392.0" layoutY="275.0" mnemonicParsing="false" onAction="#PurchaseHistoryButtonOA" prefHeight="50.0" prefWidth="125.0" text="Purchase History" />
+      <Button layoutX="119.0" layoutY="174.0" mnemonicParsing="false" onAction="#OnlinePaymentButtonOA" prefHeight="50.0" prefWidth="131.0" text="Online Payment" />
+      <Button layoutX="135.0" layoutY="403.0" mnemonicParsing="false" onAction="#ProductReviewOA" prefHeight="50.0" prefWidth="118.0" text="Product Review" />
+      <Button layoutX="392.0" layoutY="398.0" mnemonicParsing="false" onAction="#DownloadinvoiceButtonOA" prefHeight="60.0" prefWidth="131.0" text="Download Invoice" />
+      <Button layoutX="135.0" layoutY="288.0" mnemonicParsing="false" onAction="#CancelOrderbuttonOA" prefHeight="50.0" prefWidth="118.0" text="Cancel Order" />
+      <Button layoutX="386.0" layoutY="164.0" mnemonicParsing="false" onAction="#TrackDeliveryButtonOA" prefHeight="50.0" prefWidth="138.0" text="Track Delivery" />
+      <Button layoutX="641.0" layoutY="428.0" mnemonicParsing="false" onAction="#NextButtonOA" text="Next" />
+      <Button layoutX="570.0" layoutY="428.0" mnemonicParsing="false" onAction="#BackButtonOA" text="Back" />
+      <Button layoutX="284.0" layoutY="464.0" mnemonicParsing="false" onAction="#LogoutButtonOA" text="Logout" />
+   </children>
+</AnchorPane>
