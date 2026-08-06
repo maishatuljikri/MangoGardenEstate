@@ -6,15 +6,15 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.Shahriar_2430840.EstateOwner.estateownerdashboardController">
    <children>
-      <Button layoutX="53.0" layoutY="45.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="114.0" text="Production Report" />
-      <Button layoutX="51.0" layoutY="113.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="119.0" text="Worker Attendance" />
-      <Button layoutX="54.0" layoutY="247.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="114.0" text="Harvest Summary" />
-      <Button layoutX="354.0" layoutY="55.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="101.0" text="Daily Sale" />
-      <Button layoutX="354.0" layoutY="122.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="109.0" text="Warehouse Stock" />
-      <Button layoutX="354.0" layoutY="247.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="118.0" text="Operational Report" />
-      <Button layoutX="354.0" layoutY="184.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="110.0" text="Damaged Mongo" />
-      <Button layoutX="51.0" layoutY="176.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="119.0" text="Monthly Expense" />
+      <Button layoutX="53.0" layoutY="45.0" mnemonicParsing="false" onAction="#ProductionReportButtonOA" prefHeight="42.0" prefWidth="114.0" text="Production Report" />
+      <Button layoutX="51.0" layoutY="113.0" mnemonicParsing="false" onAction="#WorkerAttendanceButtonOA" prefHeight="42.0" prefWidth="119.0" text="Worker Attendance" />
+      <Button layoutX="54.0" layoutY="247.0" mnemonicParsing="false" onAction="#HarvestSummaryButtonOA" prefHeight="42.0" prefWidth="114.0" text="Harvest Summary" />
+      <Button layoutX="354.0" layoutY="55.0" mnemonicParsing="false" onAction="#DailySaleButtonOA" prefHeight="48.0" prefWidth="101.0" text="Daily Sale" />
+      <Button layoutX="354.0" layoutY="122.0" mnemonicParsing="false" onAction="#WarehouseStockButtonOA" prefHeight="48.0" prefWidth="109.0" text="Warehouse Stock" />
+      <Button layoutX="354.0" layoutY="247.0" mnemonicParsing="false" onAction="#OperationalReportButtonOA" prefHeight="48.0" prefWidth="118.0" text="Operational Report" />
+      <Button layoutX="354.0" layoutY="184.0" mnemonicParsing="false" onAction="#DamagedMongoButtonOA" prefHeight="48.0" prefWidth="110.0" text="Damaged Mongo" />
+      <Button layoutX="51.0" layoutY="176.0" mnemonicParsing="false" onAction="#MonthlyExpenseButtonOA" prefHeight="48.0" prefWidth="119.0" text="Monthly Expense" />
       <Label alignment="BOTTOM_CENTER" layoutX="53.0" prefHeight="34.0" prefWidth="494.0" text="Estate Owner Dashboard" />
-      <Button layoutX="226.0" layoutY="280.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="81.0" text="Logout" />
+      <Button layoutX="226.0" layoutY="280.0" mnemonicParsing="false" onAction="#LogoutButtonOA" prefHeight="42.0" prefWidth="81.0" text="Logout" />
    </children>
 </AnchorPane>

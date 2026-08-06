@@ -52,7 +52,7 @@
 
         <Button layoutX="370.0" layoutY="455.0" onAction="#downloadReportOA" prefWidth="120.0" text="Download" />
 
-        <Button layoutX="510.0" layoutY="455.0" onAction="#clearFormOA" prefWidth="120.0" text="Clear" />
+        <Button layoutX="510.0" layoutY="455.0" onAction="#clearFormOA" prefWidth="120.0" text="Back" />
 
     </children>
 
