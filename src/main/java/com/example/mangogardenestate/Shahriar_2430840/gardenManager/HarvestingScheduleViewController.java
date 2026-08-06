@@ -1,6 +1,6 @@
 package com.example.mangogardenestate.Shahriar_2430840.gardenManager;
 
-import com.example.mangogardenestate.Modelclass4.HarvestingSchedule;
+import com.example.mangogardenestate.gardenManagerModelclass.HarvestingSchedule;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;

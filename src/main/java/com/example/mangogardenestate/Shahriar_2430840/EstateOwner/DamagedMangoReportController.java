@@ -1,6 +1,6 @@
 package com.example.mangogardenestate.Shahriar_2430840.EstateOwner;
 
-import com.example.mangogardenestate.Modelclass3.DamagedMangoReport;
+import com.example.mangogardenestate.EstateOwnerModelclass.DamagedMangoReport;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;

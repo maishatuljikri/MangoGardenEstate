@@ -1,6 +1,6 @@
 package com.example.mangogardenestate.Shahriar_2430840.gardenManager;
 
-import com.example.mangogardenestate.Modelclass4.DailyActivityReport;
+import com.example.mangogardenestate.gardenManagerModelclass.DailyActivityReport;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;

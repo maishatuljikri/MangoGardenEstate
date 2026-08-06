@@ -1,6 +1,6 @@
 package com.example.mangogardenestate.Shahriar_2430840.EstateOwner;
 
-import com.example.mangogardenestate.Modelclass3.WarehouseStock;
+import com.example.mangogardenestate.EstateOwnerModelclass.WarehouseStock;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;

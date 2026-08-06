@@ -1,4 +1,4 @@
-package com.example.mangogardenestate.Modelclass4;
+package com.example.mangogardenestate.gardenManagerModelclass;
 
 
 public class TreeCondition {

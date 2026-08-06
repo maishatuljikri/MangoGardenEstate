@@ -1,4 +1,4 @@
-package com.example.mangogardenestate.Modelclass3;
+package com.example.mangogardenestate.EstateOwnerModelclass;
 
 public class WorkerAttendance {
 

@@ -1,32 +1,36 @@
-package com.example.mangogardenestate.Modelclass3;
+package com.example.mangogardenestate.EstateOwnerModelclass;
 
 
-public class ProductionRecord {
+public class HarvestSummary {
 
-    private String productionId;
+    private String harvestId;
     private String harvestDate;
     private String section;
     private String variety;
-    private double quantity;
+    private int quantity;
 
-    public ProductionRecord() {
+    public HarvestSummary() {
     }
 
-    public ProductionRecord(String productionId, String harvestDate,
-                            String section, String variety, double quantity) {
-        this.productionId = productionId;
+    public HarvestSummary(String harvestId,
+                          String harvestDate,
+                          String section,
+                          String variety,
+                          int quantity) {
+
+        this.harvestId = harvestId;
         this.harvestDate = harvestDate;
         this.section = section;
         this.variety = variety;
         this.quantity = quantity;
     }
 
-    public String getProductionId() {
-        return productionId;
+    public String getHarvestId() {
+        return harvestId;
     }
 
-    public void setProductionId(String productionId) {
-        this.productionId = productionId;
+    public void setHarvestId(String harvestId) {
+        this.harvestId = harvestId;
     }
 
     public String getHarvestDate() {
@@ -53,11 +57,12 @@ public class ProductionRecord {
         this.variety = variety;
     }
 
-    public double getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(double quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 }
+
