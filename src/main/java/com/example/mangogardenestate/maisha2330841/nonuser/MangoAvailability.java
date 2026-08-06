@@ -1,7 +1,5 @@
 package com.example.mangogardenestate.maisha2330841.nonuser;
 
-
-
 public class MangoAvailability {
 
     private String mangoId;
@@ -11,8 +9,13 @@ public class MangoAvailability {
     private String harvestDate;
     private String status;
 
-    public MangoAvailability(String mangoId, String variety, String price,
-                             String stock, String harvestDate, String status) {
+    public MangoAvailability(String mangoId,
+                             String variety,
+                             String price,
+                             String stock,
+                             String harvestDate,
+                             String status) {
+
         this.mangoId = mangoId;
         this.variety = variety;
         this.price = price;

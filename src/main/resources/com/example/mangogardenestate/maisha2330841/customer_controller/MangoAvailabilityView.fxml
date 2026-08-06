@@ -43,7 +43,7 @@
         </TableView>
 
         <!-- Back Button -->
-        <Button fx:id="backButton" layoutX="390.0" layoutY="550.0" text="Back to Dashboard" />
+        <Button layoutX="390.0" layoutY="550.0" onAction="#backButtonOA" text="Back to Dashboard" />
 
     </children>
 
