@@ -2,87 +2,153 @@ package com.example.mangogardenestate;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class customerdeshboardController {
 
-    private void loadScene(ActionEvent event, String fxmlFile) {
+    @javafx.fxml.FXML
+    public void initialize() {
 
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            Parent root = loader.load();
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
-    public void placemangoorderButtonOA(ActionEvent event) {
-        loadScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/MangoOrdersView.fxml");
+    @javafx.fxml.FXML
+    public void placemangoorderButtonOA(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                HelloApplication.class.getResource("/com/example/mangogardenestate/maisha2330841/customer_controller/MangoOrdersView.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load());
+
+        Button button = (Button) actionEvent.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
+
+        stage.setTitle("Place Mango Order");
+        stage.setScene(scene);
     }
 
-    public void CheckMangoAvailabilityButtonOA(ActionEvent event) {
-        loadScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/MangoAvailabilityView.fxml");
+    @javafx.fxml.FXML
+    public void CheckMangoAvailabilityButtonOA(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                HelloApplication.class.getResource("/com/example/mangogardenestate/maisha2330841/customer_controller/MangoAvailabilityView.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load());
+
+        Button button = (Button) actionEvent.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
+
+        stage.setTitle("Mango Availability");
+        stage.setScene(scene);
     }
 
-    public void PurchaseHistoryButtonOA(ActionEvent event) {
-        loadScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/PurchaseHistoryView.fxml");
+    @javafx.fxml.FXML
+    public void PurchaseHistoryButtonOA(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                HelloApplication.class.getResource("/com/example/mangogardenestate/maisha2330841/customer_controller/PurchaseHistoryView.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load());
+
+        Button button = (Button) actionEvent.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
+
+        stage.setTitle("Purchase History");
+        stage.setScene(scene);
     }
 
-    public void OnlinePaymentButtonOA(ActionEvent event) {
-        loadScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/OnlinePaymentView.fxml");
+    @javafx.fxml.FXML
+    public void OnlinePaymentButtonOA(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                HelloApplication.class.getResource("/com/example/mangogardenestate/maisha2330841/customer_controller/OnlinePaymentView.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load());
+
+        Button button = (Button) actionEvent.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
+
+        stage.setTitle("Online Payment");
+        stage.setScene(scene);
     }
 
-    public void ProductReviewOA(ActionEvent event) {
-        loadScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/ProductReviewsView.fxml");
+    @javafx.fxml.FXML
+    public void ProductReviewOA(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                HelloApplication.class.getResource("/com/example/mangogardenestate/maisha2330841/customer_controller/ProductReviewsView.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load());
+
+        Button button = (Button) actionEvent.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
+
+        stage.setTitle("Product Review");
+        stage.setScene(scene);
     }
 
-    public void DownloadinvoiceButtonOA(ActionEvent event) {
-        loadScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/DownloadPaymentView.fxml");
+    @javafx.fxml.FXML
+    public void DownloadinvoiceButtonOA(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                HelloApplication.class.getResource("/com/example/mangogardenestate/maisha2330841/customer_controller/DownloadPaymentView.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load());
+
+        Button button = (Button) actionEvent.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
+
+        stage.setTitle("Download Payment Invoice");
+        stage.setScene(scene);
     }
 
-    public void CancelOrderbuttonOA(ActionEvent event) {
-        loadScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/CancelOrdersView.fxml");
+    @javafx.fxml.FXML
+    public void CancelOrderbuttonOA(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                HelloApplication.class.getResource("/com/example/mangogardenestate/maisha2330841/customer_controller/CancelOrdersView.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load());
+
+        Button button = (Button) actionEvent.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
+
+        stage.setTitle("Cancel Order");
+        stage.setScene(scene);
     }
 
-    public void TrackDeliveryButtonOA(ActionEvent event) {
-        loadScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/TrackDeliveryView.fxml");
+    @javafx.fxml.FXML
+    public void TrackDeliveryButtonOA(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                HelloApplication.class.getResource("/com/example/mangogardenestate/maisha2330841/customer_controller/TrackDeliveryView.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load());
+
+        Button button = (Button) actionEvent.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
+
+        stage.setTitle("Track Delivery");
+        stage.setScene(scene);
     }
 
-    public void NextButtonOA(ActionEvent event) {
+    @javafx.fxml.FXML
+    public void LogoutButtonOA(ActionEvent actionEvent) throws IOException {
 
-        // Change this to the next page you want
-        loadScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/Product ReviewsView.fxml");
-    }
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                HelloApplication.class.getResource("/com/example/mangogardenestate/LoginView.fxml"));
 
-    public void BackButtonOA(ActionEvent event) {
+        Scene scene = new Scene(fxmlLoader.load());
 
-        // Change this to the previous page you want
-        loadScene(event,
-                "/com/example/mangogardenestate/customerdeshboard.fxml");
-    }
+        Button button = (Button) actionEvent.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
 
-    public void LogoutButtonOA(ActionEvent event) {
-        loadScene(event,
-                "/com/example/mangogardenestate/LoginView.fxml");
+        stage.setTitle("Login");
+
+        stage.setScene(scene);
     }
 
 }

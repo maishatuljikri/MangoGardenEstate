@@ -116,14 +116,18 @@ public class TreeDiseaseViewController implements Initializable {
     }
 
     @FXML
-    public void backOnActionButton(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/mangogardenestate/maisha2330841/farmer_controller/DailyWorkStatusView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Button signOutButton = (Button) actionEvent.getSource();
-        Stage stage = (Stage) signOutButton.getScene().getWindow();
+    public void backButtonOA(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(
+                HelloApplication.class.getResource(
+                        "/com/example/mangogardenestate/farmerdeshboard.fxml"));
+
+        Scene scene = new Scene(loader.load());
+
+        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+
         stage.setScene(scene);
+        stage.show();
     }
-    @FXML
-    public void clearButtonButtonOA(ActionEvent actionEvent) {
-    }
+
 }
