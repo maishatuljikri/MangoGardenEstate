@@ -1,10 +1,9 @@
 package com.example.mangogardenestate.maisha2330841.nonuser;
 
-
-
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class DailyWorkStatus {
+public class DailyWorkStatus implements Serializable {
 
     private String workTitle;
     private LocalDate workDate;
