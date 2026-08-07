@@ -13,6 +13,9 @@ module com.example.mangogardenestate {
 
     opens com.example.mangogardenestate.maisha2330841.farmer_controller to javafx.fxml;
     opens com.example.mangogardenestate.maisha2330841.customer_controller to javafx.fxml;
+    opens com.example.mangogardenestate.Fahim2330569.SecurityGuard to javafx.fxml;
+    opens com.example.mangogardenestate.Fahim2330569.PackagingOfficer to javafx.fxml;
+    opens com.example.mangogardenestate.common to javafx.fxml;
 
 
 
