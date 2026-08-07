@@ -54,42 +54,76 @@ public class TrackDeliveryViewController {
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
         deliveryPersonColumn.setCellValueFactory(new PropertyValueFactory<>("deliveryPerson"));
 
+        deliveryList.add(new TrackDelivery(
+                "O101",
+                "D001",
+                "Dhaka",
+                "10-08-2026",
+                "On the Way",
+                "Rahim"
+        ));
+
+        deliveryList.add(new TrackDelivery(
+                "O102",
+                "D002",
+                "Gazipur",
+                "12-08-2026",
+                "Delivered",
+                "Karim"
+        ));
+
         deliveryTable.setItems(deliveryList);
     }
 
     @FXML
     private void searchButtonOA(ActionEvent event) {
 
-        String orderId = orderIdField.getText().trim();
+        String id = orderIdField.getText().trim();
 
-        if (orderId.isEmpty()) {
-            System.out.println("Please enter Order ID.");
+        if (id.isEmpty()) {
+            deliveryTable.setItems(deliveryList);
             return;
         }
 
-        // TODO:
-        // Read delivery data from your .bin file or database.
-        // Filter by orderId and add matching objects to deliveryList.
+        ObservableList<TrackDelivery> result =
+                FXCollections.observableArrayList();
 
-        System.out.println("Searching for Order ID: " + orderId);
+        for (TrackDelivery t : deliveryList) {
+            if (t.getOrderId().equalsIgnoreCase(id)) {
+                result.add(t);
+            }
+        }
+
+        deliveryTable.setItems(result);
+
+        if (result.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Search");
+            alert.setHeaderText(null);
+            alert.setContentText("No Order Found.");
+            alert.showAndWait();
+        }
     }
 
     @FXML
     private void refreshButtonOA(ActionEvent event) {
 
+        deliveryTable.setItems(deliveryList);
         deliveryTable.refresh();
 
-        System.out.println("Delivery status refreshed.");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setContentText("Delivery Status Refreshed.");
+        alert.showAndWait();
     }
 
     @FXML
-    public void backButtonOA(ActionEvent event) {
+    private void backButtonOA(ActionEvent event) {
 
         try {
 
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource(
-                            "/com/example/mangogardenestate/customerdashboard.fxml"));
+                    getClass().getResource("/com/example/mangogardenestate/customerdeshboard.fxml"));
 
             Parent root = loader.load();
 
@@ -104,9 +138,9 @@ public class TrackDeliveryViewController {
             e.printStackTrace();
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Scene Error");
+            alert.setTitle("Error");
             alert.setHeaderText(null);
-            alert.setContentText("CustomerDashboard.fxml not found.");
+            alert.setContentText("Customer Dashboard could not be opened.");
             alert.showAndWait();
         }
     }

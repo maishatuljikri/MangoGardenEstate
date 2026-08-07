@@ -1,6 +1,10 @@
 package com.example.mangogardenestate.maisha2330841.nonuser;
 
-public class MangoAvailability {
+import java.io.Serializable;
+
+public class MangoAvailability implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String mangoId;
     private String variety;
@@ -28,23 +32,47 @@ public class MangoAvailability {
         return mangoId;
     }
 
+    public void setMangoId(String mangoId) {
+        this.mangoId = mangoId;
+    }
+
     public String getVariety() {
         return variety;
+    }
+
+    public void setVariety(String variety) {
+        this.variety = variety;
     }
 
     public String getPrice() {
         return price;
     }
 
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
     public String getStock() {
         return stock;
+    }
+
+    public void setStock(String stock) {
+        this.stock = stock;
     }
 
     public String getHarvestDate() {
         return harvestDate;
     }
 
+    public void setHarvestDate(String harvestDate) {
+        this.harvestDate = harvestDate;
+    }
+
     public String getStatus() {
         return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

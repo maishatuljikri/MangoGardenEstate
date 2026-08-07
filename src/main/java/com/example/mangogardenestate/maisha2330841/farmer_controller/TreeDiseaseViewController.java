@@ -1,17 +1,20 @@
 package com.example.mangogardenestate.maisha2330841.farmer_controller;
 
-import com.example.mangogardenestate.HelloApplication;
+import com.example.mangogardenestate.maisha2330841.nonuser.TreeDisease;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class TreeDiseaseViewController implements Initializable {
@@ -36,6 +39,10 @@ public class TreeDiseaseViewController implements Initializable {
 
     @FXML
     private Label messageLabel;
+
+    private final String FILE_NAME = "TreeDisease.bin";
+
+    private ArrayList<TreeDisease> diseaseList = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -62,43 +69,51 @@ public class TreeDiseaseViewController implements Initializable {
         );
 
         reportDatePicker.setValue(LocalDate.now());
+
+        loadData();
     }
 
     @FXML
-    private void submitButtonOA() {
+    private void submitButtonOA(ActionEvent event) {
 
-        String treeId = treeIdField.getText();
-        String section = sectionComboBox.getValue();
-        LocalDate reportDate = reportDatePicker.getValue();
-        String disease = diseaseTypeComboBox.getValue();
-        String severity = severityComboBox.getValue();
-        String description = descriptionArea.getText();
-
-        if (treeId.isEmpty()
-                || section == null
-                || reportDate == null
-                || disease == null
-                || severity == null
-                || description.isEmpty()) {
+        if (treeIdField.getText().trim().isEmpty()
+                || sectionComboBox.getValue() == null
+                || reportDatePicker.getValue() == null
+                || diseaseTypeComboBox.getValue() == null
+                || severityComboBox.getValue() == null
+                || descriptionArea.getText().trim().isEmpty()) {
 
             messageLabel.setStyle("-fx-text-fill:red;");
             messageLabel.setText("Please fill all fields.");
             return;
         }
 
-        System.out.println("Tree ID: " + treeId);
-        System.out.println("Section: " + section);
-        System.out.println("Report Date: " + reportDate);
-        System.out.println("Disease: " + disease);
-        System.out.println("Severity: " + severity);
-        System.out.println("Description: " + description);
+        TreeDisease disease = new TreeDisease(
+                treeIdField.getText(),
+                sectionComboBox.getValue(),
+                reportDatePicker.getValue(),
+                diseaseTypeComboBox.getValue(),
+                severityComboBox.getValue(),
+                descriptionArea.getText()
+        );
+
+        diseaseList.add(disease);
+
+        saveData();
 
         messageLabel.setStyle("-fx-text-fill:green;");
         messageLabel.setText("Disease report submitted successfully.");
+
+        clearFields();
     }
 
-    @FXML
-    private void clearButtonOA() {
+    @Deprecated
+    private void clearButtonOA(ActionEvent event) {
+
+        clearFields();
+    }
+
+    private void clearFields() {
 
         treeIdField.clear();
 
@@ -115,14 +130,68 @@ public class TreeDiseaseViewController implements Initializable {
         messageLabel.setText("");
     }
 
-    @FXML
-    public void backOnActionButton(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/mangogardenestate/maisha2330841/farmer_controller/DailyWorkStatusView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Button signOutButton = (Button) actionEvent.getSource();
-        Stage stage = (Stage) signOutButton.getScene().getWindow();
-        stage.setScene(scene);
+    private void saveData() {
+
+        try (ObjectOutputStream oos =
+                     new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
+
+            oos.writeObject(diseaseList);
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
     }
+
+    @SuppressWarnings("unchecked")
+    private void loadData() {
+
+        File file = new File(FILE_NAME);
+
+        if (!file.exists()) {
+            return;
+        }
+
+        try (ObjectInputStream ois =
+                     new ObjectInputStream(new FileInputStream(FILE_NAME))) {
+
+            diseaseList = (ArrayList<TreeDisease>) ois.readObject();
+
+        } catch (IOException | ClassNotFoundException e) {
+
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void backButtonOA(ActionEvent event) {
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource(
+                            "/com/example/mangogardenestate/farmerdeshboard.fxml"));
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.setTitle("Farmer Dashboard");
+            stage.show();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Cannot open Farmer Dashboard.");
+            alert.showAndWait();
+        }
+    }
+
     @FXML
     public void clearButtonButtonOA(ActionEvent actionEvent) {
     }

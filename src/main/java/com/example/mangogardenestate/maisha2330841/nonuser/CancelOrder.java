@@ -1,9 +1,10 @@
 package com.example.mangogardenestate.maisha2330841.nonuser;
 
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class CancelOrder {
+public class CancelOrder implements Serializable {
 
     private String orderId;
     private String status;

@@ -1,20 +1,23 @@
 package com.example.mangogardenestate;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class customerdeshboardController {
 
-    private void loadScene(ActionEvent event, String fxmlFile) {
+    private void changeScene(ActionEvent event, String fileName) {
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
             Parent root = loader.load();
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -22,67 +25,68 @@ public class customerdeshboardController {
             stage.show();
 
         } catch (IOException e) {
+
             e.printStackTrace();
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Scene Loading Error");
+            alert.setHeaderText("Cannot load FXML");
+            alert.setContentText(fileName);
+            alert.showAndWait();
         }
     }
 
+    @FXML
     public void placemangoorderButtonOA(ActionEvent event) {
-        loadScene(event,
+        changeScene(event,
                 "/com/example/mangogardenestate/maisha2330841/customer_controller/MangoOrdersView.fxml");
     }
 
+    @FXML
     public void CheckMangoAvailabilityButtonOA(ActionEvent event) {
-        loadScene(event,
+        changeScene(event,
                 "/com/example/mangogardenestate/maisha2330841/customer_controller/MangoAvailabilityView.fxml");
     }
 
-    public void PurchaseHistoryButtonOA(ActionEvent event) {
-        loadScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/PurchaseHistoryView.fxml");
-    }
-
+    @FXML
     public void OnlinePaymentButtonOA(ActionEvent event) {
-        loadScene(event,
+        changeScene(event,
                 "/com/example/mangogardenestate/maisha2330841/customer_controller/OnlinePaymentView.fxml");
     }
 
-    public void ProductReviewOA(ActionEvent event) {
-        loadScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/ProductReviewsView.fxml");
-    }
-
-    public void DownloadinvoiceButtonOA(ActionEvent event) {
-        loadScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/DownloadPaymentView.fxml");
-    }
-
+    @FXML
     public void CancelOrderbuttonOA(ActionEvent event) {
-        loadScene(event,
+        changeScene(event,
                 "/com/example/mangogardenestate/maisha2330841/customer_controller/CancelOrdersView.fxml");
     }
 
-    public void TrackDeliveryButtonOA(ActionEvent event) {
-        loadScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/TrackDeliveryView.fxml");
+    @FXML
+    public void PurchaseHistoryButtonOA(ActionEvent event) {
+        changeScene(event,
+                "/com/example/mangogardenestate/maisha2330841/customer_controller/Purchase HistoryView.fxml");
     }
 
-    public void NextButtonOA(ActionEvent event) {
-
-        // Change this to the next page you want
-        loadScene(event,
+    @FXML
+    public void ProductReviewOA(ActionEvent event) {
+        changeScene(event,
                 "/com/example/mangogardenestate/maisha2330841/customer_controller/Product ReviewsView.fxml");
     }
 
-    public void BackButtonOA(ActionEvent event) {
-
-        // Change this to the previous page you want
-        loadScene(event,
-                "/com/example/mangogardenestate/customerdashboard.fxml");
+    @FXML
+    public void DownloadinvoiceButtonOA(ActionEvent event) {
+        changeScene(event,
+                "/com/example/mangogardenestate/maisha2330841/customer_controller/DownloadInvoice.fxml");
     }
 
+    @FXML
+    public void TrackDeliveryButtonOA(ActionEvent event) {
+        changeScene(event,
+                "/com/example/mangogardenestate/maisha2330841/customer_controller/Track DeliveryView.fxml");
+    }
+
+    @FXML
     public void LogoutButtonOA(ActionEvent event) {
-        loadScene(event,
+        changeScene(event,
                 "/com/example/mangogardenestate/LoginView.fxml");
     }
-
 }

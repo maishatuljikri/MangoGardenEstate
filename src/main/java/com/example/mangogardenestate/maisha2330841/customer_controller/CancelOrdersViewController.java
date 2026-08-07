@@ -1,21 +1,20 @@
 package com.example.mangogardenestate.maisha2330841.customer_controller;
 
+import com.example.mangogardenestate.maisha2330841.nonuser.CancelOrder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.net.URL;
+import java.io.*;
 import java.time.LocalDate;
-import java.util.ResourceBundle;
+import java.util.ArrayList;
 
-public class CancelOrdersViewController implements Initializable {
+public class CancelOrdersViewController {
 
     @FXML
     private TextField orderIdField;
@@ -35,82 +34,141 @@ public class CancelOrdersViewController implements Initializable {
     @FXML
     private Label messageLabel;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    private final String FILE_NAME = "CancelOrders.bin";
+
+    private ArrayList<CancelOrder> cancelOrderList = new ArrayList<>();
+
+    @FXML
+    public void initialize() {
 
         reasonComboBox.getItems().addAll(
                 "Changed My Mind",
-                "Wrong Order",
-                "Delivery Delay",
                 "Ordered by Mistake",
+                "Found Better Price",
+                "Delivery Delay",
                 "Other"
         );
 
-        statusLabel.setText("Pending");
         cancelDatePicker.setValue(LocalDate.now());
+        statusLabel.setText("Pending");
+
+        loadData();
     }
 
     @FXML
-    private void submitButtonOA() {
+    public void submitButtonOA(ActionEvent event) {
 
         if (orderIdField.getText().isEmpty()
-                || reasonComboBox.getValue() == null
-                || cancelDatePicker.getValue() == null) {
+                || cancelDatePicker.getValue() == null
+                || reasonComboBox.getValue() == null) {
 
             messageLabel.setStyle("-fx-text-fill:red;");
             messageLabel.setText("Please fill all required fields.");
             return;
         }
 
-        System.out.println("Order ID: " + orderIdField.getText());
-        System.out.println("Status: Cancelled");
-        System.out.println("Cancel Date: " + cancelDatePicker.getValue());
-        System.out.println("Reason: " + reasonComboBox.getValue());
-        System.out.println("Comments: " + commentsArea.getText());
+        CancelOrder order = new CancelOrder(
+                orderIdField.getText(),
+                "Cancelled",
+                cancelDatePicker.getValue(),
+                reasonComboBox.getValue(),
+                commentsArea.getText()
+        );
+
+        cancelOrderList.add(order);
+
+        saveData();
 
         statusLabel.setText("Cancelled");
 
         messageLabel.setStyle("-fx-text-fill:green;");
         messageLabel.setText("Order cancelled successfully.");
+
+        System.out.println("Order ID : " + order.getOrderId());
+        System.out.println("Status : " + order.getStatus());
+        System.out.println("Date : " + order.getCancelDate());
+        System.out.println("Reason : " + order.getReason());
+        System.out.println("Comments : " + order.getComments());
+    }
+
+    private void saveData() {
+
+        try {
+
+            ObjectOutputStream oos =
+                    new ObjectOutputStream(new FileOutputStream(FILE_NAME));
+
+            oos.writeObject(cancelOrderList);
+
+            oos.close();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private void loadData() {
+
+        File file = new File(FILE_NAME);
+
+        if (!file.exists()) {
+            return;
+        }
+
+        try {
+
+            ObjectInputStream ois =
+                    new ObjectInputStream(new FileInputStream(FILE_NAME));
+
+            cancelOrderList =
+                    (ArrayList<CancelOrder>) ois.readObject();
+
+            ois.close();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    private void clearButtonOA() {
+    public void ClearButtonOA(ActionEvent event) {
 
         orderIdField.clear();
-        statusLabel.setText("Pending");
         cancelDatePicker.setValue(LocalDate.now());
         reasonComboBox.getSelectionModel().clearSelection();
         commentsArea.clear();
+
+        statusLabel.setText("Pending");
         messageLabel.setText("");
     }
 
     @FXML
-    public void backOnActionButton(ActionEvent actionEvent) {
+    public void backButtonOA(ActionEvent event) {
+
         try {
-            URL fxmlUrl = getClass().getResource(
-                    "/com/example/mangogardenestate/maisha2330841/customer_controller/CustomerDashboard.fxml");
 
-            if (fxmlUrl == null) {
-                throw new IOException("CustomerDashboard.fxml not found on classpath.");
-            }
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/example/mangogardenestate/customerdeshboard.fxml"));
 
-            FXMLLoader loader = new FXMLLoader(fxmlUrl);
             Parent root = loader.load();
 
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             stage.setScene(new Scene(root));
             stage.setTitle("Customer Dashboard");
             stage.show();
 
         } catch (IOException e) {
+
             e.printStackTrace();
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Scene Error");
             alert.setHeaderText(null);
-            alert.setContentText("CustomerDashboard.fxml not found.");
+            alert.setContentText("Cannot open Customer Dashboard.");
             alert.showAndWait();
         }
     }
