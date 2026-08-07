@@ -1,6 +1,12 @@
 package com.example.mangogardenestate.EstateOwnerModelclass;
 
-public class WorkerAttendance {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class WorkerAttendance implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     private String workerId;
     private String workerName;
@@ -11,9 +17,12 @@ public class WorkerAttendance {
     public WorkerAttendance() {
     }
 
-    public WorkerAttendance(String workerId, String workerName,
-                            String attendanceDate, String status,
+    public WorkerAttendance(String workerId,
+                            String workerName,
+                            String attendanceDate,
+                            String status,
                             int totalPresent) {
+
         this.workerId = workerId;
         this.workerName = workerName;
         this.attendanceDate = attendanceDate;
@@ -60,5 +69,15 @@ public class WorkerAttendance {
     public void setTotalPresent(int totalPresent) {
         this.totalPresent = totalPresent;
     }
-}
 
+    @Override
+    public String toString() {
+        return "WorkerAttendance{" +
+                "workerId='" + workerId + '\'' +
+                ", workerName='" + workerName + '\'' +
+                ", attendanceDate='" + attendanceDate + '\'' +
+                ", status='" + status + '\'' +
+                ", totalPresent=" + totalPresent +
+                '}';
+    }
+}

@@ -1,13 +1,15 @@
 package com.example.mangogardenestate.Shahriar_2430840.EstateOwner;
 
 import com.example.mangogardenestate.EstateOwnerModelclass.WorkerAttendance;
+import com.example.mangogardenestate.Util.SceneSwitcher;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-import javafx.event.ActionEvent;
-import com.example.mangogardenestate.Util.SceneSwitcher;
+import java.io.*;
+import java.util.ArrayList;
 
 public class WorkerAttendanceController {
 
@@ -31,67 +33,81 @@ public class WorkerAttendanceController {
 
     private WorkerAttendance attendance;
 
+    private final String FILE_NAME = "WorkerAttendance.bin";
+
+    private ArrayList<WorkerAttendance> attendanceList = new ArrayList<>();
+
+    @FXML
+    public void initialize() {
+
+        loadData();
+
+    }
+
     @FXML
     private void searchAttendanceOA() {
 
-        if (txtWorkerId.getText().trim().isEmpty()) {
-            showAlert("Please enter Worker ID.");
+        if (txtWorkerId.getText().isBlank()) {
+
+            showAlert("Enter Worker ID");
             return;
         }
 
-        // Sample Data
-        attendance = new WorkerAttendance(
-                txtWorkerId.getText(),
-                "Rahim Uddin",
-                "31-07-2026",
-                "Present",
-                26
-        );
+        boolean found = false;
 
-        txtWorkerName.setText(attendance.getWorkerName());
-        txtAttendanceDate.setText(attendance.getAttendanceDate());
-        txtStatus.setText(attendance.getStatus());
-        txtPresent.setText(String.valueOf(attendance.getTotalPresent()));
+        for (WorkerAttendance wa : attendanceList) {
 
-        showAlert("Attendance record found.");
+            if (wa.getWorkerId().equals(txtWorkerId.getText())) {
+
+                attendance = wa;
+
+                txtWorkerName.setText(wa.getWorkerName());
+                txtAttendanceDate.setText(wa.getAttendanceDate());
+                txtStatus.setText(wa.getStatus());
+                txtPresent.setText(String.valueOf(wa.getTotalPresent()));
+
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+
+            showAlert("Worker not found.");
+
+        }
+
     }
 
     @FXML
     private void calculateAttendanceOA() {
 
-        if (txtPresent.getText().trim().isEmpty()) {
-            showAlert("Please enter total present days.");
-            return;
-        }
-
         try {
 
-            int present = Integer.parseInt(txtPresent.getText());
+            attendance = new WorkerAttendance(
 
-            String percentage;
-
-            if (present >= 26) {
-                percentage = "100%";
-            } else if (present >= 22) {
-                percentage = "85%";
-            } else if (present >= 18) {
-                percentage = "70%";
-            } else {
-                percentage = "Below 70%";
-            }
-
-            txtReport.setText(
-                    "Attendance Summary\n\n" +
-                            "Worker : " + txtWorkerName.getText() + "\n" +
-                            "Present Days : " + present + "\n" +
-                            "Attendance : " + percentage
+                    txtWorkerId.getText(),
+                    txtWorkerName.getText(),
+                    txtAttendanceDate.getText(),
+                    txtStatus.getText(),
+                    Integer.parseInt(txtPresent.getText())
             );
 
-            showAlert("Attendance calculated successfully.");
+            attendanceList.add(attendance);
+
+            saveData();
+
+            txtReport.setText(
+                    "Attendance Saved Successfully\n\n" +
+                            "Worker : " + attendance.getWorkerName() +
+                            "\nPresent Days : " + attendance.getTotalPresent()
+            );
+
+            showAlert("Attendance saved successfully.");
 
         } catch (NumberFormatException e) {
 
-            showAlert("Present days must be numeric.");
+            showAlert("Present Days must be numeric.");
 
         }
 
@@ -101,18 +117,22 @@ public class WorkerAttendanceController {
     private void viewReportOA() {
 
         if (attendance == null) {
-            showAlert("Please search attendance first.");
+
+            showAlert("Search attendance first.");
             return;
         }
 
         txtReport.setText(
-                "========== WORKER ATTENDANCE REPORT ==========\n\n" +
+
+                "========== WORKER ATTENDANCE ==========\n\n" +
                         "Worker ID : " + attendance.getWorkerId() + "\n\n" +
                         "Worker Name : " + attendance.getWorkerName() + "\n\n" +
                         "Attendance Date : " + attendance.getAttendanceDate() + "\n\n" +
                         "Status : " + attendance.getStatus() + "\n\n" +
-                        "Total Present : " + attendance.getTotalPresent() + " Days"
+                        "Total Present : " + attendance.getTotalPresent()
+
         );
+
     }
 
     @FXML
@@ -125,15 +145,61 @@ public class WorkerAttendanceController {
         txtPresent.clear();
         txtReport.clear();
 
-        attendance = null;
     }
 
     @FXML
-    private void goBackOA(ActionEvent actionEvent) {
+    private void goBackOA(ActionEvent event) {
+
         SceneSwitcher.switchScene(
-                actionEvent,
+                event,
                 "/com/example/mangogardenestate/estateownerdashboard.fxml",
-                "Harvest Summary");
+                "Estate Owner Dashboard"
+        );
+
+    }
+
+    private void saveData() {
+
+        try {
+
+            ObjectOutputStream oos =
+                    new ObjectOutputStream(new FileOutputStream(FILE_NAME));
+
+            oos.writeObject(attendanceList);
+
+            oos.close();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+    @SuppressWarnings("unchecked")
+    private void loadData() {
+
+        File file = new File(FILE_NAME);
+
+        if (!file.exists())
+            return;
+
+        try {
+
+            ObjectInputStream ois =
+                    new ObjectInputStream(new FileInputStream(FILE_NAME));
+
+            attendanceList =
+                    (ArrayList<WorkerAttendance>) ois.readObject();
+
+            ois.close();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
 
     }
 
@@ -150,5 +216,4 @@ public class WorkerAttendanceController {
         alert.showAndWait();
 
     }
-
 }

@@ -1,14 +1,13 @@
 package com.example.mangogardenestate.Shahriar_2430840.EstateOwner;
 
 import com.example.mangogardenestate.EstateOwnerModelclass.DailySales;
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-
-
-import javafx.event.ActionEvent;
 import com.example.mangogardenestate.Util.SceneSwitcher;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+
+import java.io.*;
+import java.util.ArrayList;
 
 public class DailySalesController {
 
@@ -32,38 +31,52 @@ public class DailySalesController {
 
     private DailySales sales;
 
+    private final String FILE_NAME = "DailySales.bin";
+
+    private ArrayList<DailySales> salesList = new ArrayList<>();
+
+    @FXML
+    public void initialize() {
+        loadData();
+    }
+
     @FXML
     private void searchSalesOA() {
 
-        if (txtSalesId.getText().trim().isEmpty()) {
+        if (txtSalesId.getText().isBlank()) {
             showAlert("Please enter Sales ID.");
             return;
         }
 
-        // Sample Data
-        sales = new DailySales(
-                txtSalesId.getText(),
-                "31-07-2026",
-                "ABC Traders",
-                450,
-                67500
-        );
+        for (DailySales s : salesList) {
 
-        txtSalesDate.setText(sales.getSalesDate());
-        txtCustomerName.setText(sales.getCustomerName());
-        txtQuantity.setText(String.valueOf(sales.getQuantity()));
-        txtAmount.setText(String.valueOf(sales.getAmount()));
+            if (s.getSalesId().equals(txtSalesId.getText())) {
 
-        showAlert("Sales record found.");
+                sales = s;
+
+                txtSalesDate.setText(s.getSalesDate());
+                txtCustomerName.setText(s.getCustomerName());
+                txtQuantity.setText(String.valueOf(s.getQuantity()));
+                txtAmount.setText(String.valueOf(s.getAmount()));
+
+                showAlert("Sales record found.");
+                return;
+            }
+        }
+
+        showAlert("Sales record not found.");
     }
 
     @FXML
     private void calculateSalesOA() {
 
-        if (txtQuantity.getText().trim().isEmpty() ||
-                txtAmount.getText().trim().isEmpty()) {
+        if (txtSalesId.getText().isBlank()
+                || txtSalesDate.getText().isBlank()
+                || txtCustomerName.getText().isBlank()
+                || txtQuantity.getText().isBlank()
+                || txtAmount.getText().isBlank()) {
 
-            showAlert("Quantity and Amount are required.");
+            showAlert("Please fill all fields.");
             return;
         }
 
@@ -72,30 +85,43 @@ public class DailySalesController {
             double quantity = Double.parseDouble(txtQuantity.getText());
             double amount = Double.parseDouble(txtAmount.getText());
 
+            sales = new DailySales(
+                    txtSalesId.getText(),
+                    txtSalesDate.getText(),
+                    txtCustomerName.getText(),
+                    quantity,
+                    amount
+            );
+
+            salesList.add(sales);
+
+            saveData();
+
             double pricePerKg = amount / quantity;
 
             txtSummary.setText(
-                    "Sales Calculation\n\n" +
+                    "Sales Saved Successfully\n\n" +
+                            "Customer : " + sales.getCustomerName() + "\n" +
                             "Quantity : " + quantity + " Kg\n" +
-                            "Total Sales : " + amount + " Tk\n" +
-                            "Price Per Kg : " + String.format("%.2f", pricePerKg) + " Tk"
+                            "Amount : " + amount + " Tk\n" +
+                            "Price/Kg : " + String.format("%.2f", pricePerKg)
             );
 
-            showAlert("Sales calculated successfully.");
+            showAlert("Sales record saved.");
 
         } catch (NumberFormatException e) {
 
-            showAlert("Please enter valid numeric values.");
+            showAlert("Quantity and Amount must be numeric.");
 
         }
-
     }
 
     @FXML
     private void viewSummaryOA() {
 
         if (sales == null) {
-            showAlert("Please search a sales record first.");
+
+            showAlert("Search or save a record first.");
             return;
         }
 
@@ -103,11 +129,10 @@ public class DailySalesController {
                 "========== DAILY SALES REPORT ==========\n\n" +
                         "Sales ID : " + sales.getSalesId() + "\n\n" +
                         "Sales Date : " + sales.getSalesDate() + "\n\n" +
-                        "Customer Name : " + sales.getCustomerName() + "\n\n" +
+                        "Customer : " + sales.getCustomerName() + "\n\n" +
                         "Quantity : " + sales.getQuantity() + " Kg\n\n" +
-                        "Sales Amount : " + sales.getAmount() + " Tk"
+                        "Amount : " + sales.getAmount() + " Tk"
         );
-
     }
 
     @FXML
@@ -121,31 +146,67 @@ public class DailySalesController {
         txtSummary.clear();
 
         sales = null;
-
     }
 
     @FXML
-    private void goBackOA(ActionEvent actionEvent) {
+    private void goBackOA(ActionEvent event) {
 
         SceneSwitcher.switchScene(
-                actionEvent,
+                event,
                 "/com/example/mangogardenestate/estateownerdashboard.fxml",
-                "Harvest Summary");
+                "Estate Owner Dashboard");
+    }
 
+    private void saveData() {
+
+        try {
+
+            ObjectOutputStream oos =
+                    new ObjectOutputStream(new FileOutputStream(FILE_NAME));
+
+            oos.writeObject(salesList);
+
+            oos.close();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private void loadData() {
+
+        File file = new File(FILE_NAME);
+
+        if (!file.exists())
+            return;
+
+        try {
+
+            ObjectInputStream ois =
+                    new ObjectInputStream(new FileInputStream(FILE_NAME));
+
+            salesList = (ArrayList<DailySales>) ois.readObject();
+
+            ois.close();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
     }
 
     private void showAlert(String message) {
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
-        alert.setTitle("Daily Sales Record");
+        alert.setTitle("Daily Sales");
 
         alert.setHeaderText(null);
 
         alert.setContentText(message);
 
         alert.showAndWait();
-
     }
-
 }
