@@ -1,4 +1,4 @@
-package com.example.mangogardenestate.PackagingOfficer;
+package com.example.mangogardenestate.Fahim2330569.PackagingOfficer;
 
 import com.example.mangogardenestate.common.RoleFormSupport;
 import javafx.event.ActionEvent;
@@ -37,6 +37,7 @@ public class RecordPackagedMangoesViewController {
     }
 
     @FXML public void goBack(ActionEvent actionEvent) {
-        RoleFormSupport.goBack(txtReference, "/com/example/mangogardenestate/Packaging Officer/PackagingOfficerDashboard.fxml");
+        RoleFormSupport.goBack(txtReference, "/com/example/mangogardenestate/Fahim2330569/Packaging Officer/PackagingOfficerDashboard.fxml");
     }
 }
+

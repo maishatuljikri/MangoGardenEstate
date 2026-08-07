@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 /** Reusable validation, temporary storage, table-report, and navigation helpers. */
@@ -98,13 +99,28 @@ public final class RoleFormSupport {
     }
 
     public static void goBack(Node node, String dashboardResource) {
+        URL resource = resolveResource(dashboardResource);
+        if (resource == null) {
+            show("Navigation", "Could not return to the dashboard.");
+            return;
+        }
         try {
-            Parent root = FXMLLoader.load(RoleFormSupport.class.getResource(dashboardResource));
+            Parent root = FXMLLoader.load(resource);
             Stage stage = (Stage) node.getScene().getWindow();
             stage.setScene(new Scene(root));
         } catch (IOException e) {
             show("Navigation", "Could not return to the dashboard.");
         }
+    }
+
+    private static URL resolveResource(String resourcePath) {
+        URL resource = RoleFormSupport.class.getResource(resourcePath);
+        if (resource != null) return resource;
+
+        String fallback = resourcePath
+                .replace("/com/example/mangogardenestate/Security Guard/", "/com/example/mangogardenestate/Fahim2330569/Security Guard/")
+                .replace("/com/example/mangogardenestate/Packaging Officer/", "/com/example/mangogardenestate/Fahim2330569/Packaging Officer/");
+        return RoleFormSupport.class.getResource(fallback);
     }
 
     private static void show(String title, String message) {
