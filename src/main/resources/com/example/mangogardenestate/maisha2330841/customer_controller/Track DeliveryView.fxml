@@ -46,7 +46,6 @@
         <Button layoutX="280.0" layoutY="550.0" onAction="#refreshButtonOA" text="Refresh Status" />
 
         <Button layoutX="470.0" layoutY="550.0" onAction="#backButtonOA" text="Back to Dashboard" />
-      <Button layoutX="645.0" layoutY="550.0" mnemonicParsing="false" onAction="#backButtonOA" text="back" />
 
     </children>
 

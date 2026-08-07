@@ -16,13 +16,14 @@
 
           <Label layoutX="40.0" layoutY="74.0" text="Customer ID:" />
 
-          <TextField fx:id="customerIdField" editable="false" layoutX="205.60000610351562" layoutY="70.0" />
+        <TextField fx:id="customerIdField" layoutX="141.0" layoutY="70.0" promptText="Enter Customer ID" />
+
+        <TextField fx:id="customerNameField" layoutX="141.0" layoutY="111.0" promptText="Enter Customer Name" />
 
           <Label layoutX="40.0" layoutY="114.80000305175781" text="Customer Name:" />
 
-          <TextField fx:id="customerNameField" editable="false" layoutX="205.60000610351562" layoutY="110.80000305175781" />
 
-        <!-- Purchase History Table -->
+        
         <TableView fx:id="purchaseTable" layoutX="40.0" layoutY="160.0" prefHeight="360.0" prefWidth="900.0">
 
             <columns>

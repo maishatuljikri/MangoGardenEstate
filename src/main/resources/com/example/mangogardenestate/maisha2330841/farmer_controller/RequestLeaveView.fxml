@@ -13,7 +13,7 @@
     <children>
 
         <!-- Title -->
-        <Label layoutX="240.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="com.example.mangogardenestate.Farmer - Leave Request" />
+        <Label layoutX="240.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="Farmer - Leave Request" />
 
           <!-- com.example.mangogardenestate.Farmer ID -->
           <Label layoutX="50.0" layoutY="74.0" text="Farmer ID:" />

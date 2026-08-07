@@ -12,13 +12,13 @@
     <children>
 
         <!-- Title -->
-        <Label layoutX="189.0" layoutY="21.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="com.example.mangogardenestate.Farmer - Salary Information" />
+        <Label layoutX="249.0" layoutY="14.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="  Farmer - Salary Information" />
 
-          <Label layoutX="40.0" layoutY="74.0" text="com.example.mangogardenestate.Farmer ID:" />
+          <Label layoutX="40.0" layoutY="74.0" text="            Farmer ID:" />
 
           <TextField fx:id="farmerIdField" editable="false" layoutX="335.0" layoutY="70.0" />
 
-          <Label layoutX="40.0" layoutY="114.80000305175781" text="com.example.mangogardenestate.Farmer Name:" />
+          <Label layoutX="40.0" layoutY="114.80000305175781" text="           Farmer Name:" />
 
           <TextField fx:id="farmerNameField" editable="false" layoutX="335.0" layoutY="102.0" />
 

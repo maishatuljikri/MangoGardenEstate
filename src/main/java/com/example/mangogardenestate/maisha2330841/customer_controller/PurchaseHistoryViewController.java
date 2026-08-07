@@ -1,6 +1,5 @@
 package com.example.mangogardenestate.maisha2330841.customer_controller;
 
-import com.example.mangogardenestate.HelloApplication;
 import com.example.mangogardenestate.maisha2330841.nonuser.PurchaseHistory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,7 +9,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -62,26 +64,32 @@ public class PurchaseHistoryViewController {
         paymentStatusColumn.setCellValueFactory(new PropertyValueFactory<>("paymentStatus"));
         deliveryStatusColumn.setCellValueFactory(new PropertyValueFactory<>("deliveryStatus"));
 
+        // Start with empty fields
+        customerIdField.clear();
+        customerNameField.clear();
+
+        // Empty table
         purchaseTable.setItems(purchaseList);
     }
 
     @FXML
     private void generateReportButton(ActionEvent event) {
 
-        if (customerIdField.getText().trim().isEmpty()
-                || customerNameField.getText().trim().isEmpty()) {
+        if (customerIdField.getText().isEmpty() ||
+                customerNameField.getText().isEmpty()) {
 
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
             alert.setHeaderText(null);
             alert.setContentText("Please enter Customer ID and Customer Name.");
             alert.showAndWait();
             return;
         }
 
-
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Report");
         alert.setHeaderText(null);
-        alert.setContentText("Report generated successfully.");
+        alert.setContentText("Purchase Report Generated Successfully.");
         alert.showAndWait();
     }
 
@@ -89,21 +97,19 @@ public class PurchaseHistoryViewController {
     private void downloadReportButton(ActionEvent event) {
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Download");
         alert.setHeaderText(null);
-        alert.setContentText("Report downloaded successfully.");
+        alert.setContentText("Purchase Report Downloaded Successfully.");
         alert.showAndWait();
     }
 
     @FXML
-    public void backButtonOA(ActionEvent event) {
+    private void backButtonOA(ActionEvent event) {
 
         try {
 
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource(
-                            "/com/example/mangogardenestate/customerdeshboard.fxml"));
-
-            Parent root = loader.load();
+            Parent root = FXMLLoader.load(
+                    getClass().getResource("/com/example/mangogardenestate/customerdeshboard.fxml"));
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
@@ -116,9 +122,9 @@ public class PurchaseHistoryViewController {
             e.printStackTrace();
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Scene Error");
+            alert.setTitle("Scene Loading Error");
             alert.setHeaderText(null);
-            alert.setContentText("CustomerDashboard.fxml not found.");
+            alert.setContentText("Cannot load customerdeshboard.fxml");
             alert.showAndWait();
         }
     }
