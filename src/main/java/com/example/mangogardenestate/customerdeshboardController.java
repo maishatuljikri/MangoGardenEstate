@@ -9,26 +9,29 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class customerdeshboardController {
 
     private void changeScene(ActionEvent event, String fileName) {
 
         try {
 
-            Parent root = FXMLLoader.load(getClass().getResource(fileName));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
+            Parent root = loader.load();
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
             stage.setScene(new Scene(root));
             stage.show();
 
-        } catch (Exception e) {
+        } catch (IOException e) {
 
             e.printStackTrace();
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Scene Loading Error");
-            alert.setContentText(fileName + " not found.");
+            alert.setTitle("Scene Loading Error");
+            alert.setHeaderText("Cannot load FXML");
+            alert.setContentText(fileName);
             alert.showAndWait();
         }
     }
@@ -46,27 +49,9 @@ public class customerdeshboardController {
     }
 
     @FXML
-    public void PurchaseHistoryButtonOA(ActionEvent event) {
-        changeScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/PurchaseHistoryView.fxml");
-    }
-
-    @FXML
     public void OnlinePaymentButtonOA(ActionEvent event) {
         changeScene(event,
                 "/com/example/mangogardenestate/maisha2330841/customer_controller/OnlinePaymentView.fxml");
-    }
-
-    @FXML
-    public void ProductReviewOA(ActionEvent event) {
-        changeScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/ProductReviewsView.fxml");
-    }
-
-    @FXML
-    public void DownloadinvoiceButtonOA(ActionEvent event) {
-        changeScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/DownloadPaymentView.fxml");
     }
 
     @FXML
@@ -76,21 +61,27 @@ public class customerdeshboardController {
     }
 
     @FXML
+    public void PurchaseHistoryButtonOA(ActionEvent event) {
+        changeScene(event,
+                "/com/example/mangogardenestate/maisha2330841/customer_controller/Purchase HistoryView.fxml");
+    }
+
+    @FXML
+    public void ProductReviewOA(ActionEvent event) {
+        changeScene(event,
+                "/com/example/mangogardenestate/maisha2330841/customer_controller/Product ReviewsView.fxml");
+    }
+
+    @FXML
+    public void DownloadinvoiceButtonOA(ActionEvent event) {
+        changeScene(event,
+                "/com/example/mangogardenestate/maisha2330841/customer_controller/DownloadInvoice.fxml");
+    }
+
+    @FXML
     public void TrackDeliveryButtonOA(ActionEvent event) {
         changeScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/TrackDeliveryView.fxml");
-    }
-
-    @FXML
-    public void NextButtonOA(ActionEvent event) {
-        changeScene(event,
-                "/com/example/mangogardenestate/maisha2330841/customer_controller/MangoOrdersView.fxml");
-    }
-
-    @FXML
-    public void BackButtonOA(ActionEvent event) {
-        changeScene(event,
-                "/com/example/mangogardenestate/customerdeshboard.fxml");
+                "/com/example/mangogardenestate/maisha2330841/customer_controller/Track DeliveryView.fxml");
     }
 
     @FXML

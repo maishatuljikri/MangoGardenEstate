@@ -10,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class MangoOrdersViewController {
 
@@ -56,7 +55,9 @@ public class MangoOrdersViewController {
 
         String mango = mangoComboBox.getValue();
 
-        if (mango == null) return;
+        if (mango == null) {
+            return;
+        }
 
         switch (mango) {
 
@@ -119,13 +120,12 @@ public class MangoOrdersViewController {
     }
 
     @FXML
-    public void backButtonOA(ActionEvent event) {
+    private void BackButtonOA(ActionEvent event) {
 
         try {
 
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource(
-                            "/com/example/mangogardenestate/customerdeshboard.fxml"));
+                    getClass().getResource("/com/example/mangogardenestate/customerdeshboard.fxml"));
 
             Parent root = loader.load();
 
@@ -140,9 +140,9 @@ public class MangoOrdersViewController {
             e.printStackTrace();
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Scene Error");
-            alert.setHeaderText(null);
-            alert.setContentText("CustomerDashboard.fxml not found.");
+            alert.setTitle("Error");
+            alert.setHeaderText("Scene Loading Failed");
+            alert.setContentText("customerdeshboard.fxml could not be loaded.");
             alert.showAndWait();
         }
     }

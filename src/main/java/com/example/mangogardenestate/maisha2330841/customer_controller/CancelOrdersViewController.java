@@ -1,10 +1,8 @@
 package com.example.mangogardenestate.maisha2330841.customer_controller;
 
-import com.example.mangogardenestate.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,11 +10,9 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 import java.time.LocalDate;
-import java.util.ResourceBundle;
 
-public class CancelOrdersViewController implements Initializable {
+public class CancelOrdersViewController {
 
     @FXML
     private TextField orderIdField;
@@ -36,38 +32,32 @@ public class CancelOrdersViewController implements Initializable {
     @FXML
     private Label messageLabel;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    public void initialize() {
 
         reasonComboBox.getItems().addAll(
                 "Changed My Mind",
-                "Wrong Order",
-                "Delivery Delay",
                 "Ordered by Mistake",
+                "Found Better Price",
+                "Delivery Delay",
                 "Other"
         );
 
-        statusLabel.setText("Pending");
         cancelDatePicker.setValue(LocalDate.now());
+        statusLabel.setText("Pending");
     }
 
     @FXML
-    public void submitButtonOA() {
+    private void submitButtonOA(ActionEvent event) {
 
-        if (orderIdField.getText().isEmpty()
-                || reasonComboBox.getValue() == null
-                || cancelDatePicker.getValue() == null) {
+        if (orderIdField.getText().isBlank()
+                || cancelDatePicker.getValue() == null
+                || reasonComboBox.getValue() == null) {
 
             messageLabel.setStyle("-fx-text-fill:red;");
             messageLabel.setText("Please fill all required fields.");
             return;
         }
-
-        System.out.println("Order ID : " + orderIdField.getText());
-        System.out.println("Status : Cancelled");
-        System.out.println("Cancel Date : " + cancelDatePicker.getValue());
-        System.out.println("Reason : " + reasonComboBox.getValue());
-        System.out.println("Comments : " + commentsArea.getText());
 
         statusLabel.setText("Cancelled");
 
@@ -76,29 +66,42 @@ public class CancelOrdersViewController implements Initializable {
     }
 
     @FXML
-    public void clearButtonOA() {
+    private void ClearButtonOA(ActionEvent event) {
 
         orderIdField.clear();
-        statusLabel.setText("Pending");
         cancelDatePicker.setValue(LocalDate.now());
         reasonComboBox.getSelectionModel().clearSelection();
         commentsArea.clear();
+
+        statusLabel.setText("Pending");
         messageLabel.setText("");
     }
 
     @FXML
-    public void backButtonOA(ActionEvent event) throws IOException {
+    private void backButtonOA(ActionEvent event) {
 
-        FXMLLoader loader = new FXMLLoader(
-                HelloApplication.class.getResource(
-                        "/com/example/mangogardenestate/customerdeshboard.fxml"));
+        try {
 
-        Scene scene = new Scene(loader.load());
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/example/mangogardenestate/customerdeshboard.fxml"));
 
-        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            Parent root = loader.load();
 
-        stage.setScene(scene);
-        stage.setTitle("Customer Dashboard");
-        stage.show();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.setTitle("Customer Dashboard");
+            stage.show();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Scene Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Cannot open Customer Dashboard.");
+            alert.showAndWait();
+        }
     }
 }
