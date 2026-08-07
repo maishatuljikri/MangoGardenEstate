@@ -1,5 +1,6 @@
 package com.example.mangogardenestate.maisha2330841.customer_controller;
 
+import com.example.mangogardenestate.maisha2330841.nonuser.CancelOrder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,8 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class CancelOrdersViewController {
 
@@ -32,6 +34,10 @@ public class CancelOrdersViewController {
     @FXML
     private Label messageLabel;
 
+    private final String FILE_NAME = "CancelOrders.bin";
+
+    private ArrayList<CancelOrder> cancelOrderList = new ArrayList<>();
+
     @FXML
     public void initialize() {
 
@@ -45,12 +51,14 @@ public class CancelOrdersViewController {
 
         cancelDatePicker.setValue(LocalDate.now());
         statusLabel.setText("Pending");
+
+        loadData();
     }
 
     @FXML
-    private void submitButtonOA(ActionEvent event) {
+    public void submitButtonOA(ActionEvent event) {
 
-        if (orderIdField.getText().isBlank()
+        if (orderIdField.getText().isEmpty()
                 || cancelDatePicker.getValue() == null
                 || reasonComboBox.getValue() == null) {
 
@@ -59,14 +67,74 @@ public class CancelOrdersViewController {
             return;
         }
 
+        CancelOrder order = new CancelOrder(
+                orderIdField.getText(),
+                "Cancelled",
+                cancelDatePicker.getValue(),
+                reasonComboBox.getValue(),
+                commentsArea.getText()
+        );
+
+        cancelOrderList.add(order);
+
+        saveData();
+
         statusLabel.setText("Cancelled");
 
         messageLabel.setStyle("-fx-text-fill:green;");
         messageLabel.setText("Order cancelled successfully.");
+
+        System.out.println("Order ID : " + order.getOrderId());
+        System.out.println("Status : " + order.getStatus());
+        System.out.println("Date : " + order.getCancelDate());
+        System.out.println("Reason : " + order.getReason());
+        System.out.println("Comments : " + order.getComments());
+    }
+
+    private void saveData() {
+
+        try {
+
+            ObjectOutputStream oos =
+                    new ObjectOutputStream(new FileOutputStream(FILE_NAME));
+
+            oos.writeObject(cancelOrderList);
+
+            oos.close();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private void loadData() {
+
+        File file = new File(FILE_NAME);
+
+        if (!file.exists()) {
+            return;
+        }
+
+        try {
+
+            ObjectInputStream ois =
+                    new ObjectInputStream(new FileInputStream(FILE_NAME));
+
+            cancelOrderList =
+                    (ArrayList<CancelOrder>) ois.readObject();
+
+            ois.close();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    private void ClearButtonOA(ActionEvent event) {
+    public void ClearButtonOA(ActionEvent event) {
 
         orderIdField.clear();
         cancelDatePicker.setValue(LocalDate.now());
@@ -78,7 +146,7 @@ public class CancelOrdersViewController {
     }
 
     @FXML
-    private void backButtonOA(ActionEvent event) {
+    public void backButtonOA(ActionEvent event) {
 
         try {
 

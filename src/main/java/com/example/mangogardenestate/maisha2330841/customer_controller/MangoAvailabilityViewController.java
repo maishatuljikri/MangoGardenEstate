@@ -1,6 +1,5 @@
 package com.example.mangogardenestate.maisha2330841.customer_controller;
 
-import com.example.mangogardenestate.HelloApplication;
 import com.example.mangogardenestate.maisha2330841.nonuser.MangoAvailability;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -54,8 +53,6 @@ public class MangoAvailabilityViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        System.out.println("Initialize Running");
-
         mangoIdColumn.setCellValueFactory(new PropertyValueFactory<>("mangoId"));
         varietyColumn.setCellValueFactory(new PropertyValueFactory<>("variety"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
@@ -63,18 +60,50 @@ public class MangoAvailabilityViewController implements Initializable {
         harvestDateColumn.setCellValueFactory(new PropertyValueFactory<>("harvestDate"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-        mangoList.add(new MangoAvailability("M001","Langra","250","120 Kg","10/07/2026","Available"));
-        mangoList.add(new MangoAvailability("M002","Haribhanga","220","80 Kg","11/07/2026","Available"));
-        mangoList.add(new MangoAvailability("M003","Himsagar","300","0 Kg","09/07/2026","Out of Stock"));
-        mangoList.add(new MangoAvailability("M004","Fazli","200","60 Kg","08/07/2026","Available"));
+        loadData();
 
         stockTable.setItems(mangoList);
+    }
 
-        System.out.println(stockTable.getItems().size());
+    private void loadData() {
+
+        mangoList.clear();
+
+        mangoList.add(new MangoAvailability(
+                "M001",
+                "Langra",
+                "250",
+                "120 Kg",
+                "10-07-2026",
+                "Available"));
+
+        mangoList.add(new MangoAvailability(
+                "M002",
+                "Haribhanga",
+                "220",
+                "80 Kg",
+                "11-07-2026",
+                "Available"));
+
+        mangoList.add(new MangoAvailability(
+                "M003",
+                "Himsagar",
+                "300",
+                "0 Kg",
+                "09-07-2026",
+                "Out of Stock"));
+
+        mangoList.add(new MangoAvailability(
+                "M004",
+                "Fazli",
+                "200",
+                "60 Kg",
+                "08-07-2026",
+                "Available"));
     }
 
     @FXML
-    private void searchButton() {
+    private void searchButton(ActionEvent event) {
 
         String search = MangoTypeTF.getText().trim().toLowerCase();
 
@@ -86,22 +115,21 @@ public class MangoAvailabilityViewController implements Initializable {
         ObservableList<MangoAvailability> filtered =
                 FXCollections.observableArrayList();
 
-        for (MangoAvailability m : mangoList) {
+        for (MangoAvailability mango : mangoList) {
 
-            if (m.getVariety().toLowerCase().contains(search)
-                    || m.getMangoId().toLowerCase().contains(search)
-                    || m.getStatus().toLowerCase().contains(search)) {
+            if (mango.getMangoId().toLowerCase().contains(search)
+                    || mango.getVariety().toLowerCase().contains(search)
+                    || mango.getStatus().toLowerCase().contains(search)) {
 
-                filtered.add(m);
+                filtered.add(mango);
             }
         }
 
         stockTable.setItems(filtered);
     }
 
-
     @FXML
-    public void backButtonOA(ActionEvent event) {
+    private void backButtonOA(ActionEvent event) {
 
         try {
 
@@ -122,10 +150,11 @@ public class MangoAvailabilityViewController implements Initializable {
             e.printStackTrace();
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Scene Error");
-            alert.setHeaderText(null);
-            alert.setContentText("CustomerDashboard.fxml not found.");
+            alert.setTitle("Scene Loading Error");
+            alert.setHeaderText("Cannot Open Customer Dashboard");
+            alert.setContentText(e.getMessage());
             alert.showAndWait();
         }
+
     }
 }

@@ -51,7 +51,7 @@
         <Button layoutX="410.0" layoutY="550.0" onAction="#clearButton" text="Clear" />
 
         <!-- Success Message -->
-        <Label fx:id="messageLabel" layoutX="220.0" layoutY="600.0" prefHeight="32.0" prefWidth="138.0" style="-fx-text-fill:green; -fx-font-size:14px;" text="" />
+        <Label fx:id="messageLabel" layoutX="108.0" layoutY="600.0" prefHeight="32.0" prefWidth="274.0" style="-fx-text-fill:green; -fx-font-size:14px;" text="" />
       <Button layoutX="580.0" layoutY="538.0" mnemonicParsing="false" onAction="#backButtonOA" text="back" />
 
     </children>
