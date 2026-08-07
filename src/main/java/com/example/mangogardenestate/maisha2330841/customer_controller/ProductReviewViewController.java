@@ -1,6 +1,5 @@
 package com.example.mangogardenestate.maisha2330841.customer_controller;
 
-import com.example.mangogardenestate.HelloApplication;
 import com.example.mangogardenestate.maisha2330841.nonuser.ProductReview;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class ProductReviewViewController {
 
@@ -35,6 +36,10 @@ public class ProductReviewViewController {
 
     @FXML
     private Label messageLabel;
+
+    private final String FILE_NAME = "ProductReview.bin";
+
+    private ArrayList<ProductReview> reviewList = new ArrayList<>();
 
     @FXML
     public void initialize() {
@@ -61,10 +66,14 @@ public class ProductReviewViewController {
                 "4 Stars",
                 "5 Stars"
         );
+
+        reviewDatePicker.setValue(LocalDate.now());
+
+        loadData();
     }
 
     @FXML
-    private void submitButton(ActionEvent event) {
+    public void submitButton(ActionEvent event) {
 
         if (customerIdField.getText().isEmpty()
                 || orderIdComboBox.getValue() == null
@@ -79,29 +88,82 @@ public class ProductReviewViewController {
         }
 
         ProductReview review = new ProductReview(
+
                 customerIdField.getText(),
                 orderIdComboBox.getValue(),
                 mangoComboBox.getValue(),
                 ratingComboBox.getValue(),
                 reviewTA.getText(),
                 reviewDatePicker.getValue()
+
         );
 
-        System.out.println(review);
+        reviewList.add(review);
+
+        saveData();
 
         messageLabel.setStyle("-fx-text-fill:green;");
-        messageLabel.setText("Review submitted successfully!");
+        messageLabel.setText("Review submitted successfully.");
+
+        System.out.println(review);
+    }
+
+    private void saveData() {
+
+        try {
+
+            ObjectOutputStream oos =
+                    new ObjectOutputStream(
+                            new FileOutputStream(FILE_NAME));
+
+            oos.writeObject(reviewList);
+
+            oos.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private void loadData() {
+
+        File file = new File(FILE_NAME);
+
+        if (!file.exists())
+            return;
+
+        try {
+
+            ObjectInputStream ois =
+                    new ObjectInputStream(
+                            new FileInputStream(FILE_NAME));
+
+            reviewList =
+                    (ArrayList<ProductReview>) ois.readObject();
+
+            ois.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    private void clearButton(ActionEvent event) {
+    public void clearButton(ActionEvent event) {
 
         customerIdField.clear();
+
         orderIdComboBox.getSelectionModel().clearSelection();
+
         mangoComboBox.getSelectionModel().clearSelection();
+
         ratingComboBox.getSelectionModel().clearSelection();
+
         reviewTA.clear();
-        reviewDatePicker.setValue(null);
+
+        reviewDatePicker.setValue(LocalDate.now());
+
         messageLabel.setText("");
     }
 
@@ -116,10 +178,13 @@ public class ProductReviewViewController {
 
             Parent root = loader.load();
 
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Stage stage =
+                    (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             stage.setScene(new Scene(root));
+
             stage.setTitle("Customer Dashboard");
+
             stage.show();
 
         } catch (IOException e) {
@@ -127,10 +192,10 @@ public class ProductReviewViewController {
             e.printStackTrace();
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Scene Error");
-            alert.setHeaderText(null);
-            alert.setContentText("CustomerDashboard.fxml not found.");
+            alert.setHeaderText("Scene Error");
+            alert.setContentText("Cannot open Customer Dashboard.");
             alert.showAndWait();
         }
     }
+
 }
