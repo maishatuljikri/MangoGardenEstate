@@ -39,7 +39,7 @@ public class DailySalesController {
     public void initialize() {
         loadData();
     }
-
+/*
     @FXML
     private void searchSalesOA() {
 
@@ -66,7 +66,7 @@ public class DailySalesController {
 
         showAlert("Sales record not found.");
     }
-
+*/
     @FXML
     private void calculateSalesOA() {
 

@@ -9,9 +9,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 
 public class DailyActivityReportController {
 
@@ -34,6 +33,15 @@ public class DailyActivityReportController {
     private TextArea txtReport;
 
     private DailyActivityReport report;
+
+    private final String FILE_NAME = "DailyActivityReport.bin";
+
+    private ArrayList<DailyActivityReport> reportList = new ArrayList<>();
+
+    @FXML
+    public void initialize() {
+        loadData();
+    }
 
     @FXML
     private void verifyDataOA() {
@@ -62,39 +70,110 @@ public class DailyActivityReportController {
     @FXML
     private void generateReportOA() {
 
-        txtReport.setText(
-                "========== DAILY ACTIVITY REPORT ==========\n\n" +
-                        "Report ID : " + txtReportId.getText() + "\n\n" +
-                        "Report Date : " + txtReportDate.getText() + "\n\n" +
-                        "Irrigation : " + txtIrrigation.getText() + "\n\n" +
-                        "Fertilizer : " + txtFertilizer.getText() + "\n\n" +
-                        "Labor : " + txtLabor.getText()
+        if (txtReportId.getText().isBlank()) {
+            showAlert("Please enter Report ID.");
+            return;
+        }
+
+        report = new DailyActivityReport(
+
+                txtReportId.getText(),
+                txtReportDate.getText(),
+                txtIrrigation.getText(),
+                txtFertilizer.getText(),
+                txtLabor.getText()
+
         );
 
-        showAlert("Report generated successfully.");
+        reportList.add(report);
+
+        saveData();
+
+        txtReport.setText(
+
+                "========== DAILY ACTIVITY REPORT ==========\n\n" +
+
+                        "Report ID : " + report.getReportId() + "\n\n" +
+
+                        "Report Date : " + report.getReportDate() + "\n\n" +
+
+                        "Irrigation : " + report.getIrrigation() + "\n\n" +
+
+                        "Fertilizer : " + report.getFertilizer() + "\n\n" +
+
+                        "Labor : " + report.getLabor()
+
+        );
+
+        showAlert("Report generated and saved successfully.");
+
     }
 
     @FXML
     private void viewReportOA() {
 
-        if (txtReport.getText().isEmpty()) {
-            showAlert("Generate report first.");
+        if (txtReportId.getText().isBlank()) {
+
+            showAlert("Enter Report ID.");
+
             return;
+
         }
 
-        showAlert("Report displayed in the text area.");
+        for (DailyActivityReport r : reportList) {
+
+            if (r.getReportId().equals(txtReportId.getText())) {
+
+                report = r;
+
+                txtReportDate.setText(r.getReportDate());
+                txtIrrigation.setText(r.getIrrigation());
+                txtFertilizer.setText(r.getFertilizer());
+                txtLabor.setText(r.getLabor());
+
+                txtReport.setText(
+
+                        "========== DAILY ACTIVITY REPORT ==========\n\n" +
+
+                                "Report ID : " + r.getReportId() + "\n\n" +
+
+                                "Report Date : " + r.getReportDate() + "\n\n" +
+
+                                "Irrigation : " + r.getIrrigation() + "\n\n" +
+
+                                "Fertilizer : " + r.getFertilizer() + "\n\n" +
+
+                                "Labor : " + r.getLabor()
+
+                );
+
+                showAlert("Report Found.");
+
+                return;
+
+            }
+
+        }
+
+        showAlert("Report Not Found.");
+
     }
 
     @FXML
     private void downloadReportOA() {
 
-        if (txtReport.getText().isEmpty()) {
+        if (txtReport.getText().isBlank()) {
+
             showAlert("Nothing to download.");
+
             return;
+
         }
 
         FileChooser chooser = new FileChooser();
+
         chooser.setTitle("Save Daily Activity Report");
+
         chooser.setInitialFileName("DailyActivityReport.txt");
 
         File file = chooser.showSaveDialog(txtReport.getScene().getWindow());
@@ -107,11 +186,16 @@ public class DailyActivityReportController {
 
                 showAlert("Report downloaded successfully.");
 
-            } catch (IOException e) {
-
-                showAlert("Error while saving file.");
             }
+
+            catch (IOException e) {
+
+                showAlert("Unable to save file.");
+
+            }
+
         }
+
     }
 
     @FXML
@@ -125,6 +209,7 @@ public class DailyActivityReportController {
         txtReport.clear();
 
         report = null;
+
     }
 
     @FXML
@@ -133,7 +218,62 @@ public class DailyActivityReportController {
         SceneSwitcher.switchScene(
                 actionEvent,
                 "/com/example/mangogardenestate/gardenmanagerdashboard.fxml",
-                "DailyActivity");
+                "Garden Manager Dashboard"
+        );
+
+    }
+
+    private void saveData() {
+
+        try {
+
+            ObjectOutputStream oos =
+                    new ObjectOutputStream(
+                            new FileOutputStream(FILE_NAME));
+
+            oos.writeObject(reportList);
+
+            oos.close();
+
+        }
+
+        catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+    @SuppressWarnings("unchecked")
+    private void loadData() {
+
+        File file = new File(FILE_NAME);
+
+        if (!file.exists()) {
+
+            return;
+
+        }
+
+        try {
+
+            ObjectInputStream ois =
+                    new ObjectInputStream(
+                            new FileInputStream(FILE_NAME));
+
+            reportList =
+                    (ArrayList<DailyActivityReport>) ois.readObject();
+
+            ois.close();
+
+        }
+
+        catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
 
     }
 
@@ -148,5 +288,7 @@ public class DailyActivityReportController {
         alert.setContentText(message);
 
         alert.showAndWait();
+
     }
+
 }

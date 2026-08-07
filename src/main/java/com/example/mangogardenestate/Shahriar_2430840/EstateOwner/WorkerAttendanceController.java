@@ -71,11 +71,6 @@ public class WorkerAttendanceController {
             }
         }
 
-        if (!found) {
-
-            showAlert("Worker not found.");
-
-        }
 
     }
 
