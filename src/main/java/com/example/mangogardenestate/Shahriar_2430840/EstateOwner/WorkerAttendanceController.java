@@ -6,6 +6,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import javafx.event.ActionEvent;
+import com.example.mangogardenestate.Util.SceneSwitcher;
+
 public class WorkerAttendanceController {
 
     @FXML
@@ -126,20 +129,11 @@ public class WorkerAttendanceController {
     }
 
     @FXML
-    private void goBackOA() {
-
-        showAlert("Back button clicked.");
-
-        /*
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("OwnerDashboard.fxml"));
-
-        Parent root = loader.load();
-
-        Stage stage = (Stage) txtWorkerId.getScene().getWindow();
-
-        stage.setScene(new Scene(root));
-        */
+    private void goBackOA(ActionEvent actionEvent) {
+        SceneSwitcher.switchScene(
+                actionEvent,
+                "/com/example/mangogardenestate/estateownerdashboard.fxml",
+                "Harvest Summary");
 
     }
 

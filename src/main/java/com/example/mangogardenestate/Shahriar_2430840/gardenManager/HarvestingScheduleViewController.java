@@ -1,6 +1,8 @@
 package com.example.mangogardenestate.Shahriar_2430840.gardenManager;
 
+import com.example.mangogardenestate.Util.SceneSwitcher;
 import com.example.mangogardenestate.gardenManagerModelclass.HarvestingSchedule;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
@@ -108,24 +110,14 @@ public class HarvestingScheduleViewController {
     }
 
     @FXML
-    private void goBackOA() {
+    private void goBackOA(ActionEvent actionEvent) {
 
-        showAlert("Back button clicked.");
-
-        /*
-        FXMLLoader loader =
-                new FXMLLoader(getClass().getResource("GardenManagerDashboard.fxml"));
-
-        Parent root = loader.load();
-
-        Stage stage =
-                (Stage) txtScheduleId.getScene().getWindow();
-
-        stage.setScene(new Scene(root));
-        */
+        SceneSwitcher.switchScene(
+                actionEvent,
+                "/com/example/mangogardenestate/gardenmanagerdashboard.fxml",
+                "Harvesting");
 
     }
-
     private void showAlert(String message) {
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

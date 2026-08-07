@@ -1,6 +1,8 @@
 package com.example.mangogardenestate.Shahriar_2430840.EstateOwner;
 
 import com.example.mangogardenestate.EstateOwnerModelclass.ProductionRecord;
+import com.example.mangogardenestate.Util.SceneSwitcher;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
@@ -131,4 +133,12 @@ public class ProductionRecordController {
 
     }
 
+    @FXML
+    private void goBackOA(ActionEvent actionEvent) {
+        SceneSwitcher.switchScene(
+                actionEvent,
+                "/com/example/mangogardenestate/estateownerdashboard.fxml",
+                "Harvest Summary");
+
+    }
 }

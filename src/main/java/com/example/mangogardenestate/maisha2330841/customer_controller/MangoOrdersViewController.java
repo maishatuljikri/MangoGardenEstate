@@ -10,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class MangoOrdersViewController {
 
@@ -125,7 +124,7 @@ public class MangoOrdersViewController {
 
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource(
-                            "/com/example/mangogardenestate/customerdeshboard.fxml"));
+                            "/com/example/mangogardenestate/customerdashboard.fxml"));
 
             Parent root = loader.load();
 

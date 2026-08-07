@@ -1,6 +1,5 @@
 package com.example.mangogardenestate.maisha2330841.customer_controller;
 
-import com.example.mangogardenestate.HelloApplication;
 import com.example.mangogardenestate.maisha2330841.nonuser.PurchaseHistory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -101,7 +100,7 @@ public class PurchaseHistoryViewController {
 
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource(
-                            "/com/example/mangogardenestate/customerdeshboard.fxml"));
+                            "/com/example/mangogardenestate/customerdashboard.fxml"));
 
             Parent root = loader.load();
 

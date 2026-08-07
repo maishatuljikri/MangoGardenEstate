@@ -77,7 +77,7 @@ public class customerdeshboardController {
 
         // Change this to the previous page you want
         loadScene(event,
-                "/com/example/mangogardenestate/customerdeshboard.fxml");
+                "/com/example/mangogardenestate/customerdashboard.fxml");
     }
 
     public void LogoutButtonOA(ActionEvent event) {

@@ -1,6 +1,5 @@
 package com.example.mangogardenestate.maisha2330841.customer_controller;
 
-import com.example.mangogardenestate.HelloApplication;
 import com.example.mangogardenestate.maisha2330841.nonuser.OnlinePayment;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -105,7 +104,7 @@ public class OnlinePaymentViewController {
 
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource(
-                            "/com/example/mangogardenestate/customerdeshboard.fxml"));
+                            "/com/example/mangogardenestate/customerdashboard.fxml"));
 
             Parent root = loader.load();
 

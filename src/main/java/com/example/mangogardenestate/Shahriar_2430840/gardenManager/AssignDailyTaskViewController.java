@@ -1,6 +1,8 @@
 package com.example.mangogardenestate.Shahriar_2430840.gardenManager;
 
+import com.example.mangogardenestate.Util.SceneSwitcher;
 import com.example.mangogardenestate.gardenManagerModelclass.AssignDailyTask;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
@@ -125,9 +127,12 @@ public class AssignDailyTaskViewController {
     }
 
     @FXML
-    private void goBackOA() {
+    private void goBackOA(ActionEvent actionEvent) {
 
-        showAlert("Back button clicked.");
+        SceneSwitcher.switchScene(
+                actionEvent,
+                "/com/example/mangogardenestate/gardenmanagerdashboard.fxml",
+                "DailyTask");
 
     }
 

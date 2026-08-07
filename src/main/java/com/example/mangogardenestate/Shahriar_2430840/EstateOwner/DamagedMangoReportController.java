@@ -6,6 +6,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import javafx.event.ActionEvent;
+import com.example.mangogardenestate.Util.SceneSwitcher;
+
 public class DamagedMangoReportController {
 
     @FXML
@@ -126,21 +129,12 @@ public class DamagedMangoReportController {
     }
 
     @FXML
-    private void goBackOA() {
+    private void goBackOA(ActionEvent actionEvent) {
 
-        showAlert("Back button clicked.");
-
-        /*
-        FXMLLoader loader =
-                new FXMLLoader(getClass().getResource("OwnerDashboard.fxml"));
-
-        Parent root = loader.load();
-
-        Stage stage =
-                (Stage) txtReportId.getScene().getWindow();
-
-        stage.setScene(new Scene(root));
-        */
+        SceneSwitcher.switchScene(
+                actionEvent,
+                "/com/example/mangogardenestate/estateownerdashboard.fxml",
+                "Harvest Summary");
 
     }
 

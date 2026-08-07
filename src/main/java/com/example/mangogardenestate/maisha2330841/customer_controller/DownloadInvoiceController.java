@@ -64,7 +64,7 @@ public class DownloadInvoiceController implements Initializable {
 
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource(
-                            "/com/example/mangogardenestate/customerdeshboard.fxml"));
+                            "/com/example/mangogardenestate/customerdashboard.fxml"));
 
             Parent root = loader.load();
 

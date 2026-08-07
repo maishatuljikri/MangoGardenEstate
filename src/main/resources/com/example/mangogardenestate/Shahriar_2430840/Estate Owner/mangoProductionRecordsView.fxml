@@ -42,7 +42,7 @@
 
         <Button layoutX="280.0" layoutY="430.0" onAction="#viewRecordOA" prefWidth="120.0" text="View" />
 
-        <Button layoutX="420.0" layoutY="430.0" onAction="#clearFormOA" prefWidth="120.0" text="Back" />
+        <Button layoutX="420.0" layoutY="430.0" onAction="#goBackOA" prefWidth="120.0" text="Back" />
 
     </children>
 

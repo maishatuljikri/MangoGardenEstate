@@ -1,10 +1,15 @@
 package com.example.mangogardenestate.Shahriar_2430840.EstateOwner;
 
 import com.example.mangogardenestate.EstateOwnerModelclass.HarvestSummary;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+
+import javafx.event.ActionEvent;
+import com.example.mangogardenestate.Util.SceneSwitcher;
+
 
 public class DailyHarvestSummaryController {
 
@@ -126,22 +131,13 @@ public class DailyHarvestSummaryController {
     }
 
     @FXML
-    private void goBackOA() {
+    private void goBackOA(ActionEvent actionEvent) {
 
-        showAlert("Back button clicked.");
 
-        /*
-        FXMLLoader loader =
-                new FXMLLoader(getClass().getResource("OwnerDashboard.fxml"));
-
-        Parent root = loader.load();
-
-        Stage stage =
-                (Stage) txtHarvestId.getScene().getWindow();
-
-        stage.setScene(new Scene(root));
-        */
-
+        SceneSwitcher.switchScene(
+                actionEvent,
+                "/com/example/mangogardenestate/estateownerdashboard.fxml",
+                "Harvest Summary");
     }
 
     private void showAlert(String message) {
