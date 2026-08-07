@@ -1,6 +1,8 @@
 package com.example.mangogardenestate.gardenManagerModelclass;
 
-public class DailyActivityReport {
+import java.io.Serializable;
+
+public class DailyActivityReport implements Serializable {
 
     private String reportId;
     private String reportDate;

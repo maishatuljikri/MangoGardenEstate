@@ -1,6 +1,8 @@
 package com.example.mangogardenestate.gardenManagerModelclass;
 
-public class AssignDailyTask {
+import java.io.Serializable;
+
+public class AssignDailyTask implements Serializable {
 
     private String taskId;
     private String workerId;

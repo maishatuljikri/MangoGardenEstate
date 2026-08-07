@@ -7,6 +7,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
+import javafx.event.ActionEvent;
+import com.example.mangogardenestate.Util.SceneSwitcher;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -150,4 +153,13 @@ public class OperationalReportController {
 
     }
 
+    @FXML
+        private void goBackOA(ActionEvent actionEvent) {
+
+            SceneSwitcher.switchScene(
+                    actionEvent,
+                    "/com/example/mangogardenestate/estateownerdashboard.fxml",
+                    "Harvest Summary");
+
+        }
 }

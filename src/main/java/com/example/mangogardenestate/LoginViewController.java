@@ -116,7 +116,7 @@ public class LoginViewController {
                 break;
 
             case "Customer":
-                loader = new FXMLLoader(getClass().getResource("/com/example/mangogardenestate/customerdeshboard.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/com/example/mangogardenestate/customerdashboard.fxml"));
                 break;
 
             case "Accountant":

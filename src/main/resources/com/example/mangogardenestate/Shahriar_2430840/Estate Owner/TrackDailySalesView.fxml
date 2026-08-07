@@ -43,9 +43,6 @@
 
         <TextArea fx:id="txtSummary" layoutX="180.0" layoutY="300.0" prefHeight="120.0" prefWidth="360.0" />
 
-        <!-- Buttons -->
-        <Button layoutX="440.0" layoutY="75.0" onAction="#searchSalesOA" prefWidth="120.0" text="Search" />
-
         <Button layoutX="90.0" layoutY="455.0" onAction="#calculateSalesOA" prefWidth="130.0" text="Calculate" />
 
         <Button layoutX="250.0" layoutY="455.0" onAction="#viewSummaryOA" prefWidth="130.0" text="View" />
