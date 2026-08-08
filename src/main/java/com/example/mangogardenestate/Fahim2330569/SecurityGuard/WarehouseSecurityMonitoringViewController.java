@@ -1,4 +1,4 @@
-package com.example.mangogardenestate.SecurityGuard;
+package com.example.mangogardenestate.Fahim2330569.SecurityGuard;
 
 import com.example.mangogardenestate.common.RoleFormSupport;
 import javafx.event.ActionEvent;
@@ -37,6 +37,7 @@ public class WarehouseSecurityMonitoringViewController {
     }
 
     @FXML public void goBack(ActionEvent actionEvent) {
-        RoleFormSupport.goBack(txtReference, "/com/example/mangogardenestate/Security Guard/SecurityGuardDashboard.fxml");
+        RoleFormSupport.goBack(txtReference, "/com/example/mangogardenestate/Fahim2330569/Security Guard/SecurityGuardDashboard.fxml");
     }
 }
+
