@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class LoginViewController {
 
@@ -49,12 +50,10 @@ public class LoginViewController {
 
     @FXML
     public void forgetPassword(ActionEvent event) {
-
-        loginInfo.setText("Please contact the administrator.");
+        if (loginInfo != null) {
+            loginInfo.setText("Please contact the administrator.");
+        }
     }
-
-
-
 
     @FXML
     public void createAccount(ActionEvent event) {
@@ -63,18 +62,20 @@ public class LoginViewController {
                 || password.getText().isEmpty()
                 || confirmPassword.getText().isEmpty()) {
 
-            createInfo.setText("Please fill all fields!");
+            if (createInfo != null) createInfo.setText("Please fill all fields!");
             return;
         }
 
         if (!password.getText().equals(confirmPassword.getText())) {
 
-            createInfo.setText("Passwords do not match!");
+            if (createInfo != null) createInfo.setText("Passwords do not match!");
             return;
         }
 
-        createInfo.setStyle("-fx-text-fill: green;");
-        createInfo.setText("Account Created Successfully!");
+        if (createInfo != null) {
+            createInfo.setStyle("-fx-text-fill: green;");
+            createInfo.setText("Account Created Successfully!");
+        }
 
         userField.clear();
         password.clear();
@@ -85,8 +86,7 @@ public class LoginViewController {
     public void Login(ActionEvent event) throws IOException {
 
         if (userComboBox.getValue() == null || passLogIn.getText().isEmpty()) {
-
-            loginInfo.setText("Please select user and enter password.");
+            if (loginInfo != null) loginInfo.setText("Please select user and enter password.");
             return;
         }
 
@@ -94,57 +94,61 @@ public class LoginViewController {
         String pass = passLogIn.getText();
 
         if (!pass.equals("123")) {
-
-            loginInfo.setText("Invalid Password");
+            if (loginInfo != null) loginInfo.setText("Invalid Password");
             return;
         }
 
-        FXMLLoader loader = null;
+        String fxmlPath = "";
 
         switch (role) {
 
             case "Estate Owner":
-                loader = new FXMLLoader(getClass().getResource("/com/example/mangogardenestate/estateownerdashboard.fxml"));
+                fxmlPath = "/com/example/mangogardenestate/estateownerdashboard.fxml";
                 break;
 
             case "Garden Manager":
-                loader = new FXMLLoader(getClass().getResource("/com/example/mangogardenestate/gardenmanagerdashboard.fxml"));
+                fxmlPath = "/com/example/mangogardenestate/gardenmanagerdashboard.fxml";
                 break;
 
             case "Farmer":
-                loader = new FXMLLoader(getClass().getResource("/com/example/mangogardenestate/farmerdeshboard.fxml"));
+                fxmlPath = "/com/example/mangogardenestate/farmerdeshboard.fxml";
                 break;
 
             case "Customer":
-                loader = new FXMLLoader(getClass().getResource("/com/example/mangogardenestate/customerdashboard.fxml"));
+                fxmlPath = "/com/example/mangogardenestate/customerdashboard.fxml";
                 break;
 
             case "Accountant":
-                loader = new FXMLLoader(getClass().getResource("/com/example/mangogardenestate/accountantdashboard.fxml"));
+                fxmlPath = "/com/example/mangogardenestate/Sean_2412489/Accountant/accountantdashboard.fxml";
                 break;
 
             case "Transport Officer":
-                loader = new FXMLLoader(getClass().getResource("/com/example/mangogardenestate/transportofficerdashboard.fxml"));
+                fxmlPath = "/com/example/mangogardenestate/Sean_2412489/Transport Officer/transportofficerdashboard.fxml";
                 break;
 
             case "Security Guard":
-                loader = new FXMLLoader(getClass().getResource("/com/example/mangogardenestate/securityguarddashboard.fxml"));
+                fxmlPath = "/com/example/mangogardenestate/securityguarddashboard.fxml";
                 break;
 
             case "Packaging Officer":
-                loader = new FXMLLoader(getClass().getResource("/com/example/mangogardenestate/packagingofficerdashboard.fxml"));
+                fxmlPath = "/com/example/mangogardenestate/packagingofficerdashboard.fxml";
                 break;
         }
 
-        if (loader != null) {
+        URL fxmlUrl = getClass().getResource(fxmlPath);
 
-            Scene scene = new Scene(loader.load());
-
-            Stage stage = (Stage) loginInfo.getScene().getWindow();
-
-            stage.setScene(scene);
-
-            stage.show();
+        // Check if the file actually exists before trying to load it
+        if (fxmlUrl == null) {
+            System.err.println("CRITICAL ERROR: Cannot find FXML file at path: " + fxmlPath);
+            if (loginInfo != null) loginInfo.setText("Error: FXML file not found!");
+            return;
         }
+
+        FXMLLoader loader = new FXMLLoader(fxmlUrl);
+        Scene scene = new Scene(loader.load());
+
+        Stage stage = (Stage) loginInfo.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 }
