@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="620.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mangogardenestate.Sean_2412489.TransportOfficer.ManageDriverAssignmentsViewController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="200.0" layoutY="20.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="Transport Officer - Manage Driver Assignments" />
+
+        <!-- Select Driver -->
+        <Label layoutX="50.0" layoutY="74.0" text="Select Driver:" />
+        <ComboBox fx:id="driverComboBox" layoutX="245.0" layoutY="70.0" prefWidth="250.0" promptText="Select Available Driver" />
+
+        <!-- Driver License Number -->
+        <Label layoutX="50.0" layoutY="114.0" text="License Number:" />
+        <Label fx:id="licenseLabel" layoutX="245.0" layoutY="114.0" style="-fx-font-weight:bold;" text="—" />
+
+        <!-- Driver Contact -->
+        <Label layoutX="50.0" layoutY="154.0" text="Contact Number:" />
+        <Label fx:id="contactLabel" layoutX="245.0" layoutY="154.0" style="-fx-font-weight:bold;" text="—" />
+
+        <!-- Select Vehicle -->
+        <Label layoutX="50.0" layoutY="194.0" text="Select Vehicle:" />
+        <ComboBox fx:id="vehicleComboBox" layoutX="245.0" layoutY="190.0" prefWidth="250.0" promptText="Select Vehicle to Assign" />
+
+        <!-- Route / Destination -->
+        <Label layoutX="50.0" layoutY="234.0" text="Assigned Route:" />
+        <TextField fx:id="routeField" layoutX="245.0" layoutY="230.0" prefWidth="250.0" promptText="Enter Delivery Route/Destination" />
+
+        <!-- Buttons -->
+        <Button layoutX="220.0" layoutY="300.0" mnemonicParsing="false" onAction="#assignDriverButtonOA" text="Assign Driver" />
+        <Button layoutX="350.0" layoutY="300.0" mnemonicParsing="false" onAction="#clearButtonOA" text="Clear Form" />
+
+        <!-- Status / Confirmation Message -->
+        <Label fx:id="messageLabel" layoutX="220.0" layoutY="355.0" style="-fx-text-fill:green; -fx-font-size:14px;" text="" />
+
+    </children>
+
+</AnchorPane>
